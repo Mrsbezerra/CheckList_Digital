@@ -40,7 +40,13 @@
             this.DgvSexo = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.LblTotalRegistro2 = new System.Windows.Forms.Label();
+            this.TosSexo = new System.Windows.Forms.ToolStrip();
+            this.BtnPrimeiro = new System.Windows.Forms.ToolStripButton();
+            this.BtnAnterior = new System.Windows.Forms.ToolStripButton();
+            this.BtnProximo = new System.Windows.Forms.ToolStripButton();
+            this.BtnUltimo = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSexo)).BeginInit();
+            this.TosSexo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNome_Sexo
@@ -139,7 +145,7 @@
             this.DgvSexo.MultiSelect = false;
             this.DgvSexo.Name = "DgvSexo";
             this.DgvSexo.ReadOnly = true;
-            this.DgvSexo.Size = new System.Drawing.Size(761, 238);
+            this.DgvSexo.Size = new System.Drawing.Size(761, 310);
             this.DgvSexo.TabIndex = 55;
             this.DgvSexo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvSexo_CellContentClick);
             // 
@@ -162,12 +168,73 @@
             this.LblTotalRegistro2.TabIndex = 57;
             this.LblTotalRegistro2.Text = "0";
             // 
+            // TosSexo
+            // 
+            this.TosSexo.AllowMerge = false;
+            this.TosSexo.Dock = System.Windows.Forms.DockStyle.None;
+            this.TosSexo.Enabled = false;
+            this.TosSexo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BtnPrimeiro,
+            this.BtnAnterior,
+            this.BtnProximo,
+            this.BtnUltimo});
+            this.TosSexo.Location = new System.Drawing.Point(15, 100);
+            this.TosSexo.Name = "TosSexo";
+            this.TosSexo.Size = new System.Drawing.Size(104, 25);
+            this.TosSexo.TabIndex = 58;
+            this.TosSexo.Text = "toolStrip1";
+            // 
+            // BtnPrimeiro
+            // 
+            this.BtnPrimeiro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnPrimeiro.Image = ((System.Drawing.Image)(resources.GetObject("BtnPrimeiro.Image")));
+            this.BtnPrimeiro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnPrimeiro.Name = "BtnPrimeiro";
+            this.BtnPrimeiro.Size = new System.Drawing.Size(23, 22);
+            this.BtnPrimeiro.Text = "toolStripButton1";
+            this.BtnPrimeiro.ToolTipText = "Primeiro Registro";
+            this.BtnPrimeiro.Click += new System.EventHandler(this.BtnPrimeiro_Click);
+            // 
+            // BtnAnterior
+            // 
+            this.BtnAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnAnterior.Image = ((System.Drawing.Image)(resources.GetObject("BtnAnterior.Image")));
+            this.BtnAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnAnterior.Name = "BtnAnterior";
+            this.BtnAnterior.Size = new System.Drawing.Size(23, 22);
+            this.BtnAnterior.Text = "Registro Anterior";
+            this.BtnAnterior.Click += new System.EventHandler(this.BtnAnterior_Click);
+            // 
+            // BtnProximo
+            // 
+            this.BtnProximo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnProximo.Image = ((System.Drawing.Image)(resources.GetObject("BtnProximo.Image")));
+            this.BtnProximo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnProximo.Name = "BtnProximo";
+            this.BtnProximo.Size = new System.Drawing.Size(23, 22);
+            this.BtnProximo.Text = "toolStripButton1";
+            this.BtnProximo.ToolTipText = "Próximo Registro";
+            this.BtnProximo.Click += new System.EventHandler(this.BtnProximo_Click);
+            // 
+            // BtnUltimo
+            // 
+            this.BtnUltimo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnUltimo.Image = ((System.Drawing.Image)(resources.GetObject("BtnUltimo.Image")));
+            this.BtnUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnUltimo.Name = "BtnUltimo";
+            this.BtnUltimo.Size = new System.Drawing.Size(23, 22);
+            this.BtnUltimo.Text = "toolStripButton1";
+            this.BtnUltimo.ToolTipText = "Último Registro";
+            this.BtnUltimo.Click += new System.EventHandler(this.BtnUltimo_Click);
+            // 
             // Frm_CoSexo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.TosSexo);
             this.Controls.Add(this.LblTotalRegistro2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DgvSexo);
@@ -184,6 +251,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Sexo";
             ((System.ComponentModel.ISupportInitialize)(this.DgvSexo)).EndInit();
+            this.TosSexo.ResumeLayout(false);
+            this.TosSexo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +271,10 @@
         private System.Windows.Forms.DataGridView DgvSexo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblTotalRegistro2;
+        private System.Windows.Forms.ToolStrip TosSexo;
+        private System.Windows.Forms.ToolStripButton BtnPrimeiro;
+        private System.Windows.Forms.ToolStripButton BtnAnterior;
+        private System.Windows.Forms.ToolStripButton BtnProximo;
+        private System.Windows.Forms.ToolStripButton BtnUltimo;
     }
 }

@@ -76,8 +76,12 @@ namespace CheckList_Digital.view
 
         private void sexoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Sexo frmSexo = new Frm_Sexo();
-            frmSexo.ShowDialog();
+            using (Frm_CSexo frmCsexo = new Frm_CSexo())
+            {
+                this.Hide(); // Esconde o formulário atual temporariamente
+                frmCsexo.ShowDialog(); // Mostra o novo formulário
+            }
+            this.Close(); // Fecha o formulário atual após o fechamento de Frm_SubMenu_Cadastro
         }
     }
 }

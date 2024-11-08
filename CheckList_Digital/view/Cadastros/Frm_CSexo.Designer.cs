@@ -41,6 +41,7 @@
             this.txtNome_Sexo = new System.Windows.Forms.TextBox();
             this.txtId_Sexo = new System.Windows.Forms.TextBox();
             this.BtnAjuda = new System.Windows.Forms.Button();
+            this.BtnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnNovo
@@ -185,12 +186,26 @@
             this.BtnAjuda.Text = "Ajuda";
             this.BtnAjuda.UseVisualStyleBackColor = true;
             // 
+            // BtnSair
+            // 
+            this.BtnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnSair.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.BtnSair.Location = new System.Drawing.Point(705, 260);
+            this.BtnSair.Name = "BtnSair";
+            this.BtnSair.Size = new System.Drawing.Size(83, 25);
+            this.BtnSair.TabIndex = 55;
+            this.BtnSair.Text = "Sair";
+            this.BtnSair.UseVisualStyleBackColor = true;
+            this.BtnSair.Click += new System.EventHandler(this.BtnSair_Click);
+            // 
             // Frm_CSexo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.BtnSair);
             this.Controls.Add(this.BtnAjuda);
             this.Controls.Add(this.lblNome_Sexo);
             this.Controls.Add(this.lblId_Sexo);
@@ -226,5 +241,6 @@
         private System.Windows.Forms.TextBox txtNome_Sexo;
         private System.Windows.Forms.TextBox txtId_Sexo;
         private System.Windows.Forms.Button BtnAjuda;
+        private System.Windows.Forms.Button BtnSair;
     }
 }

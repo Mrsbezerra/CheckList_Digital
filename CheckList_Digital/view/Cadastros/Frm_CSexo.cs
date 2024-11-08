@@ -321,5 +321,15 @@ namespace CheckList_Digital.view
             }
             this.Close(); // Fecha o formulário atual após o fechamento do formulário Frm_CSexo
         }
+
+        private void BtnSair_Click(object sender, EventArgs e)
+        {
+            using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros())
+            {
+                this.Hide(); // Esconde o formulário atual temporariamente
+                frmSubc.ShowDialog(); // Mostra o novo formulário
+            }
+            this.Close(); // Fecha o formulário atual após o fechamento de Frm_SubMenu_Cadastro
+        }
     }
 }
