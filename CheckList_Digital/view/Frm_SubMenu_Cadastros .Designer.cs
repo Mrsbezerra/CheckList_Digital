@@ -40,6 +40,9 @@ namespace CheckList_Digital.view
             this.btnCadastros = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelTitulo = new System.Windows.Forms.Panel();
+            this.LblTitulo = new System.Windows.Forms.Label();
+            this.LblUsuario = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BtnMinimizar = new System.Windows.Forms.Button();
             this.BtnMaximizar = new System.Windows.Forms.Button();
             this.BtnFechar = new System.Windows.Forms.Button();
@@ -62,17 +65,14 @@ namespace CheckList_Digital.view
             this.tipoUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.LblUsuario = new System.Windows.Forms.Label();
-            this.LblTitulo = new System.Windows.Forms.Label();
             this.panelLogo.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -212,6 +212,38 @@ namespace CheckList_Digital.view
             this.PanelTitulo.Size = new System.Drawing.Size(1179, 80);
             this.PanelTitulo.TabIndex = 5;
             this.PanelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitulo_MouseDown);
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblTitulo.AutoSize = true;
+            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.ForeColor = System.Drawing.Color.White;
+            this.LblTitulo.Location = new System.Drawing.Point(611, 26);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(149, 26);
+            this.LblTitulo.TabIndex = 10;
+            this.LblTitulo.Text = "CADASTROS";
+            // 
+            // LblUsuario
+            // 
+            this.LblUsuario.AutoSize = true;
+            this.LblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUsuario.ForeColor = System.Drawing.Color.White;
+            this.LblUsuario.Location = new System.Drawing.Point(39, 55);
+            this.LblUsuario.Name = "LblUsuario";
+            this.LblUsuario.Size = new System.Drawing.Size(14, 13);
+            this.LblUsuario.TabIndex = 9;
+            this.LblUsuario.Text = "0";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(71, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 37);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
             // 
             // BtnMinimizar
             // 
@@ -460,38 +492,6 @@ namespace CheckList_Digital.view
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(71, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 37);
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
-            // LblUsuario
-            // 
-            this.LblUsuario.AutoSize = true;
-            this.LblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsuario.ForeColor = System.Drawing.Color.White;
-            this.LblUsuario.Location = new System.Drawing.Point(39, 55);
-            this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(14, 13);
-            this.LblUsuario.TabIndex = 9;
-            this.LblUsuario.Text = "0";
-            // 
-            // LblTitulo
-            // 
-            this.LblTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LblTitulo.AutoSize = true;
-            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitulo.ForeColor = System.Drawing.Color.White;
-            this.LblTitulo.Location = new System.Drawing.Point(611, 26);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(149, 26);
-            this.LblTitulo.TabIndex = 10;
-            this.LblTitulo.Text = "CADASTROS";
-            // 
             // Frm_SubMenu_Cadastros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,13 +513,13 @@ namespace CheckList_Digital.view
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStripContainer1.LeftToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.LeftToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

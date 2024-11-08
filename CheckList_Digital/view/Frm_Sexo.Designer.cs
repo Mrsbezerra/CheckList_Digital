@@ -154,6 +154,7 @@
             // 
             // TxtBuscar
             // 
+            this.TxtBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(180, 25);
             this.TxtBuscar.Click += new System.EventHandler(this.TxtBuscar_TextChanged);
@@ -243,6 +244,7 @@
             this.lblTotal_Registros.Size = new System.Drawing.Size(97, 13);
             this.lblTotal_Registros.TabIndex = 45;
             this.lblTotal_Registros.Text = "Total Registros:";
+            this.lblTotal_Registros.Click += new System.EventHandler(this.lblTotal_Registros_Click);
             // 
             // DgvSexo
             // 
@@ -302,6 +304,7 @@
             this.LblTotal_Registros2.Size = new System.Drawing.Size(13, 13);
             this.LblTotal_Registros2.TabIndex = 46;
             this.LblTotal_Registros2.Text = "0";
+            this.LblTotal_Registros2.Click += new System.EventHandler(this.LblTotal_Registros2_Click);
             // 
             // Frm_Sexo
             // 

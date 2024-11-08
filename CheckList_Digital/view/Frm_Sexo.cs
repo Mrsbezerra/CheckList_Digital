@@ -332,6 +332,16 @@ namespace CheckList_Digital.view
             using (var frm = new FrmRelSexo()) 
                 frm.ShowDialog();
         }
+
+        private void LblTotal_Registros2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotal_Registros_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

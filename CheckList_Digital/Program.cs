@@ -1,4 +1,5 @@
 ﻿using CheckList_Digital.view;
+using CheckList_Digital.view.Consulta;
 using System;
 using System.Windows.Forms;
 
@@ -11,7 +12,7 @@ namespace CheckList_Digital
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_CSexo());
+            Application.Run(new Frm_CoSexo());
         }
     }
 }

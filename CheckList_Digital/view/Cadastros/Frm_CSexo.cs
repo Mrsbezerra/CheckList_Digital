@@ -314,8 +314,12 @@ namespace CheckList_Digital.view
 
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            Frm_CoSexo frmCoSexo = new Frm_CoSexo(); 
-            frmCoSexo.Show();
+            using (Frm_CoSexo frmCosexo = new Frm_CoSexo())
+            {
+                this.Hide(); // Esconde o formulário atual temporariamente
+                frmCosexo.ShowDialog(); // Mostra o novo formulário
+            }
+            this.Close(); // Fecha o formulário atual após o fechamento do formulário Frm_CSexo
         }
     }
 }
