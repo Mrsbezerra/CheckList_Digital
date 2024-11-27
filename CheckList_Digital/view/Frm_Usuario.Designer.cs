@@ -60,11 +60,11 @@
             this.checkListDBDataSet = new CheckList_Digital.CheckListDBDataSet();
             this.LblTotal_Registros2 = new System.Windows.Forms.Label();
             this.lblTotal_Registros = new System.Windows.Forms.Label();
-            this.usuarioTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.UsuarioTableAdapter();
+           // this.usuarioTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.UsuarioTableAdapter();
             this.tableAdapterManager = new CheckList_Digital.CheckListDBDataSetTableAdapters.TableAdapterManager();
-            this.cargoTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.CargoTableAdapter();
+           // this.cargoTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.CargoTableAdapter();
             this.sexoTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.SexoTableAdapter();
-            this.tipo_UsuarioTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.Tipo_UsuarioTableAdapter();
+           // this.tipo_UsuarioTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.Tipo_UsuarioTableAdapter();
             this.TxtId_Usuario = new System.Windows.Forms.Label();
             this.TxtNome_Usuario = new System.Windows.Forms.TextBox();
             this.TxtLogin = new System.Windows.Forms.TextBox();
@@ -400,33 +400,33 @@
             // 
             // usuarioTableAdapter
             // 
-            this.usuarioTableAdapter.ClearBeforeFill = true;
+            //this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CargoTableAdapter = this.cargoTableAdapter;
-            this.tableAdapterManager.ColaboradorTableAdapter = null;
-            this.tableAdapterManager.Entrega_EPITableAdapter = null;
-            this.tableAdapterManager.EPITableAdapter = null;
-            this.tableAdapterManager.Inspecao_ColaboradorTableAdapter = null;
-            this.tableAdapterManager.Inspecao_SetorTableAdapter = null;
-            this.tableAdapterManager.InspecaoTableAdapter = null;
-            this.tableAdapterManager.Item_ChecklistTableAdapter = null;
-            this.tableAdapterManager.Itens_Entrega_EPITableAdapter = null;
-            this.tableAdapterManager.Itens_Inspecao_ColaboradorTableAdapter = null;
-            this.tableAdapterManager.Itens_Inspecao_SetorTableAdapter = null;
-            this.tableAdapterManager.Relatorio_RiscoTableAdapter = null;
-            this.tableAdapterManager.Resultado_ChecklistTableAdapter = null;
-            this.tableAdapterManager.SetorTableAdapter = null;
-            this.tableAdapterManager.SexoTableAdapter = this.sexoTableAdapter;
-            this.tableAdapterManager.Tipo_UsuarioTableAdapter = this.tipo_UsuarioTableAdapter;
-            this.tableAdapterManager.UpdateOrder = CheckList_Digital.CheckListDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsuarioTableAdapter = this.usuarioTableAdapter;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.CargoTableAdapter = this.cargoTableAdapter;
+            //this.tableAdapterManager.ColaboradorTableAdapter = null;
+            //this.tableAdapterManager.Entrega_EPITableAdapter = null;
+            //this.tableAdapterManager.EPITableAdapter = null;
+            //this.tableAdapterManager.Inspecao_ColaboradorTableAdapter = null;
+            //this.tableAdapterManager.Inspecao_SetorTableAdapter = null;
+            //this.tableAdapterManager.InspecaoTableAdapter = null;
+            //this.tableAdapterManager.Item_ChecklistTableAdapter = null;
+            //this.tableAdapterManager.Itens_Entrega_EPITableAdapter = null;
+            //this.tableAdapterManager.Itens_Inspecao_ColaboradorTableAdapter = null;
+            //this.tableAdapterManager.Itens_Inspecao_SetorTableAdapter = null;
+            //this.tableAdapterManager.Relatorio_RiscoTableAdapter = null;
+            //this.tableAdapterManager.Resultado_ChecklistTableAdapter = null;
+            //this.tableAdapterManager.SetorTableAdapter = null;
+            //this.tableAdapterManager.SexoTableAdapter = this.sexoTableAdapter;
+            //this.tableAdapterManager.Tipo_UsuarioTableAdapter = this.tipo_UsuarioTableAdapter;
+            //this.tableAdapterManager.UpdateOrder = CheckList_Digital.CheckListDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            //this.tableAdapterManager.UsuarioTableAdapter = this.usuarioTableAdapter;
             // 
             // cargoTableAdapter
             // 
-            this.cargoTableAdapter.ClearBeforeFill = true;
+            //this.cargoTableAdapter.ClearBeforeFill = true;
             // 
             // sexoTableAdapter
             // 
@@ -434,7 +434,7 @@
             // 
             // tipo_UsuarioTableAdapter
             // 
-            this.tipo_UsuarioTableAdapter.ClearBeforeFill = true;
+           // this.tipo_UsuarioTableAdapter.ClearBeforeFill = true;
             // 
             // TxtId_Usuario
             // 
@@ -649,7 +649,7 @@
         private System.Windows.Forms.Label lblTotal_Registros;
         private CheckListDBDataSet checkListDBDataSet;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
-        private CheckListDBDataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
+        
         private CheckListDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private CheckListDBDataSetTableAdapters.SexoTableAdapter sexoTableAdapter;
         private System.Windows.Forms.Label TxtId_Usuario;
@@ -661,9 +661,9 @@
         private System.Windows.Forms.ComboBox CmbCargo;
         private System.Windows.Forms.ComboBox CmbTipoUsuario;
         private System.Windows.Forms.BindingSource sexoBindingSource;
-        private CheckListDBDataSetTableAdapters.CargoTableAdapter cargoTableAdapter;
+        
         private System.Windows.Forms.BindingSource cargoBindingSource;
-        private CheckListDBDataSetTableAdapters.Tipo_UsuarioTableAdapter tipo_UsuarioTableAdapter;
+       
         private System.Windows.Forms.BindingSource tipo_UsuarioBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;

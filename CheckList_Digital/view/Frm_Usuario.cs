@@ -26,7 +26,7 @@ namespace CheckList_Digital.view
             InitializeComponent();
             DesabilitaTexts();
             LimparCampos();
-            LblTotal_Registros2.Text = usuarioTableAdapter.TotalUsuarios().ToString();
+          //  LblTotal_Registros2.Text = usuarioTableAdapter.TotalUsuarios().ToString();
         }
 
         private void AtivarTexts()
@@ -66,7 +66,7 @@ namespace CheckList_Digital.view
         private void TsbSalvar_Click(object sender, EventArgs e)
         {
             usuarioBindingSource.EndEdit();
-            usuarioTableAdapter.Update(checkListDBDataSet.Usuario);
+            //usuarioTableAdapter.Update(checkListDBDataSet.Usuario);
         }
 
         private void TsbCancelar_Click(object sender, EventArgs e)
@@ -141,21 +141,20 @@ namespace CheckList_Digital.view
         private void Frm_Usuario_Load_1(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Tipo_Usuario'. Você pode movê-la ou removê-la conforme necessário.
-            this.tipo_UsuarioTableAdapter.Fill(this.checkListDBDataSet.Tipo_Usuario);
+           // this.tipo_UsuarioTableAdapter.Fill(this.checkListDBDataSet.Tipo_Usuario);
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Cargo'. Você pode movê-la ou removê-la conforme necessário.
-            this.cargoTableAdapter.Fill(this.checkListDBDataSet.Cargo);
+           // this.cargoTableAdapter.Fill(this.checkListDBDataSet.Cargo);
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Sexo'. Você pode movê-la ou removê-la conforme necessário.
             this.sexoTableAdapter.Fill(this.checkListDBDataSet.Sexo);
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Usuario'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuarioTableAdapter.Fill(this.checkListDBDataSet.Usuario);
+          //  this.usuarioTableAdapter.Fill(this.checkListDBDataSet.Usuario);
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Sexo'. Você pode movê-la ou removê-la conforme necessário.
             this.sexoTableAdapter.Fill(this.checkListDBDataSet.Sexo);
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Tipo_Usuario'. Você pode movê-la ou removê-la conforme necessário.
            
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Cargo'. Você pode movê-la ou removê-la conforme necessário.
             
-            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Usuario'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuarioTableAdapter.Fill(this.checkListDBDataSet.Usuario);
+            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Usuario'. Você pode movê-la ou removê-la //  this.usuarioTableAdapter.Fill(this.checkListDBDataSet.Usuario);
 
         }
 
@@ -172,7 +171,7 @@ namespace CheckList_Digital.view
             usuarioBindingSource.RemoveCurrent();
 
             usuarioBindingSource.EndEdit();
-            usuarioTableAdapter.Update(checkListDBDataSet.Usuario);
+            //usuarioTableAdapter.Update(checkListDBDataSet.Usuario);
         }
     }
 }

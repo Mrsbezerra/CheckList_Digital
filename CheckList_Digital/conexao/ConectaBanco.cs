@@ -5,7 +5,7 @@ namespace CheckList_Digital.conexao
     internal class ConectaBanco
     {
         SqlConnection con;
-        string ConnectionString = @"Server=localhost\SQLEXPRESS01;
+        string ConnectionString = @"Server=NTMICHAEL\SQLEXPRESS01;
                                        Database=CheckListDB;
                                     Trusted_Connection=True;";
 

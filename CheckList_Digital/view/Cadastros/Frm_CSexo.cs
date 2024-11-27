@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using CheckList_Digital.view.Consulta;
+using CheckList_Digital.view.frm_relatorio;
 
 namespace CheckList_Digital.view
 {
@@ -330,6 +331,16 @@ namespace CheckList_Digital.view
                 frmSubc.ShowDialog(); // Mostra o novo formulário
             }
             this.Close(); // Fecha o formulário atual após o fechamento de Frm_SubMenu_Cadastro
+        }
+
+        private void BtnRelatorio_Click(object sender, EventArgs e)
+        {
+            using (FrmRelSexo frmRelsexo = new FrmRelSexo())
+            {
+                this.Hide(); // Esconde o formulário atual temporariamente
+                frmRelsexo.ShowDialog(); // Mostra o novo formulário
+            }
+            this.Close(); // Fecha o formulário atual após o fechamento do formulário Frm_CSexo
         }
     }
 }

@@ -30,23 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.sexoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkListDBDataSet = new CheckList_Digital.CheckListDBDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.checkListDBDataSet = new CheckList_Digital.CheckListDBDataSet();
+            this.sexoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sexoTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.SexoTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // sexoBindingSource
-            // 
-            this.sexoBindingSource.DataMember = "Sexo";
-            this.sexoBindingSource.DataSource = this.checkListDBDataSet;
-            // 
-            // checkListDBDataSet
-            // 
-            this.checkListDBDataSet.DataSetName = "CheckListDBDataSet";
-            this.checkListDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -61,24 +51,31 @@
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
+            // checkListDBDataSet
+            // 
+            this.checkListDBDataSet.DataSetName = "CheckListDBDataSet";
+            this.checkListDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sexoBindingSource
+            // 
+            this.sexoBindingSource.DataMember = "Sexo";
+            this.sexoBindingSource.DataSource = this.checkListDBDataSet;
+            // 
             // sexoTableAdapter
             // 
             this.sexoTableAdapter.ClearBeforeFill = true;
             // 
             // FrmRelSexo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmRelSexo";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Relatório de Sexo";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "FrmRelSexo";
             this.Load += new System.EventHandler(this.FrmRelSexo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

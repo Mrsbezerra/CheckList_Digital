@@ -48,9 +48,10 @@
             // 
             this.BtnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnNovo.Location = new System.Drawing.Point(705, 12);
+            this.BtnNovo.Location = new System.Drawing.Point(940, 15);
+            this.BtnNovo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnNovo.Name = "BtnNovo";
-            this.BtnNovo.Size = new System.Drawing.Size(83, 25);
+            this.BtnNovo.Size = new System.Drawing.Size(111, 31);
             this.BtnNovo.TabIndex = 0;
             this.BtnNovo.Text = "Novo";
             this.BtnNovo.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@
             this.BtnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSalvar.Enabled = false;
             this.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnSalvar.Location = new System.Drawing.Point(705, 43);
+            this.BtnSalvar.Location = new System.Drawing.Point(940, 53);
+            this.BtnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnSalvar.Name = "BtnSalvar";
-            this.BtnSalvar.Size = new System.Drawing.Size(83, 25);
+            this.BtnSalvar.Size = new System.Drawing.Size(111, 31);
             this.BtnSalvar.TabIndex = 1;
             this.BtnSalvar.Text = "Salvar";
             this.BtnSalvar.UseVisualStyleBackColor = true;
@@ -74,9 +76,10 @@
             this.BtnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnCancelar.Enabled = false;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnCancelar.Location = new System.Drawing.Point(705, 74);
+            this.BtnCancelar.Location = new System.Drawing.Point(940, 91);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(83, 25);
+            this.BtnCancelar.Size = new System.Drawing.Size(111, 31);
             this.BtnCancelar.TabIndex = 2;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
@@ -86,9 +89,10 @@
             // 
             this.BtnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnEditar.Location = new System.Drawing.Point(705, 105);
+            this.BtnEditar.Location = new System.Drawing.Point(940, 129);
+            this.BtnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(83, 25);
+            this.BtnEditar.Size = new System.Drawing.Size(111, 31);
             this.BtnEditar.TabIndex = 3;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
@@ -99,9 +103,10 @@
             this.BtnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnExcluir.Enabled = false;
             this.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnExcluir.Location = new System.Drawing.Point(705, 136);
+            this.BtnExcluir.Location = new System.Drawing.Point(940, 167);
+            this.BtnExcluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnExcluir.Name = "BtnExcluir";
-            this.BtnExcluir.Size = new System.Drawing.Size(83, 25);
+            this.BtnExcluir.Size = new System.Drawing.Size(111, 31);
             this.BtnExcluir.TabIndex = 4;
             this.BtnExcluir.Text = "Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
@@ -111,9 +116,10 @@
             // 
             this.BtnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnConsultar.Location = new System.Drawing.Point(705, 167);
+            this.BtnConsultar.Location = new System.Drawing.Point(940, 206);
+            this.BtnConsultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnConsultar.Name = "BtnConsultar";
-            this.BtnConsultar.Size = new System.Drawing.Size(83, 25);
+            this.BtnConsultar.Size = new System.Drawing.Size(111, 31);
             this.BtnConsultar.TabIndex = 5;
             this.BtnConsultar.Text = "Consultar";
             this.BtnConsultar.UseVisualStyleBackColor = true;
@@ -123,20 +129,23 @@
             // 
             this.BtnRelatorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnRelatorio.Location = new System.Drawing.Point(705, 198);
+            this.BtnRelatorio.Location = new System.Drawing.Point(940, 244);
+            this.BtnRelatorio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnRelatorio.Name = "BtnRelatorio";
-            this.BtnRelatorio.Size = new System.Drawing.Size(83, 25);
+            this.BtnRelatorio.Size = new System.Drawing.Size(111, 31);
             this.BtnRelatorio.TabIndex = 6;
             this.BtnRelatorio.Text = "Relatório";
             this.BtnRelatorio.UseVisualStyleBackColor = true;
+            this.BtnRelatorio.Click += new System.EventHandler(this.BtnRelatorio_Click);
             // 
             // lblNome_Sexo
             // 
             this.lblNome_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblNome_Sexo.AutoSize = true;
-            this.lblNome_Sexo.Location = new System.Drawing.Point(143, 51);
+            this.lblNome_Sexo.Location = new System.Drawing.Point(191, 63);
+            this.lblNome_Sexo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNome_Sexo.Name = "lblNome_Sexo";
-            this.lblNome_Sexo.Size = new System.Drawing.Size(85, 13);
+            this.lblNome_Sexo.Size = new System.Drawing.Size(106, 16);
             this.lblNome_Sexo.TabIndex = 46;
             this.lblNome_Sexo.Text = "Descrição Sexo:";
             // 
@@ -144,9 +153,10 @@
             // 
             this.lblId_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblId_Sexo.AutoSize = true;
-            this.lblId_Sexo.Location = new System.Drawing.Point(169, 15);
+            this.lblId_Sexo.Location = new System.Drawing.Point(225, 18);
+            this.lblId_Sexo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId_Sexo.Name = "lblId_Sexo";
-            this.lblId_Sexo.Size = new System.Drawing.Size(59, 13);
+            this.lblId_Sexo.Size = new System.Drawing.Size(72, 16);
             this.lblId_Sexo.TabIndex = 45;
             this.lblId_Sexo.Text = "Cód. Sexo:";
             // 
@@ -155,10 +165,11 @@
             this.txtNome_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtNome_Sexo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome_Sexo.Enabled = false;
-            this.txtNome_Sexo.Location = new System.Drawing.Point(234, 48);
+            this.txtNome_Sexo.Location = new System.Drawing.Point(312, 59);
+            this.txtNome_Sexo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNome_Sexo.MaxLength = 50;
             this.txtNome_Sexo.Name = "txtNome_Sexo";
-            this.txtNome_Sexo.Size = new System.Drawing.Size(372, 20);
+            this.txtNome_Sexo.Size = new System.Drawing.Size(495, 22);
             this.txtNome_Sexo.TabIndex = 44;
             this.txtNome_Sexo.TextChanged += new System.EventHandler(this.txtNome_Sexo_TextChanged);
             // 
@@ -167,9 +178,10 @@
             this.txtId_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtId_Sexo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtId_Sexo.Enabled = false;
-            this.txtId_Sexo.Location = new System.Drawing.Point(234, 12);
+            this.txtId_Sexo.Location = new System.Drawing.Point(312, 15);
+            this.txtId_Sexo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId_Sexo.Name = "txtId_Sexo";
-            this.txtId_Sexo.Size = new System.Drawing.Size(29, 20);
+            this.txtId_Sexo.Size = new System.Drawing.Size(37, 22);
             this.txtId_Sexo.TabIndex = 43;
             this.txtId_Sexo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtId_Sexo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_Sexo_KeyDown);
@@ -179,9 +191,10 @@
             // 
             this.BtnAjuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnAjuda.Location = new System.Drawing.Point(705, 229);
+            this.BtnAjuda.Location = new System.Drawing.Point(940, 282);
+            this.BtnAjuda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnAjuda.Name = "BtnAjuda";
-            this.BtnAjuda.Size = new System.Drawing.Size(83, 25);
+            this.BtnAjuda.Size = new System.Drawing.Size(111, 31);
             this.BtnAjuda.TabIndex = 47;
             this.BtnAjuda.Text = "Ajuda";
             this.BtnAjuda.UseVisualStyleBackColor = true;
@@ -190,9 +203,10 @@
             // 
             this.BtnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSair.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.BtnSair.Location = new System.Drawing.Point(705, 260);
+            this.BtnSair.Location = new System.Drawing.Point(940, 320);
+            this.BtnSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnSair.Name = "BtnSair";
-            this.BtnSair.Size = new System.Drawing.Size(83, 25);
+            this.BtnSair.Size = new System.Drawing.Size(111, 31);
             this.BtnSair.TabIndex = 55;
             this.BtnSair.Text = "Sair";
             this.BtnSair.UseVisualStyleBackColor = true;
@@ -200,10 +214,10 @@
             // 
             // Frm_CSexo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.ControlBox = false;
             this.Controls.Add(this.BtnSair);
             this.Controls.Add(this.BtnAjuda);
@@ -219,6 +233,7 @@
             this.Controls.Add(this.BtnSalvar);
             this.Controls.Add(this.BtnNovo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_CSexo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Sexo";
