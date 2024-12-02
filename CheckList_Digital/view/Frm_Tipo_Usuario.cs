@@ -329,7 +329,7 @@ namespace CheckList_Digital.view
 
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
-            using (var frm = new FrmRelTipoUsuario())
+            using (var frm = new FrmRelSexo())
                 frm.ShowDialog();
         }
     }

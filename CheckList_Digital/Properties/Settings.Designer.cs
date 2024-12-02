@@ -44,5 +44,16 @@ namespace CheckList_Digital.Properties {
                 return ((string)(this["CheckListDBConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-FIJQG9J\\SQLEXPRESS03;Initial Catalog=CheckListDB;Integrated S" +
+            "ecurity=True;Encrypt=False")]
+        public string CheckListDBConnectionString2 {
+            get {
+                return ((string)(this["CheckListDBConnectionString2"]));
+            }
+        }
     }
 }

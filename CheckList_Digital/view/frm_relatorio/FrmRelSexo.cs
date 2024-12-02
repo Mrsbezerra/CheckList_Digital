@@ -15,18 +15,16 @@ namespace CheckList_Digital.view.frm_relatorio
         public FrmRelSexo()
         {
             InitializeComponent();
-            //reportViewer1.LocalReport.ReportEmbeddedResource = "relatorio.Report1.rdlc";
-            this.reportViewer1.RefreshReport();
         }
 
         private void FrmRelSexo_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Sexo'. Você pode movê-la ou removê-la conforme necessário.
             this.sexoTableAdapter.Fill(this.checkListDBDataSet.Sexo);
+            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Sexo'. Você pode movê-la ou removê-la conforme necessário.
+            this.sexoTableAdapter.Fill(this.checkListDBDataSet.Sexo);
 
-
-
-
+            this.reportViewer1.RefreshReport();
         }
     }
 }
