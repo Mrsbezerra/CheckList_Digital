@@ -267,12 +267,6 @@
     <Compile Include="view\frm_relatorio\FrmRelTipoUsuario.Designer.cs">
       <DependentUpon>FrmRelTipoUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\Frm_Sexo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Frm_Sexo.Designer.cs">
-      <DependentUpon>Frm_Sexo.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\Frm_Tipo_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,9 +342,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\frm_relatorio\FrmRelTipoUsuario.resx">
       <DependentUpon>FrmRelTipoUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\Frm_Sexo.resx">
-      <DependentUpon>Frm_Sexo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Frm_Tipo_Usuario.resx">
       <DependentUpon>Frm_Tipo_Usuario.cs</DependentUpon>
