@@ -80,6 +80,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRelSexo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRelSexo_FormClosing);
             this.Load += new System.EventHandler(this.FrmRelSexo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).EndInit();

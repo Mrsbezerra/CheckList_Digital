@@ -213,12 +213,6 @@
     <Compile Include="view\Consulta\Frm_CoSexo.Designer.cs">
       <DependentUpon>Frm_CoSexo.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\Frm_Cargo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Frm_Cargo.Designer.cs">
-      <DependentUpon>Frm_Cargo.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\Frm_Acesso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,24 +242,6 @@
     </Compile>
     <Compile Include="view\Frm_Menu.Designer.cs">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\Frm_Relatorios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Frm_Relatorios.Designer.cs">
-      <DependentUpon>Frm_Relatorios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\Frm_Tipo_Usuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Frm_Tipo_Usuario.Designer.cs">
-      <DependentUpon>Frm_Tipo_Usuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\Frm_Usuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Frm_Usuario.Designer.cs">
-      <DependentUpon>Frm_Usuario.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -306,9 +282,6 @@
     <EmbeddedResource Include="view\Frm_Acesso.resx">
       <DependentUpon>Frm_Acesso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\Frm_Cargo.resx">
-      <DependentUpon>Frm_Cargo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CSexo.resx">
       <DependentUpon>Frm_CSexo.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,12 +293,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Frm_Menu.resx">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\Frm_Tipo_Usuario.resx">
-      <DependentUpon>Frm_Tipo_Usuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\Frm_Usuario.resx">
-      <DependentUpon>Frm_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Relatorio_RDLC\RelSexo.rdlc" />
   </ItemGroup>

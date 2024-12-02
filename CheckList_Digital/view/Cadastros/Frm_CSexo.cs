@@ -2,10 +2,8 @@
 using CheckList_Digital.controler;
 using CheckList_Digital.model;
 using System;
-using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Collections.Generic;
 using CheckList_Digital.view.Consulta;
 using CheckList_Digital.view.frm_relatorio;
 
@@ -13,42 +11,34 @@ namespace CheckList_Digital.view
 {
     public partial class Frm_CSexo : Form
     {
-        DataTable tabelaSexo;
         private bool novo = true;
-        private int posicao;
-        DataRow[] linhaAtual;
 
         public Frm_CSexo()
         {
             InitializeComponent();
         }
-
         private void AtivarTexts()
         {
             txtId_Sexo.Enabled = false; 
             txtNome_Sexo.Enabled = true;
         }
-
         private void DesabilitaTexts()
         {
             txtId_Sexo.Enabled = false;
             txtNome_Sexo.Enabled = false;
         }
-
         private int ObterProximoIdSexo()
         {
             int proximoId = 1;
 
             using (SqlConnection con = new ConectaBanco().ConectaSqlServer())
             {
-                // Query para obter o próximo ID do sexo com base no IDENT_CURRENT
                 string query = "SELECT IDENT_CURRENT('sexo') + 1";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try
                 {
                     con.Open();
-                    // Executa a consulta e armazena o valor retornado
                     object resultado = cmd.ExecuteScalar();
 
                     if (resultado != DBNull.Value)
@@ -64,23 +54,16 @@ namespace CheckList_Digital.view
 
             return proximoId;
         }
-
         private void LimparCampos()
         {
             txtId_Sexo.Text = string.Empty;
             txtNome_Sexo.Text = string.Empty;
         }
-
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             AtivarTexts();
-
-            // Obtemos o próximo ID disponível
             int proximoId = ObterProximoIdSexo();
-
-            // Atribuímos o ID ao txtId_Sexo
             txtId_Sexo.Text = proximoId.ToString();
-
             txtNome_Sexo.Focus();
             BtnNovo.Enabled = false;
             BtnSalvar.Enabled = true;
@@ -91,13 +74,11 @@ namespace CheckList_Digital.view
             BtnRelatorio.Enabled = false;
             BtnAjuda.Enabled = true;
         }
-
         private void txtNome_Sexo_TextChanged(object sender, EventArgs e)
         {
             txtNome_Sexo.Text = txtNome_Sexo.Text.ToUpper();
             txtNome_Sexo.SelectionStart = txtNome_Sexo.Text.Length;
         }
-
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtNome_Sexo.Text))
@@ -113,15 +94,15 @@ namespace CheckList_Digital.view
 
             C_Sexo ca = new C_Sexo();
 
-            if (novo) // Cadastro de um novo sexo
+            if (novo)
             {
                 ca.InsereDados(sexo);
             }
-            else // Atualização de um sexo existente
+            else
             {
                 sexo.Id_Sexo = int.Parse(txtId_Sexo.Text);
                 ca.EditarDados(sexo);
-                novo = true; // Reseta a variável para o próximo uso
+                novo = true;
             }
 
             DesabilitaTexts();
@@ -135,7 +116,6 @@ namespace CheckList_Digital.view
             BtnRelatorio.Enabled = true;
             BtnAjuda.Enabled = true;
         }
-
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             LimparCampos();
@@ -149,7 +129,6 @@ namespace CheckList_Digital.view
             BtnRelatorio.Enabled = true;
             BtnAjuda.Enabled = true;
         }
-
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             txtId_Sexo.Enabled = true;
@@ -158,17 +137,13 @@ namespace CheckList_Digital.view
             BtnNovo.Enabled=false;
             BtnConsultar.Enabled=false;
             BtnRelatorio.Enabled=false;
-
-
             novo = false;
         }
-
         private string BuscarNomeSexoPorId(int idSexo)
         {
             string nomeSexo = null;
-
-            // Configurações da conexão e comando para buscar o nome do sexo
             ConectaBanco cb = new ConectaBanco();
+
             using (SqlConnection con = cb.ConectaSqlServer())
             {
                 string query = "SELECT Nome_Sexo FROM Sexo WHERE Id_Sexo = @Id_Sexo";
@@ -193,10 +168,8 @@ namespace CheckList_Digital.view
                 BtnNovo.Enabled = false;
                 BtnSalvar.Enabled = true;
             }
-
             return nomeSexo;
         }
-
         private void BuscarNomeSexo()
         {
             int idSexo;
@@ -228,17 +201,14 @@ namespace CheckList_Digital.view
                 MessageBox.Show("Por favor, digite um código válido.");
             }
         }
-
         private void txtId_Sexo_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 int idSexo;
 
-                // Verifica se o valor digitado é um número válido
                 if (int.TryParse(txtId_Sexo.Text, out idSexo))
                 {
-                    // Chama o método para buscar o nome do sexo pelo Id_Sexo
                     string nomeSexo = BuscarNomeSexoPorId(idSexo);
 
                     if (!string.IsNullOrEmpty(nomeSexo))
@@ -256,26 +226,22 @@ namespace CheckList_Digital.view
                     MessageBox.Show("Por favor, digite um código válido.");
                 }
 
-                e.Handled = true; // Evita qualquer processamento adicional da tecla
-                e.SuppressKeyPress = true; // Suprime o som do "Enter"
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
-
         private void txtId_Sexo_Leave(object sender, EventArgs e)
         {
             BuscarNomeSexo();
         }
-
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            // Verifica se o campo txtId_Sexo contém um valor válido
             if (string.IsNullOrEmpty(txtId_Sexo.Text))
             {
                 MessageBox.Show("Por favor, selecione um registro para excluir.");
                 return;
             }
 
-            // Confirmação de exclusão
             DialogResult confirmacao = MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmacao == DialogResult.Yes)
             {
@@ -289,7 +255,6 @@ namespace CheckList_Digital.view
 
                         MessageBox.Show("Registro excluído com sucesso.");
 
-                        // Limpa os campos e desativa os controles
                         LimparCampos();
                         DesabilitaTexts();
                         BtnNovo.Enabled = true;
@@ -317,30 +282,29 @@ namespace CheckList_Digital.view
         {
             using (Frm_CoSexo frmCosexo = new Frm_CoSexo())
             {
-                this.Hide(); // Esconde o formulário atual temporariamente
-                frmCosexo.ShowDialog(); // Mostra o novo formulário
+                this.Hide();
+                frmCosexo.ShowDialog();
             }
-            this.Close(); // Fecha o formulário atual após o fechamento do formulário Frm_CSexo
+            this.Close();
         }
-
         private void BtnSair_Click(object sender, EventArgs e)
         {
             using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros())
             {
-                this.Hide(); // Esconde o formulário atual temporariamente
-                frmSubc.ShowDialog(); // Mostra o novo formulário
+                this.Hide();
+                frmSubc.ShowDialog();
             }
-            this.Close(); // Fecha o formulário atual após o fechamento de Frm_SubMenu_Cadastro
+            this.Close();
         }
-
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
             using (FrmRelSexo frmRelsexo = new FrmRelSexo())
             {
-                this.Hide(); // Esconde o formulário atual temporariamente
-                frmRelsexo.ShowDialog(); // Mostra o novo formulário
+                this.Hide();
+                frmRelsexo.ShowDialog();
+                this.Show();
             }
-            this.Close(); // Fecha o formulário atual após o fechamento do formulário Frm_CSexo
+            
         }
     }
 }
