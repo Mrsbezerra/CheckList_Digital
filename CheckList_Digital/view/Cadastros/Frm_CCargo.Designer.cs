@@ -1,6 +1,6 @@
 ﻿namespace CheckList_Digital.view
 {
-    partial class Frm_CSexo
+    partial class Frm_CCargo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CSexo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CCargo));
             this.BtnNovo = new System.Windows.Forms.Button();
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
@@ -36,12 +36,14 @@
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.BtnRelatorio = new System.Windows.Forms.Button();
-            this.lblNome_Sexo = new System.Windows.Forms.Label();
-            this.lblId_Sexo = new System.Windows.Forms.Label();
-            this.txtNome_Sexo = new System.Windows.Forms.TextBox();
-            this.txtId_Sexo = new System.Windows.Forms.TextBox();
+            this.LblNome_Cargo = new System.Windows.Forms.Label();
+            this.LblId_Cargo = new System.Windows.Forms.Label();
+            this.TxtNome_Cargo = new System.Windows.Forms.TextBox();
+            this.TxtId_Cargo = new System.Windows.Forms.TextBox();
             this.BtnAjuda = new System.Windows.Forms.Button();
             this.BtnSair = new System.Windows.Forms.Button();
+            this.TxtDescCargo = new System.Windows.Forms.TextBox();
+            this.LblDescCargo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnNovo
@@ -138,54 +140,54 @@
             this.BtnRelatorio.UseVisualStyleBackColor = true;
             this.BtnRelatorio.Click += new System.EventHandler(this.BtnRelatorio_Click);
             // 
-            // lblNome_Sexo
+            // LblNome_Cargo
             // 
-            this.lblNome_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblNome_Sexo.AutoSize = true;
-            this.lblNome_Sexo.Location = new System.Drawing.Point(219, 69);
-            this.lblNome_Sexo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNome_Sexo.Name = "lblNome_Sexo";
-            this.lblNome_Sexo.Size = new System.Drawing.Size(124, 20);
-            this.lblNome_Sexo.TabIndex = 46;
-            this.lblNome_Sexo.Text = "Descrição Sexo:";
+            this.LblNome_Cargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblNome_Cargo.AutoSize = true;
+            this.LblNome_Cargo.Location = new System.Drawing.Point(287, 69);
+            this.LblNome_Cargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblNome_Cargo.Name = "LblNome_Cargo";
+            this.LblNome_Cargo.Size = new System.Drawing.Size(56, 20);
+            this.LblNome_Cargo.TabIndex = 46;
+            this.LblNome_Cargo.Text = "Cargo:";
             // 
-            // lblId_Sexo
+            // LblId_Cargo
             // 
-            this.lblId_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblId_Sexo.AutoSize = true;
-            this.lblId_Sexo.Location = new System.Drawing.Point(257, 22);
-            this.lblId_Sexo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblId_Sexo.Name = "lblId_Sexo";
-            this.lblId_Sexo.Size = new System.Drawing.Size(86, 20);
-            this.lblId_Sexo.TabIndex = 45;
-            this.lblId_Sexo.Text = "Cód. Sexo:";
+            this.LblId_Cargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblId_Cargo.AutoSize = true;
+            this.LblId_Cargo.Location = new System.Drawing.Point(250, 22);
+            this.LblId_Cargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblId_Cargo.Name = "LblId_Cargo";
+            this.LblId_Cargo.Size = new System.Drawing.Size(93, 20);
+            this.LblId_Cargo.TabIndex = 45;
+            this.LblId_Cargo.Text = "Cód. Cargo:";
             // 
-            // txtNome_Sexo
+            // TxtNome_Cargo
             // 
-            this.txtNome_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtNome_Sexo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNome_Sexo.Enabled = false;
-            this.txtNome_Sexo.Location = new System.Drawing.Point(351, 66);
-            this.txtNome_Sexo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNome_Sexo.MaxLength = 50;
-            this.txtNome_Sexo.Name = "txtNome_Sexo";
-            this.txtNome_Sexo.Size = new System.Drawing.Size(556, 26);
-            this.txtNome_Sexo.TabIndex = 44;
-            this.txtNome_Sexo.TextChanged += new System.EventHandler(this.txtNome_Sexo_TextChanged);
+            this.TxtNome_Cargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TxtNome_Cargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtNome_Cargo.Enabled = false;
+            this.TxtNome_Cargo.Location = new System.Drawing.Point(351, 66);
+            this.TxtNome_Cargo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtNome_Cargo.MaxLength = 50;
+            this.TxtNome_Cargo.Name = "TxtNome_Cargo";
+            this.TxtNome_Cargo.Size = new System.Drawing.Size(556, 26);
+            this.TxtNome_Cargo.TabIndex = 44;
+            this.TxtNome_Cargo.TextChanged += new System.EventHandler(this.txtNome_Cargo_TextChanged);
             // 
-            // txtId_Sexo
+            // TxtId_Cargo
             // 
-            this.txtId_Sexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtId_Sexo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtId_Sexo.Enabled = false;
-            this.txtId_Sexo.Location = new System.Drawing.Point(351, 19);
-            this.txtId_Sexo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtId_Sexo.Name = "txtId_Sexo";
-            this.txtId_Sexo.Size = new System.Drawing.Size(41, 26);
-            this.txtId_Sexo.TabIndex = 43;
-            this.txtId_Sexo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtId_Sexo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_Sexo_KeyDown);
-            this.txtId_Sexo.Leave += new System.EventHandler(this.txtId_Sexo_Leave);
+            this.TxtId_Cargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TxtId_Cargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtId_Cargo.Enabled = false;
+            this.TxtId_Cargo.Location = new System.Drawing.Point(351, 19);
+            this.TxtId_Cargo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtId_Cargo.Name = "TxtId_Cargo";
+            this.TxtId_Cargo.Size = new System.Drawing.Size(41, 26);
+            this.TxtId_Cargo.TabIndex = 43;
+            this.TxtId_Cargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtId_Cargo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_Cargo_KeyDown);
+            this.TxtId_Cargo.Leave += new System.EventHandler(this.txtId_Cargo_Leave);
             // 
             // BtnAjuda
             // 
@@ -212,19 +214,44 @@
             this.BtnSair.UseVisualStyleBackColor = true;
             this.BtnSair.Click += new System.EventHandler(this.BtnSair_Click);
             // 
-            // Frm_CSexo
+            // TxtDescCargo
+            // 
+            this.TxtDescCargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TxtDescCargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtDescCargo.Enabled = false;
+            this.TxtDescCargo.Location = new System.Drawing.Point(351, 114);
+            this.TxtDescCargo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtDescCargo.MaxLength = 50;
+            this.TxtDescCargo.Name = "TxtDescCargo";
+            this.TxtDescCargo.Size = new System.Drawing.Size(556, 26);
+            this.TxtDescCargo.TabIndex = 56;
+            // 
+            // LblDescCargo
+            // 
+            this.LblDescCargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblDescCargo.AutoSize = true;
+            this.LblDescCargo.Location = new System.Drawing.Point(212, 114);
+            this.LblDescCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblDescCargo.Name = "LblDescCargo";
+            this.LblDescCargo.Size = new System.Drawing.Size(131, 20);
+            this.LblDescCargo.TabIndex = 57;
+            this.LblDescCargo.Text = "Descrição Cargo:";
+            // 
+            // Frm_CCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.ControlBox = false;
+            this.Controls.Add(this.LblDescCargo);
+            this.Controls.Add(this.TxtDescCargo);
             this.Controls.Add(this.BtnSair);
             this.Controls.Add(this.BtnAjuda);
-            this.Controls.Add(this.lblNome_Sexo);
-            this.Controls.Add(this.lblId_Sexo);
-            this.Controls.Add(this.txtNome_Sexo);
-            this.Controls.Add(this.txtId_Sexo);
+            this.Controls.Add(this.LblNome_Cargo);
+            this.Controls.Add(this.LblId_Cargo);
+            this.Controls.Add(this.TxtNome_Cargo);
+            this.Controls.Add(this.TxtId_Cargo);
             this.Controls.Add(this.BtnRelatorio);
             this.Controls.Add(this.BtnConsultar);
             this.Controls.Add(this.BtnExcluir);
@@ -234,9 +261,9 @@
             this.Controls.Add(this.BtnNovo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Frm_CSexo";
+            this.Name = "Frm_CCargo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro Sexo";
+            this.Text = "Cadastro Cargo";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,11 +278,13 @@
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnConsultar;
         private System.Windows.Forms.Button BtnRelatorio;
-        private System.Windows.Forms.Label lblNome_Sexo;
-        private System.Windows.Forms.Label lblId_Sexo;
-        private System.Windows.Forms.TextBox txtNome_Sexo;
-        private System.Windows.Forms.TextBox txtId_Sexo;
+        private System.Windows.Forms.Label LblNome_Cargo;
+        private System.Windows.Forms.Label LblId_Cargo;
+        private System.Windows.Forms.TextBox TxtNome_Cargo;
+        private System.Windows.Forms.TextBox TxtId_Cargo;
         private System.Windows.Forms.Button BtnAjuda;
         private System.Windows.Forms.Button BtnSair;
+        private System.Windows.Forms.TextBox TxtDescCargo;
+        private System.Windows.Forms.Label LblDescCargo;
     }
 }

@@ -207,6 +207,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="view\Cadastros\Frm_CCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Cadastros\Frm_CCargo.Designer.cs">
+      <DependentUpon>Frm_CCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Consulta\Frm_CoCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Consulta\Frm_CoCargo.Designer.cs">
+      <DependentUpon>Frm_CoCargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Consulta\Frm_CoSexo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +236,12 @@
     </Compile>
     <Compile Include="view\Cadastros\Frm_CSexo.Designer.cs">
       <DependentUpon>Frm_CSexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Frm_Relatorio\FrmRelCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Frm_Relatorio\FrmRelCargo.Designer.cs">
+      <DependentUpon>FrmRelCargo.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Frm_Relatorio\FrmRelSexo.cs">
       <SubType>Form</SubType>
@@ -276,6 +294,12 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\Cadastros\Frm_CCargo.resx">
+      <DependentUpon>Frm_CCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Consulta\Frm_CoCargo.resx">
+      <DependentUpon>Frm_CoCargo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Consulta\Frm_CoSexo.resx">
       <DependentUpon>Frm_CoSexo.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CSexo.resx">
       <DependentUpon>Frm_CSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Frm_Relatorio\FrmRelCargo.resx">
+      <DependentUpon>FrmRelCargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Frm_Relatorio\FrmRelSexo.resx">
       <DependentUpon>FrmRelSexo.cs</DependentUpon>
@@ -294,6 +321,7 @@
     <EmbeddedResource Include="view\Frm_Menu.resx">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\Relatorio_RDLC\RelCargo.rdlc" />
     <EmbeddedResource Include="view\Relatorio_RDLC\RelSexo.rdlc" />
   </ItemGroup>
   <ItemGroup>

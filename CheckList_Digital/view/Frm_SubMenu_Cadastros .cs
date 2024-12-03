@@ -15,10 +15,8 @@ namespace CheckList_Digital.view
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            // Define a cor de fundo do MenuStrip para azul marinho
             menuStrip1.BackColor = Color.FromArgb(51, 51, 76);
 
-            // Define a cor do texto do MenuStrip
             menuStrip1.ForeColor = Color.Gainsboro;
         }
 
@@ -60,28 +58,34 @@ namespace CheckList_Digital.view
 
         private void btnCadastros_Click(object sender, EventArgs e)
         {
-            // Muda a cor do botão para indicar que ele foi selecionado
-            btnCadastros.BackColor = Color.FromArgb(0, 0, 0); // Cor desejada (pode ser qualquer outra cor)
-            btnCadastros.ForeColor = Color.White; // Cor do texto para contraste
+            btnCadastros.BackColor = Color.FromArgb(0, 0, 0);
+            btnCadastros.ForeColor = Color.White;
 
-            // Cria uma nova instância de Frm_Menu
             Frm_Menu frmMenu = new Frm_Menu();
 
-            // Exibe Frm_Menu
             frmMenu.Show();
 
-            // Fecha Frm_SubMenu_Cadastros (somente ele será fechado, não a aplicação)
-            this.Hide();  // Usando Hide() em vez de Close() para garantir que o Frm_SubMenu_Cadastros não finalize a aplicação
+            this.Hide();
         }
 
         private void sexoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (Frm_CSexo frmCsexo = new Frm_CSexo())
             {
-                this.Hide(); // Esconde o formulário atual temporariamente
-                frmCsexo.ShowDialog(); // Mostra o novo formulário
+                this.Hide();
+                frmCsexo.ShowDialog();
             }
-            this.Close(); // Fecha o formulário atual após o fechamento de Frm_SubMenu_Cadastro
+            this.Close();
+        }
+
+        private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Frm_CCargo frmCcargo = new Frm_CCargo())
+            {
+                this.Hide();
+                frmCcargo.ShowDialog();
+            }
+            this.Close();
         }
     }
 }

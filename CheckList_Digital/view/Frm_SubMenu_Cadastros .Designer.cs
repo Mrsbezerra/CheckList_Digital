@@ -343,6 +343,7 @@ namespace CheckList_Digital.view
             this.cargoToolStripMenuItem.Size = new System.Drawing.Size(242, 27);
             this.cargoToolStripMenuItem.Text = "Cargo";
             this.cargoToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cargoToolStripMenuItem.Click += new System.EventHandler(this.cargoToolStripMenuItem_Click);
             // 
             // colaboradorToolStripMenuItem
             // 
