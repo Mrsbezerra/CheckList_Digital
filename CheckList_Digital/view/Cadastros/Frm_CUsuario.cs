@@ -385,10 +385,10 @@ namespace CheckList_Digital.view
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            using (Frm_CoCargo frmCocargo = new Frm_CoCargo())
+            using (Frm_CoUsuario frmCousuario = new Frm_CoUsuario())
             {
                 this.Hide();
-                frmCocargo.ShowDialog();
+                frmCousuario.ShowDialog();
             }
             this.Close();
         }

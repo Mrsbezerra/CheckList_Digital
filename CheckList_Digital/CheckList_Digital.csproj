@@ -243,6 +243,12 @@
     <Compile Include="view\Consulta\Frm_CoTipoUsuario.Designer.cs">
       <DependentUpon>Frm_CoTipoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Consulta\Frm_CoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Consulta\Frm_CoUsuario.Designer.cs">
+      <DependentUpon>Frm_CoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Frm_Acesso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Consulta\Frm_CoTipoUsuario.resx">
       <DependentUpon>Frm_CoTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Consulta\Frm_CoUsuario.resx">
+      <DependentUpon>Frm_CoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Frm_Acesso.resx">
       <DependentUpon>Frm_Acesso.cs</DependentUpon>
