@@ -9,33 +9,31 @@ using CheckList_Digital.view.Frm_Relatorio;
 
 namespace CheckList_Digital.view
 {
-    public partial class Frm_CCargo : Form
+    public partial class Frm_CTipoUsuario : Form
     {
         private bool novo = true;
 
-        public Frm_CCargo()
+        public Frm_CTipoUsuario()
         {
             InitializeComponent();
         }
         private void AtivarTexts()
         {
-            TxtId_Cargo.Enabled = false; 
-            TxtNome_Cargo.Enabled = true;
-            TxtDescCargo.Enabled = true;
+            TxtId_TipoUsuario.Enabled = false; 
+            TxtNome_Tipo.Enabled = true;
         }
         private void DesabilitaTexts()
         {
-            TxtId_Cargo.Enabled = false;
-            TxtNome_Cargo.Enabled = false;
-            TxtDescCargo.Enabled = false;
+            TxtId_TipoUsuario.Enabled = false;
+            TxtNome_Tipo.Enabled = false;
         }
-        private int ObterProximoIdCargo()
+        private int ObterProximoIdTipoUsuario()
         {
             int proximoId = 1;
 
             using (SqlConnection con = new ConectaBanco().ConectaSqlServer())
             {
-                string query = "SELECT IDENT_CURRENT('cargo') + 1";
+                string query = "SELECT IDENT_CURRENT('tipo_usuario') + 1";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try
@@ -58,16 +56,15 @@ namespace CheckList_Digital.view
         }
         private void LimparCampos()
         {
-            TxtId_Cargo.Text = string.Empty;
-            TxtNome_Cargo.Text = string.Empty;
-            TxtDescCargo.Text = string.Empty;
+            TxtId_TipoUsuario.Text = string.Empty;
+            TxtNome_Tipo.Text = string.Empty;
         }
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             AtivarTexts();
-            int proximoId = ObterProximoIdCargo();
-            TxtId_Cargo.Text = proximoId.ToString();
-            TxtNome_Cargo.Focus();
+            int proximoId = ObterProximoIdTipoUsuario();
+            TxtId_TipoUsuario.Text = proximoId.ToString();
+            TxtNome_Tipo.Focus();
             BtnNovo.Enabled = false;
             BtnSalvar.Enabled = true;
             BtnCancelar.Enabled = true;
@@ -77,43 +74,36 @@ namespace CheckList_Digital.view
             BtnRelatorio.Enabled = false;
             BtnAjuda.Enabled = true;
         }
-        private void txtNome_Cargo_TextChanged(object sender, EventArgs e)
+        private void txtNome_TipoUsuario_TextChanged(object sender, EventArgs e)
         {
-            TxtNome_Cargo.Text = TxtNome_Cargo.Text.ToUpper();
-            TxtNome_Cargo.SelectionStart = TxtNome_Cargo.Text.Length;
+            TxtNome_Tipo.Text = TxtNome_Tipo.Text.ToUpper();
+            TxtNome_Tipo.SelectionStart = TxtNome_Tipo.Text.Length;
         }
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtNome_Cargo.Text))
+            if (string.IsNullOrEmpty(TxtNome_Tipo.Text))
             {
-                MessageBox.Show("O Nome do Cargo não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O Nome do TipoUsuario não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (string.IsNullOrEmpty(TxtDescCargo.Text))
+            Tipo_Usuario tipo_usuario = new Tipo_Usuario
             {
-                MessageBox.Show("A Descrição do Cargo não pode estar vazia.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Cargo cargo = new Cargo
-            {
-                Nome_Cargo = TxtNome_Cargo.Text,
-                Descricao_Cargo = TxtDescCargo.Text
+                Nome_Tipo = TxtNome_Tipo.Text,
             };
 
             try
             {
-                C_Cargo ca = new C_Cargo();
+                C_Tipo_Usuario ca = new C_Tipo_Usuario();
 
                 if (novo)
                 {
-                    ca.InsereDados(cargo);
+                    ca.InsereDados(tipo_usuario);
                 }
                 else
                 {
-                    cargo.Id_Cargo = int.Parse(TxtId_Cargo.Text);
-                    ca.EditarDados(cargo);
+                    tipo_usuario.Id_Tipo_Usuario = int.Parse(TxtId_TipoUsuario.Text);
+                    ca.EditarDados(tipo_usuario);
                     novo = true;
                 }
 
@@ -139,13 +129,11 @@ namespace CheckList_Digital.view
         {
             try
             {
-                // Cria uma instância de ConectaBanco
                 ConectaBanco conectaBanco = new ConectaBanco();
 
-                // Usa a instância para obter a conexão
                 using (SqlConnection conn = conectaBanco.ConectaSqlServer())
                 {
-                    string query = "DELETE FROM Cargo WHERE Nome_Cargo = '' OR Descricao_Cargo = ''";
+                    string query = "DELETE FROM TipoUsuario WHERE Nome_Tipo = ''";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         conn.Open();
@@ -173,24 +161,24 @@ namespace CheckList_Digital.view
         }
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            TxtId_Cargo.Enabled = true;
-            TxtId_Cargo.Focus();
+            TxtId_TipoUsuario.Enabled = true;
+            TxtId_TipoUsuario.Focus();
             BtnCancelar.Enabled = true;
             BtnNovo.Enabled=false;
             BtnConsultar.Enabled=false;
             BtnRelatorio.Enabled=false;
             novo = false;
         }
-        private string BuscarNomeCargoPorId(int idCargo)
+        private string BuscarNomeTipoUsuarioPorId(int idTipoUsuario)
         {
-            string nomeCargo = null;
+            string nomeTipoUsuario = null;
             ConectaBanco cb = new ConectaBanco();
 
             using (SqlConnection con = cb.ConectaSqlServer())
             {
-                string query = "SELECT Nome_Cargo FROM Cargo WHERE Id_Cargo = @Id_Cargo";
+                string query = "SELECT Nome_TipoUsuario FROM TipoUsuario WHERE Id_TipoUsuario = @Id_TipoUsuario";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Id_Cargo", idCargo);
+                cmd.Parameters.AddWithValue("@Id_Tipo_Usuario", idTipoUsuario);
 
                 try
                 {
@@ -199,29 +187,29 @@ namespace CheckList_Digital.view
 
                     if (result != null)
                     {
-                        nomeCargo = result.ToString();
+                        nomeTipoUsuario = result.ToString();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao buscar o nome do cargo: " + ex.Message);
+                    MessageBox.Show("Erro ao buscar o nome do tipo_usuario: " + ex.Message);
                 }
-                TxtNome_Cargo.Enabled = true;
+                TxtNome_Tipo.Enabled = true;
                 BtnNovo.Enabled = false;
                 BtnSalvar.Enabled = true;
             }
-            return nomeCargo;
+            return nomeTipoUsuario;
         }
-        private void BuscarNomeCargo()
+        private void BuscarNomeTipoUsuario()
         {
-            int idCargo;
-            if (int.TryParse(TxtId_Cargo.Text, out idCargo))
+            int idTipoUsuario;
+            if (int.TryParse(TxtId_TipoUsuario.Text, out idTipoUsuario))
             {
-                string nomeCargo = BuscarNomeCargoPorId(idCargo);
-                if (!string.IsNullOrEmpty(nomeCargo))
+                string nomeTipoUsuario = BuscarNomeTipoUsuarioPorId(idTipoUsuario);
+                if (!string.IsNullOrEmpty(nomeTipoUsuario))
                 {
-                    TxtNome_Cargo.Text = nomeCargo;
-                    TxtNome_Cargo.Enabled = true;
+                    TxtNome_Tipo.Text = nomeTipoUsuario;
+                    TxtNome_Tipo.Enabled = true;
                     BtnNovo.Enabled = false;
                     BtnSalvar.Enabled = true;
                     BtnEditar.Enabled = false;
@@ -232,10 +220,10 @@ namespace CheckList_Digital.view
                 }
                 else
                 {
-                    MessageBox.Show("Cargo não encontrado para o código informado.");
-                    TxtNome_Cargo.Clear();
-                    TxtId_Cargo.Focus();
-                    TxtNome_Cargo.Enabled = false;
+                    MessageBox.Show("Tipo Usuario não encontrado para o código informado.");
+                    TxtNome_Tipo.Clear();
+                    TxtId_TipoUsuario.Focus();
+                    TxtNome_Tipo.Enabled = false;
                 }
             }
             else
@@ -243,24 +231,24 @@ namespace CheckList_Digital.view
                 MessageBox.Show("Por favor, digite um código válido.");
             }
         }
-        private void txtId_Cargo_KeyDown(object sender, KeyEventArgs e)
+        private void TxtId_TipoUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                int idCargo;
+                int idTipoUsuario;
 
-                if (int.TryParse(TxtId_Cargo.Text, out idCargo))
+                if (int.TryParse(TxtId_TipoUsuario.Text, out idTipoUsuario))
                 {
-                    string nomeCargo = BuscarNomeCargoPorId(idCargo);
+                    string nomeTipoUsuario = BuscarNomeTipoUsuarioPorId(idTipoUsuario);
 
-                    if (!string.IsNullOrEmpty(nomeCargo))
+                    if (!string.IsNullOrEmpty(nomeTipoUsuario))
                     {
-                        TxtNome_Cargo.Text = nomeCargo;
+                        TxtNome_Tipo.Text = nomeTipoUsuario;
                     }
                     else
                     {
-                        MessageBox.Show("Cargo não encontrado para o código informado.");
-                        TxtNome_Cargo.Clear();
+                        MessageBox.Show("Tipo Usuario não encontrado para o código informado.");
+                        TxtNome_Tipo.Clear();
                     }
                 }
                 else
@@ -272,13 +260,13 @@ namespace CheckList_Digital.view
                 e.SuppressKeyPress = true;
             }
         }
-        private void txtId_Cargo_Leave(object sender, EventArgs e)
+        private void TxtId_TipoUsuario_Leave(object sender, EventArgs e)
         {
-            BuscarNomeCargo();
+            BuscarNomeTipoUsuario();
         }
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtId_Cargo.Text))
+            if (string.IsNullOrEmpty(TxtId_TipoUsuario.Text))
             {
                 MessageBox.Show("Por favor, selecione um registro para excluir.");
                 return;
@@ -287,13 +275,13 @@ namespace CheckList_Digital.view
             DialogResult confirmacao = MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmacao == DialogResult.Yes)
             {
-                int idCargo;
-                if (int.TryParse(TxtId_Cargo.Text, out idCargo))
+                int idTipoUsuario;
+                if (int.TryParse(TxtId_TipoUsuario.Text, out idTipoUsuario))
                 {
                     try
                     {
-                        C_Cargo ca = new C_Cargo();
-                        ca.ApagaDados(idCargo);
+                        C_Tipo_Usuario ca = new C_Tipo_Usuario();
+                        ca.ApagaDados(idTipoUsuario);
 
                         MessageBox.Show("Registro excluído com sucesso.");
 
@@ -321,10 +309,10 @@ namespace CheckList_Digital.view
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            using (Frm_CoCargo frmCocargo = new Frm_CoCargo())
+            using (Frm_CoTipoUsuario frmCotipo_usuario = new Frm_CoTipoUsuario())
             {
                 this.Hide();
-                frmCocargo.ShowDialog();
+                frmCotipo_usuario.ShowDialog();
             }
             this.Close();
         }
@@ -339,10 +327,10 @@ namespace CheckList_Digital.view
         }
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
-            using (FrmRelCargo frmRelcargo = new FrmRelCargo())
+            using (FrmRelTipoUsuario frmReltipo_usuario = new FrmRelTipoUsuario())
             {
                 this.Hide();
-                frmRelcargo.ShowDialog();
+                frmReltipo_usuario.ShowDialog();
                 this.Show();
             }
         }

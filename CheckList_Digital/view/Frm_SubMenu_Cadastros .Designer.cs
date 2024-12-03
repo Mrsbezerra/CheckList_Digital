@@ -480,6 +480,7 @@ namespace CheckList_Digital.view
             this.tipoUsuárioToolStripMenuItem.Size = new System.Drawing.Size(242, 27);
             this.tipoUsuárioToolStripMenuItem.Text = "Tipo Usuário";
             this.tipoUsuárioToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tipoUsuárioToolStripMenuItem.Click += new System.EventHandler(this.tipoUsuárioToolStripMenuItem_Click);
             // 
             // usuárioToolStripMenuItem
             // 

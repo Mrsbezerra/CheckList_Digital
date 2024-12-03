@@ -213,6 +213,12 @@
     <Compile Include="view\Cadastros\Frm_CCargo.Designer.cs">
       <DependentUpon>Frm_CCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Cadastros\Frm_CTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Cadastros\Frm_CTipoUsuario.Designer.cs">
+      <DependentUpon>Frm_CTipoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Consulta\Frm_CoCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,12 @@
     </Compile>
     <Compile Include="view\Consulta\Frm_CoSexo.Designer.cs">
       <DependentUpon>Frm_CoSexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Consulta\Frm_CoTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Consulta\Frm_CoTipoUsuario.Designer.cs">
+      <DependentUpon>Frm_CoTipoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Frm_Acesso.cs">
       <SubType>Form</SubType>
@@ -248,6 +260,12 @@
     </Compile>
     <Compile Include="view\Frm_Relatorio\FrmRelSexo.Designer.cs">
       <DependentUpon>FrmRelSexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Frm_Relatorio\FrmRelTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Frm_Relatorio\FrmRelTipoUsuario.Designer.cs">
+      <DependentUpon>FrmRelTipoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Frm_SubMenu_Cadastros .cs">
       <SubType>Form</SubType>
@@ -297,11 +315,17 @@
     <EmbeddedResource Include="view\Cadastros\Frm_CCargo.resx">
       <DependentUpon>Frm_CCargo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\Cadastros\Frm_CTipoUsuario.resx">
+      <DependentUpon>Frm_CTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Consulta\Frm_CoCargo.resx">
       <DependentUpon>Frm_CoCargo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Consulta\Frm_CoSexo.resx">
       <DependentUpon>Frm_CoSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Consulta\Frm_CoTipoUsuario.resx">
+      <DependentUpon>Frm_CoTipoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Frm_Acesso.resx">
       <DependentUpon>Frm_Acesso.cs</DependentUpon>
@@ -315,6 +339,9 @@
     <EmbeddedResource Include="view\Frm_Relatorio\FrmRelSexo.resx">
       <DependentUpon>FrmRelSexo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\Frm_Relatorio\FrmRelTipoUsuario.resx">
+      <DependentUpon>FrmRelTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Frm_SubMenu_Cadastros .resx">
       <DependentUpon>Frm_SubMenu_Cadastros .cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +350,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Relatorio_RDLC\RelCargo.rdlc" />
     <EmbeddedResource Include="view\Relatorio_RDLC\RelSexo.rdlc" />
+    <EmbeddedResource Include="view\Relatorio_RDLC\RelTipoUsuario.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
