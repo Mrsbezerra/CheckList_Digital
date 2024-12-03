@@ -219,6 +219,12 @@
     <Compile Include="view\Cadastros\Frm_CTipoUsuario.Designer.cs">
       <DependentUpon>Frm_CTipoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Cadastros\Frm_CUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Cadastros\Frm_CUsuario.Designer.cs">
+      <DependentUpon>Frm_CUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Consulta\Frm_CoCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CTipoUsuario.resx">
       <DependentUpon>Frm_CTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Cadastros\Frm_CUsuario.resx">
+      <DependentUpon>Frm_CUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Consulta\Frm_CoCargo.resx">
       <DependentUpon>Frm_CoCargo.cs</DependentUpon>

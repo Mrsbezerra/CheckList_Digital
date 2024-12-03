@@ -491,6 +491,7 @@ namespace CheckList_Digital.view
             this.usuárioToolStripMenuItem.Text = "Usuário";
             this.usuárioToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usuárioToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.usuárioToolStripMenuItem.Click += new System.EventHandler(this.usuárioToolStripMenuItem_Click);
             // 
             // toolStripContainer1
             // 

@@ -97,5 +97,15 @@ namespace CheckList_Digital.view
             }
             this.Close();
         }
+
+        private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Frm_CUsuario frmCusuario = new Frm_CUsuario())
+            {
+                this.Hide();
+                frmCusuario.ShowDialog();
+            }
+            this.Close();
+        }
     }
 }

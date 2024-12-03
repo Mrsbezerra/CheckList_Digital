@@ -27,13 +27,11 @@ namespace CheckList_Digital.view.Consulta
             string nomeTipoUsuario = TxtNome_TipoUsuario.Text.Trim();
             string query = "SELECT * FROM Tipo_Usuario WHERE 1=1";
 
-            // Verificação de ID_TipoUsuario
             if (!string.IsNullOrEmpty(idTipoUsuario))
             {
                 query += " AND Id_Tipo_Usuario LIKE @Id_Tipo_Usuario";
             }
 
-            // Verificação de Nome_TipoUsuario
             if (!string.IsNullOrEmpty(nomeTipoUsuario))
             {
                 query += " AND Nome_Tipo LIKE @Nome_Tipo";
