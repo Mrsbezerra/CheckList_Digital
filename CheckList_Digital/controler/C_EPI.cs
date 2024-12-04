@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace CheckList_Digital.controler
 {
-    internal class C_Sexo : ICRUD
+    internal class C_EPI : ICRUD
     {
-        private readonly string sqlInserir = "INSERT INTO Sexo (Nome_Sexo) VALUES (@nome_sexo)";
-        private readonly string sqlApagar = "DELETE FROM Sexo WHERE Id_Sexo = @Id_Sexo";
-        private readonly string sqlTodos = "SELECT Id_Sexo as 'Código', Nome_Sexo as Sexo FROM Sexo";
-        private readonly string sqlEditar = "UPDATE Sexo SET Nome_Sexo = @pnome WHERE Id_Sexo = @pId_Sexo";
-        private readonly string sqlBuscaNome = "SELECT Id_Sexo as 'Código', Nome_Sexo as Sexo FROM Sexo WHERE Nome_Sexo LIKE @pNome";
+        private readonly string sqlInserir = "INSERT INTO EPI (Nome_EPI, Data_Inspecao, Substituicao, Descricao, Validade) VALUES (@nome_epi, @data_inspecao, @substituicao, @descricao, @validade)";
+        private readonly string sqlApagar = "DELETE FROM EPI WHERE Id_EPI = @Id_EPI";
+        private readonly string sqlTodos = "SELECT Id_EPI as 'Código', Nome_EPI as EPI, Data_Inspecao as 'Data Inspecao', Substituicao, Descricao, Validade FROM EPI";
+        private readonly string sqlEditar = "UPDATE EPI SET Nome_EPI = @pnome, Data_Inspecao = @pdata_inspecao, Substituicao = @psubstituicao, Descricao = @pdescricao, Validade = @pvalidade WHERE Id_EPI = @pId_EPI";
+        private readonly string sqlBuscaNome = "SELECT Id_EPI as 'Código', Nome_EPI as EPI, Data_Inspecao as 'Data Inspecao', Substituicao, Descricao, Validade FROM EPI WHERE Nome_EPI LIKE @pNome";
 
         private SqlConnection GetConnection()
         {
@@ -23,11 +23,11 @@ namespace CheckList_Digital.controler
 
         public void InsereDados(object obj)
         {
-            Sexo sexo = obj as Sexo;
+            EPI epi = obj as EPI;
 
-            if (sexo == null)
+            if (epi == null)
             {
-                MessageBox.Show("Objeto Sexo inválido.");
+                MessageBox.Show("Objeto EPI inválido.");
                 return;
             }
 
@@ -35,21 +35,25 @@ namespace CheckList_Digital.controler
             {
                 using (var cmd = new SqlCommand(sqlInserir + "; SELECT SCOPE_IDENTITY();", con))
                 {
-                    cmd.Parameters.AddWithValue("@nome_sexo", sexo.Nome_Sexo);
+                    cmd.Parameters.AddWithValue("@nome_epi", epi.Nome_EPI);
+                    cmd.Parameters.AddWithValue("@data_inspecao", epi.Data_Inspecao);
+                    cmd.Parameters.AddWithValue("@substituicao", epi.Substituicao);
+                    cmd.Parameters.AddWithValue("@descricao", epi.Descricao);
+                    cmd.Parameters.AddWithValue("@validade", epi.Validade.HasValue ? (object)epi.Validade.Value : DBNull.Value);
                     cmd.CommandType = CommandType.Text;
 
                     try
                     {
                         con.Open();
-                        object idSexoObj = cmd.ExecuteScalar();
-                        if (idSexoObj != null)
+                        object idEPIObj = cmd.ExecuteScalar();
+                        if (idEPIObj != null)
                         {
-                            int idSexo = Convert.ToInt32(idSexoObj);
-                            MessageBox.Show($"Sexo ({idSexo} - {sexo.Nome_Sexo}) cadastrado com sucesso.");
+                            int idEPI = Convert.ToInt32(idEPIObj);
+                            MessageBox.Show($"EPI ({idEPI} - {epi.Nome_EPI}) cadastrado com sucesso.");
                         }
                         else
                         {
-                            MessageBox.Show("Falha ao incluir o sexo.");
+                            MessageBox.Show("Falha ao incluir o EPI.");
                         }
                     }
                     catch (Exception ex)
@@ -62,11 +66,11 @@ namespace CheckList_Digital.controler
 
         public void EditarDados(object obj)
         {
-            Sexo sexo = obj as Sexo;
+            EPI epi = obj as EPI;
 
-            if (sexo == null)
+            if (epi == null)
             {
-                MessageBox.Show("Objeto Sexo inválido.");
+                MessageBox.Show("Objeto EPI inválido.");
                 return;
             }
 
@@ -74,8 +78,12 @@ namespace CheckList_Digital.controler
             {
                 using (var cmd = new SqlCommand(sqlEditar, con))
                 {
-                    cmd.Parameters.AddWithValue("@pNome", sexo.Nome_Sexo);
-                    cmd.Parameters.AddWithValue("@pId_Sexo", sexo.Id_Sexo);
+                    cmd.Parameters.AddWithValue("@pnome", epi.Nome_EPI);
+                    cmd.Parameters.AddWithValue("@pdata_inspecao", epi.Data_Inspecao);
+                    cmd.Parameters.AddWithValue("@psubstituicao", epi.Substituicao);
+                    cmd.Parameters.AddWithValue("@pdescricao", epi.Descricao);
+                    cmd.Parameters.AddWithValue("@pvalidade", epi.Validade.HasValue ? (object)epi.Validade.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@pId_EPI", epi.Id_EPI);
                     cmd.CommandType = CommandType.Text;
 
                     try
@@ -84,7 +92,7 @@ namespace CheckList_Digital.controler
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Sexo alterado com sucesso.");
+                            MessageBox.Show("EPI alterado com sucesso.");
                         }
                     }
                     catch (Exception ex)
@@ -95,13 +103,13 @@ namespace CheckList_Digital.controler
             }
         }
 
-        public void ApagaDados(int id_Sexo)
+        public void ApagaDados(int id_EPI)
         {
             using (var con = GetConnection())
             {
                 using (var cmd = new SqlCommand(sqlApagar, con))
                 {
-                    cmd.Parameters.AddWithValue("@Id_Sexo", id_Sexo);
+                    cmd.Parameters.AddWithValue("@Id_EPI", id_EPI);
                     cmd.CommandType = CommandType.Text;
 
                     try
@@ -110,12 +118,12 @@ namespace CheckList_Digital.controler
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show($"Sexo apagado com sucesso! Código de Sexo: {id_Sexo}");
+                            MessageBox.Show($"EPI apagado com sucesso! Código de EPI: {id_EPI}");
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao apagar sexo! Erro: " + ex.Message);
+                        MessageBox.Show("Erro ao apagar EPI! Erro: " + ex.Message);
                     }
                 }
             }
@@ -129,19 +137,19 @@ namespace CheckList_Digital.controler
                 {
                     cmd.CommandType = CommandType.Text;
                     var da = new SqlDataAdapter(cmd);
-                    var sexos = new DataTable();
+                    var epis = new DataTable();
 
                     try
                     {
                         con.Open();
-                        da.Fill(sexos);
+                        da.Fill(epis);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao buscar sexos! Erro: " + ex.Message);
+                        MessageBox.Show("Erro ao buscar EPIs! Erro: " + ex.Message);
                     }
 
-                    return sexos;
+                    return epis;
                 }
             }
         }
@@ -156,19 +164,19 @@ namespace CheckList_Digital.controler
                     cmd.CommandType = CommandType.Text;
 
                     var da = new SqlDataAdapter(cmd);
-                    var sexos = new DataTable();
+                    var epis = new DataTable();
 
                     try
                     {
                         con.Open();
-                        da.Fill(sexos);
+                        da.Fill(epis);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao buscar sexos! Erro: " + ex.Message);
+                        MessageBox.Show("Erro ao buscar EPIs! Erro: " + ex.Message);
                     }
 
-                    return sexos;
+                    return epis;
                 }
             }
         }
@@ -177,7 +185,7 @@ namespace CheckList_Digital.controler
         {
             using (var con = GetConnection())
             {
-                using (var cmd = new SqlCommand("SELECT * FROM Sexo WHERE Nome_Sexo LIKE @TextoBusca", con))
+                using (var cmd = new SqlCommand("SELECT * FROM EPI WHERE Nome_EPI LIKE @TextoBusca", con))
                 {
                     cmd.Parameters.AddWithValue("@TextoBusca", "%" + textoBusca + "%");
 

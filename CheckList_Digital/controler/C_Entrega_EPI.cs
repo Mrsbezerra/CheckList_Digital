@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace CheckList_Digital.controler
 {
-    internal class C_Sexo : ICRUD
+    internal class C_Entrega_EPI : ICRUD
     {
-        private readonly string sqlInserir = "INSERT INTO Sexo (Nome_Sexo) VALUES (@nome_sexo)";
-        private readonly string sqlApagar = "DELETE FROM Sexo WHERE Id_Sexo = @Id_Sexo";
-        private readonly string sqlTodos = "SELECT Id_Sexo as 'Código', Nome_Sexo as Sexo FROM Sexo";
-        private readonly string sqlEditar = "UPDATE Sexo SET Nome_Sexo = @pnome WHERE Id_Sexo = @pId_Sexo";
-        private readonly string sqlBuscaNome = "SELECT Id_Sexo as 'Código', Nome_Sexo as Sexo FROM Sexo WHERE Nome_Sexo LIKE @pNome";
+        private readonly string sqlInserir = "INSERT INTO Entrega_EPI (Data_Entrega_EPI, Id_Colaborador_fk) VALUES (@data_entrega, @id_colaborador)";
+        private readonly string sqlApagar = "DELETE FROM Entrega_EPI WHERE Id_Entrega_EPI = @Id_Entrega_EPI";
+        private readonly string sqlTodos = "SELECT Id_Entrega_EPI as 'Código', Data_Entrega_EPI as 'Data de Entrega', Colaborador.Nome_Colaborador as 'Colaborador' FROM Entrega_EPI INNER JOIN Colaborador ON Entrega_EPI.Id_Colaborador_fk = Colaborador.Id_Colaborador";
+        private readonly string sqlEditar = "UPDATE Entrega_EPI SET Data_Entrega_EPI = @data_entrega, Id_Colaborador_fk = @id_colaborador WHERE Id_Entrega_EPI = @id_entrega";
+        private readonly string sqlBuscaNome = "SELECT Id_Entrega_EPI as 'Código', Data_Entrega_EPI as 'Data de Entrega', Colaborador.Nome_Colaborador as 'Colaborador' FROM Entrega_EPI INNER JOIN Colaborador ON Entrega_EPI.Id_Colaborador_fk = Colaborador.Id_Colaborador WHERE Colaborador.Nome_Colaborador LIKE @pNome";
 
         private SqlConnection GetConnection()
         {
@@ -23,11 +23,11 @@ namespace CheckList_Digital.controler
 
         public void InsereDados(object obj)
         {
-            Sexo sexo = obj as Sexo;
+            Entrega_EPI entrega = obj as Entrega_EPI;
 
-            if (sexo == null)
+            if (entrega == null)
             {
-                MessageBox.Show("Objeto Sexo inválido.");
+                MessageBox.Show("Objeto Entrega_EPI inválido.");
                 return;
             }
 
@@ -35,21 +35,22 @@ namespace CheckList_Digital.controler
             {
                 using (var cmd = new SqlCommand(sqlInserir + "; SELECT SCOPE_IDENTITY();", con))
                 {
-                    cmd.Parameters.AddWithValue("@nome_sexo", sexo.Nome_Sexo);
+                    cmd.Parameters.AddWithValue("@data_entrega", entrega.Data_Entrega_EPI);
+                    cmd.Parameters.AddWithValue("@id_colaborador", entrega.Colaborador.Id_Colaborador);
                     cmd.CommandType = CommandType.Text;
 
                     try
                     {
                         con.Open();
-                        object idSexoObj = cmd.ExecuteScalar();
-                        if (idSexoObj != null)
+                        object idEntregaObj = cmd.ExecuteScalar();
+                        if (idEntregaObj != null)
                         {
-                            int idSexo = Convert.ToInt32(idSexoObj);
-                            MessageBox.Show($"Sexo ({idSexo} - {sexo.Nome_Sexo}) cadastrado com sucesso.");
+                            int idEntrega = Convert.ToInt32(idEntregaObj);
+                            MessageBox.Show($"Entrega de EPI ({idEntrega} - {entrega.Data_Entrega_EPI.ToShortDateString()}) cadastrada com sucesso.");
                         }
                         else
                         {
-                            MessageBox.Show("Falha ao incluir o sexo.");
+                            MessageBox.Show("Falha ao incluir a entrega de EPI.");
                         }
                     }
                     catch (Exception ex)
@@ -62,11 +63,11 @@ namespace CheckList_Digital.controler
 
         public void EditarDados(object obj)
         {
-            Sexo sexo = obj as Sexo;
+            Entrega_EPI entrega = obj as Entrega_EPI;
 
-            if (sexo == null)
+            if (entrega == null)
             {
-                MessageBox.Show("Objeto Sexo inválido.");
+                MessageBox.Show("Objeto Entrega_EPI inválido.");
                 return;
             }
 
@@ -74,8 +75,9 @@ namespace CheckList_Digital.controler
             {
                 using (var cmd = new SqlCommand(sqlEditar, con))
                 {
-                    cmd.Parameters.AddWithValue("@pNome", sexo.Nome_Sexo);
-                    cmd.Parameters.AddWithValue("@pId_Sexo", sexo.Id_Sexo);
+                    cmd.Parameters.AddWithValue("@data_entrega", entrega.Data_Entrega_EPI);
+                    cmd.Parameters.AddWithValue("@id_colaborador", entrega.Colaborador.Id_Colaborador);
+                    cmd.Parameters.AddWithValue("@id_entrega", entrega.Id_Entrega_EPI);
                     cmd.CommandType = CommandType.Text;
 
                     try
@@ -84,7 +86,7 @@ namespace CheckList_Digital.controler
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Sexo alterado com sucesso.");
+                            MessageBox.Show("Entrega de EPI alterada com sucesso.");
                         }
                     }
                     catch (Exception ex)
@@ -95,13 +97,13 @@ namespace CheckList_Digital.controler
             }
         }
 
-        public void ApagaDados(int id_Sexo)
+        public void ApagaDados(int id_Entrega_EPI)
         {
             using (var con = GetConnection())
             {
                 using (var cmd = new SqlCommand(sqlApagar, con))
                 {
-                    cmd.Parameters.AddWithValue("@Id_Sexo", id_Sexo);
+                    cmd.Parameters.AddWithValue("@Id_Entrega_EPI", id_Entrega_EPI);
                     cmd.CommandType = CommandType.Text;
 
                     try
@@ -110,12 +112,12 @@ namespace CheckList_Digital.controler
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show($"Sexo apagado com sucesso! Código de Sexo: {id_Sexo}");
+                            MessageBox.Show($"Entrega de EPI apagada com sucesso! Código de Entrega: {id_Entrega_EPI}");
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao apagar sexo! Erro: " + ex.Message);
+                        MessageBox.Show("Erro ao apagar entrega de EPI! Erro: " + ex.Message);
                     }
                 }
             }
@@ -129,19 +131,19 @@ namespace CheckList_Digital.controler
                 {
                     cmd.CommandType = CommandType.Text;
                     var da = new SqlDataAdapter(cmd);
-                    var sexos = new DataTable();
+                    var entregas = new DataTable();
 
                     try
                     {
                         con.Open();
-                        da.Fill(sexos);
+                        da.Fill(entregas);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao buscar sexos! Erro: " + ex.Message);
+                        MessageBox.Show("Erro ao buscar entregas de EPI! Erro: " + ex.Message);
                     }
 
-                    return sexos;
+                    return entregas;
                 }
             }
         }
@@ -156,19 +158,19 @@ namespace CheckList_Digital.controler
                     cmd.CommandType = CommandType.Text;
 
                     var da = new SqlDataAdapter(cmd);
-                    var sexos = new DataTable();
+                    var entregas = new DataTable();
 
                     try
                     {
                         con.Open();
-                        da.Fill(sexos);
+                        da.Fill(entregas);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Erro ao buscar sexos! Erro: " + ex.Message);
+                        MessageBox.Show("Erro ao buscar entregas de EPI! Erro: " + ex.Message);
                     }
 
-                    return sexos;
+                    return entregas;
                 }
             }
         }
@@ -177,7 +179,7 @@ namespace CheckList_Digital.controler
         {
             using (var con = GetConnection())
             {
-                using (var cmd = new SqlCommand("SELECT * FROM Sexo WHERE Nome_Sexo LIKE @TextoBusca", con))
+                using (var cmd = new SqlCommand("SELECT * FROM Entrega_EPI WHERE Data_Entrega_EPI LIKE @TextoBusca", con))
                 {
                     cmd.Parameters.AddWithValue("@TextoBusca", "%" + textoBusca + "%");
 
@@ -190,3 +192,4 @@ namespace CheckList_Digital.controler
         }
     }
 }
+

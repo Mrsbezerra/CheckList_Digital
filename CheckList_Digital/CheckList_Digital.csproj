@@ -187,6 +187,19 @@
     </Compile>
     <Compile Include="conexao\ConectaBanco.cs" />
     <Compile Include="controler\C_Cargo.cs" />
+    <Compile Include="controler\C_Colaborador.cs" />
+    <Compile Include="controler\C_Entrega_EPI.cs" />
+    <Compile Include="controler\C_EPI.cs" />
+    <Compile Include="controler\C_Inspecao.cs" />
+    <Compile Include="controler\C_Inspecao_Colaborador.cs" />
+    <Compile Include="controler\C_Inspecao_Setor.cs" />
+    <Compile Include="controler\C_Item_CheckList.cs" />
+    <Compile Include="controler\C_Itens_Entrega_EPI.cs" />
+    <Compile Include="controler\C_Itens_Inspecao_Colaborador.cs" />
+    <Compile Include="controler\C_Itens_Inspecao_Setor.cs" />
+    <Compile Include="controler\C_Relatorio_Risco.cs" />
+    <Compile Include="controler\C_Resultado_CheckList.cs" />
+    <Compile Include="controler\C_Setor.cs" />
     <Compile Include="controler\C_Sexo.cs" />
     <Compile Include="controler\C_ICRUD.cs" />
     <Compile Include="controler\C_Tipo_Usuario.cs" />

@@ -33,7 +33,7 @@ namespace CheckList_Digital.view
 
             using (SqlConnection con = new ConectaBanco().ConectaSqlServer())
             {
-                string query = "SELECT IDENT_CURRENT('sexo') + 1";
+                string query = "SELECT MAX(Id_Sexo) + 1 FROM sexo";  // Assumindo que a coluna que armazena o ID é 'Id_Sexo'
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try

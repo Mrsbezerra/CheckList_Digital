@@ -17,4 +17,15 @@ namespace CheckList_Digital.controler
 
         DataTable BuscarTodos();
     }
+
+    internal interface ICRUD2
+    {
+        void InsereDados(Object obj);
+
+        void EditarDados(Object obj);
+
+        void ApagaDados(int cod, int cod2);
+
+        DataTable BuscarTodos();
+    }
 }
