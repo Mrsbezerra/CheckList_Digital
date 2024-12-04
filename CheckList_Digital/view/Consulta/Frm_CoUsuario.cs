@@ -23,7 +23,7 @@ namespace CheckList_Digital.view.Consulta
                 TxtEmail.Text = DgvUsuario.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                 TxtSexo.Text = DgvUsuario.Rows[e.RowIndex].Cells["Sexo"].Value.ToString();
                 TxtCargo.Text = DgvUsuario.Rows[e.RowIndex].Cells["Cargo"].Value.ToString();
-                TxtTipo.Text = DgvUsuario.Rows[e.RowIndex].Cells["Tipo_Usuario"].Value.ToString();
+                TxtTipo.Text = DgvUsuario.Rows[e.RowIndex].Cells["Tipo"].Value.ToString();
             }
         }
         private void BtnMostrar_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace CheckList_Digital.view.Consulta
             string tipoUsuario = TxtTipo.Text.Trim();
 
             // Query SQL com JOIN para buscar pelo Nome do Sexo (usando o ID do Sexo)
-            string query = "SELECT u.*, s.Nome_Sexo, c.Nome_Cargo, t.Nome_Tipo_Usuario FROM Usuario u " +
+            string query = "SELECT u.*, s.Nome_Sexo as Sexo, c.Nome_Cargo as Cargo, t.Nome_Tipo as Tipo FROM Usuario u " +
                            "LEFT JOIN Sexo s ON u.Id_Sexo_fk = s.Id_Sexo " + // JOIN entre as tabelas Usuario e Sexo
                            "LEFT JOIN Cargo c ON u.Id_Cargo_fk = c.Id_Cargo " + // JOIN entre as tabelas Usuario e Cargo
                            "LEFT JOIN Tipo_Usuario t ON u.Id_Tipo_Usuario_fk = t.Id_Tipo_Usuario " + // JOIN entre as tabelas Usuario e Tipo_Usuario
@@ -50,7 +50,7 @@ namespace CheckList_Digital.view.Consulta
             }
             if (!string.IsNullOrEmpty(nomeUsuario))
             {
-                query += " AND u.Nome_Usuario LIKE @Nome_Usuario";
+                query += " AND u.Nome LIKE @Nome";
             }
             if (!string.IsNullOrEmpty(login))
             {
@@ -85,9 +85,9 @@ namespace CheckList_Digital.view.Consulta
                     }
                     if (!string.IsNullOrEmpty(nomeUsuario))
                     {
-                        command.Parameters.AddWithValue("@Nome_Usuario", "%" + nomeUsuario + "%");
+                        command.Parameters.AddWithValue("@Nome", "%" + nomeUsuario + "%");
                     }
-                    if (!string.IsNullOrEmpty(nomeUsuario))
+                    if (!string.IsNullOrEmpty(login))
                     {
                         command.Parameters.AddWithValue("@Login", "%" + login + "%");
                     }
@@ -154,15 +154,19 @@ namespace CheckList_Digital.view.Consulta
             TxtNome_Usuario.Clear();
             TxtId_Usuario.Clear();
             TxtLogin.Clear();
+            TxtEmail.Clear();
+            TxtSexo.Clear();
+            TxtCargo.Clear();
+            TxtTipo.Clear();
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {
             using (Frm_CCargo frmCsexo = new Frm_CCargo())
                 {
-                    this.Hide(); // Esconde o formulário atual temporariamente
-                    frmCsexo.ShowDialog(); // Mostra o novo formulário
+                    this.Hide();
+                    frmCsexo.ShowDialog();
                 }
-                this.Close(); // Fecha o formulário atual após o fechamento de Frm_SubMenu_Cadastroo
+                this.Close();
         }
         private void AtualizarTotalRegistrosVisiveis()
         {
@@ -179,12 +183,21 @@ namespace CheckList_Digital.view.Consulta
                     if (selectedIndex >= 0)
                     {
                         DataGridViewRow selectedRow = DgvUsuario.Rows[selectedIndex];
-                        int idCargo = Convert.ToInt32(selectedRow.Cells["Id_Cargo"].Value);
-                        string nomeCargo = Convert.ToString(selectedRow.Cells["Nome_Cargo"].Value);
-                        string descCargo = Convert.ToString(selectedRow.Cells["Descricao_Cargo"].Value);
-                        TxtId_Usuario.Text = idCargo.ToString();
-                        TxtNome_Usuario.Text = nomeCargo;
-                        TxtLogin.Text = descCargo;
+                        int idUsuario = Convert.ToInt32(selectedRow.Cells["Id_Usuario"].Value);
+                        string nomeUsuario = Convert.ToString(selectedRow.Cells["Nome"].Value);
+                        string login = Convert.ToString(selectedRow.Cells["Login"].Value);
+                        string emailUsuario = Convert.ToString(selectedRow.Cells["Email"].Value);
+                        string nomeSexo = Convert.ToString(selectedRow.Cells["Sexo"].Value);
+                        string cargoUsuario = Convert.ToString(selectedRow.Cells["Cargo"].Value);
+                        string tipoUsuario = Convert.ToString(selectedRow.Cells["Tipo"].Value);
+
+                        TxtId_Usuario.Text = idUsuario.ToString();
+                        TxtNome_Usuario.Text = nomeUsuario;
+                        TxtLogin.Text = login;
+                        TxtEmail.Text = emailUsuario;
+                        TxtSexo.Text = nomeSexo;
+                        TxtCargo.Text = cargoUsuario;
+                        TxtTipo.Text = tipoUsuario;
                     }
                 }
             }

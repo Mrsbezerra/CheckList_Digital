@@ -26,6 +26,17 @@ namespace CheckList_Digital.model
 
         public Usuario() { }
 
-       
+        public Usuario(int idUsuario, string nome, string login, string senha, string email, Sexo sexo, Cargo cargo, Tipo_Usuario tipoUsuario)
+        {
+            Id_Usuario = idUsuario;
+            Nome = nome ?? throw new ArgumentNullException(nameof(nome), "O nome não pode ser nulo.");
+            Login = login ?? throw new ArgumentNullException(nameof(login), "O login não pode ser nulo.");
+            Senha = senha ?? throw new ArgumentNullException(nameof(senha), "A senha não pode ser nula.");
+            Email = email ?? throw new ArgumentNullException(nameof(email), "O e-mail não pode ser nulo.");
+            Sexo = sexo ?? throw new ArgumentNullException(nameof(sexo), "O sexo não pode ser nulo.");
+            Cargo = cargo ?? throw new ArgumentNullException(nameof(cargo), "O cargo não pode ser nulo.");
+            Tipo_Usuario = tipoUsuario ?? throw new ArgumentNullException(nameof(tipoUsuario), "O tipo de usuário não pode ser nulo.");
+        }
+        public override string ToString() => $"{Nome} ({Login})";
     }
 }

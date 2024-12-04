@@ -159,15 +159,15 @@
             this.DgvUsuario.AllowUserToAddRows = false;
             this.DgvUsuario.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.DgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvUsuario.Location = new System.Drawing.Point(22, 373);
+            this.DgvUsuario.Location = new System.Drawing.Point(22, 384);
             this.DgvUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DgvUsuario.MultiSelect = false;
             this.DgvUsuario.Name = "DgvUsuario";
             this.DgvUsuario.ReadOnly = true;
             this.DgvUsuario.RowHeadersWidth = 62;
-            this.DgvUsuario.Size = new System.Drawing.Size(1142, 301);
+            this.DgvUsuario.Size = new System.Drawing.Size(1142, 290);
             this.DgvUsuario.TabIndex = 55;
-            this.DgvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCargo_CellContentClick);
+            this.DgvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsuario_CellContentClick);
             // 
             // label1
             // 
@@ -183,10 +183,11 @@
             // LblTotalRegistro2
             // 
             this.LblTotalRegistro2.AutoSize = true;
+            this.LblTotalRegistro2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTotalRegistro2.Location = new System.Drawing.Point(1101, 348);
             this.LblTotalRegistro2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblTotalRegistro2.Name = "LblTotalRegistro2";
-            this.LblTotalRegistro2.Size = new System.Drawing.Size(18, 20);
+            this.LblTotalRegistro2.Size = new System.Drawing.Size(29, 30);
             this.LblTotalRegistro2.TabIndex = 57;
             this.LblTotalRegistro2.Text = "0";
             // 
