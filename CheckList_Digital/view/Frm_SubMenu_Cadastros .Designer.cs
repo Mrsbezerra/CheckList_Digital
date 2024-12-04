@@ -398,6 +398,7 @@ namespace CheckList_Digital.view
             this.inspençãoSetorToolStripMenuItem.Size = new System.Drawing.Size(242, 27);
             this.inspençãoSetorToolStripMenuItem.Text = "Inspenção Setor";
             this.inspençãoSetorToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.inspençãoSetorToolStripMenuItem.Click += new System.EventHandler(this.inspençãoSetorToolStripMenuItem_Click);
             // 
             // itemToolStripMenuItem
             // 

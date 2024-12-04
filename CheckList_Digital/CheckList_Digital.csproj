@@ -239,6 +239,12 @@
     <Compile Include="view\Cadastros\Frm_CCargo.Designer.cs">
       <DependentUpon>Frm_CCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Cadastros\Frm_CInspecaoSetor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Cadastros\Frm_CInspecaoSetor.Designer.cs">
+      <DependentUpon>Frm_CInspecaoSetor.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Cadastros\Frm_CSetor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CCargo.resx">
       <DependentUpon>Frm_CCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Cadastros\Frm_CInspecaoSetor.resx">
+      <DependentUpon>Frm_CInspecaoSetor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CSetor.resx">
       <DependentUpon>Frm_CSetor.cs</DependentUpon>

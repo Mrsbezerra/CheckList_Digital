@@ -117,5 +117,15 @@ namespace CheckList_Digital.view
             }
             this.Close();
         }
+
+        private void inspençãoSetorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Frm_CInspecaoSetor frmCinspecaosetor = new Frm_CInspecaoSetor())
+            {
+                this.Hide();
+                frmCinspecaosetor.ShowDialog();
+            }
+            this.Close();
+        }
     }
 }
