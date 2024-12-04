@@ -9,31 +9,33 @@ using CheckList_Digital.view.Frm_Relatorio;
 
 namespace CheckList_Digital.view
 {
-    public partial class Frm_CTipoUsuario : Form
+    public partial class Frm_CSetor : Form
     {
         private bool novo = true;
 
-        public Frm_CTipoUsuario()
+        public Frm_CSetor()
         {
             InitializeComponent();
         }
         private void AtivarTexts()
         {
-            TxtId_TipoUsuario.Enabled = false; 
-            TxtNome_Tipo.Enabled = true;
+            TxtId_Setor.Enabled = false; 
+            TxtNome_Setor.Enabled = true;
+            TxtDescSetor.Enabled = true;
         }
         private void DesabilitaTexts()
         {
-            TxtId_TipoUsuario.Enabled = false;
-            TxtNome_Tipo.Enabled = false;
+            TxtId_Setor.Enabled = false;
+            TxtNome_Setor.Enabled = false;
+            TxtDescSetor.Enabled = false;
         }
-        private int ObterProximoIdTipoUsuario()
+        private int ObterProximoIdSetor()
         {
             int proximoId = 1;
 
             using (SqlConnection con = new ConectaBanco().ConectaSqlServer())
             {
-                string query = "SELECT IDENT_CURRENT('tipo_usuario') + 1";
+                string query = "SELECT IDENT_CURRENT('setor') + 1";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try
@@ -56,15 +58,16 @@ namespace CheckList_Digital.view
         }
         private void LimparCampos()
         {
-            TxtId_TipoUsuario.Text = string.Empty;
-            TxtNome_Tipo.Text = string.Empty;
+            TxtId_Setor.Text = string.Empty;
+            TxtNome_Setor.Text = string.Empty;
+            TxtDescSetor.Text = string.Empty;
         }
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             AtivarTexts();
-            int proximoId = ObterProximoIdTipoUsuario();
-            TxtId_TipoUsuario.Text = proximoId.ToString();
-            TxtNome_Tipo.Focus();
+            int proximoId = ObterProximoIdSetor();
+            TxtId_Setor.Text = proximoId.ToString();
+            TxtNome_Setor.Focus();
             BtnNovo.Enabled = false;
             BtnSalvar.Enabled = true;
             BtnCancelar.Enabled = true;
@@ -74,36 +77,43 @@ namespace CheckList_Digital.view
             BtnRelatorio.Enabled = false;
             BtnAjuda.Enabled = true;
         }
-        private void txtNome_TipoUsuario_TextChanged(object sender, EventArgs e)
+        private void txtNome_Setor_TextChanged(object sender, EventArgs e)
         {
-            TxtNome_Tipo.Text = TxtNome_Tipo.Text.ToUpper();
-            TxtNome_Tipo.SelectionStart = TxtNome_Tipo.Text.Length;
+            TxtNome_Setor.Text = TxtNome_Setor.Text.ToUpper();
+            TxtNome_Setor.SelectionStart = TxtNome_Setor.Text.Length;
         }
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtNome_Tipo.Text))
+            if (string.IsNullOrEmpty(TxtNome_Setor.Text))
             {
-                MessageBox.Show("O Nome do TipoUsuario não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O Nome do Setor não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Tipo_Usuario tipo_usuario = new Tipo_Usuario
+            if (string.IsNullOrEmpty(TxtDescSetor.Text))
             {
-                Nome_Tipo = TxtNome_Tipo.Text,
+                MessageBox.Show("A Descrição do Setor não pode estar vazia.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Setor setor = new Setor
+            {
+                Nome_Setor = TxtNome_Setor.Text,
+                Descricao_Setor = TxtDescSetor.Text
             };
 
             try
             {
-                C_Tipo_Usuario ca = new C_Tipo_Usuario();
+                C_Setor ca = new C_Setor();
 
                 if (novo)
                 {
-                    ca.InsereDados(tipo_usuario);
+                    ca.InsereDados(setor);
                 }
                 else
                 {
-                    tipo_usuario.Id_Tipo_Usuario = int.Parse(TxtId_TipoUsuario.Text);
-                    ca.EditarDados(tipo_usuario);
+                    setor.Id_Setor = int.Parse(TxtId_Setor.Text);
+                    ca.EditarDados(setor);
                     novo = true;
                 }
 
@@ -127,11 +137,13 @@ namespace CheckList_Digital.view
         {
             try
             {
+                // Cria uma instância de ConectaBanco
                 ConectaBanco conectaBanco = new ConectaBanco();
 
+                // Usa a instância para obter a conexão
                 using (SqlConnection conn = conectaBanco.ConectaSqlServer())
                 {
-                    string query = "DELETE FROM TipoUsuario WHERE Nome_Tipo = ''";
+                    string query = "DELETE FROM Setor WHERE Nome_Setor = '' OR Descricao_Setor = ''";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         conn.Open();
@@ -159,24 +171,24 @@ namespace CheckList_Digital.view
         }
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            TxtId_TipoUsuario.Enabled = true;
-            TxtId_TipoUsuario.Focus();
+            TxtId_Setor.Enabled = true;
+            TxtId_Setor.Focus();
             BtnCancelar.Enabled = true;
             BtnNovo.Enabled=false;
             BtnConsultar.Enabled=false;
             BtnRelatorio.Enabled=false;
             novo = false;
         }
-        private string BuscarNomeTipoUsuarioPorId(int idTipoUsuario)
+        private string BuscarNomeSetorPorId(int idSetor)
         {
-            string nomeTipoUsuario = null;
+            string nomeSetor = null;
             ConectaBanco cb = new ConectaBanco();
 
             using (SqlConnection con = cb.ConectaSqlServer())
             {
-                string query = "SELECT Nome_TipoUsuario FROM TipoUsuario WHERE Id_TipoUsuario = @Id_TipoUsuario";
+                string query = "SELECT Nome_Setor FROM Setor WHERE Id_Setor = @Id_Setor";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Id_Tipo_Usuario", idTipoUsuario);
+                cmd.Parameters.AddWithValue("@Id_Setor", idSetor);
 
                 try
                 {
@@ -185,29 +197,29 @@ namespace CheckList_Digital.view
 
                     if (result != null)
                     {
-                        nomeTipoUsuario = result.ToString();
+                        nomeSetor = result.ToString();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao buscar o nome do tipo_usuario: " + ex.Message);
+                    MessageBox.Show("Erro ao buscar o nome do setor: " + ex.Message);
                 }
-                TxtNome_Tipo.Enabled = true;
+                TxtNome_Setor.Enabled = true;
                 BtnNovo.Enabled = false;
                 BtnSalvar.Enabled = true;
             }
-            return nomeTipoUsuario;
+            return nomeSetor;
         }
-        private void BuscarNomeTipoUsuario()
+        private void BuscarNomeSetor()
         {
-            int idTipoUsuario;
-            if (int.TryParse(TxtId_TipoUsuario.Text, out idTipoUsuario))
+            int idSetor;
+            if (int.TryParse(TxtId_Setor.Text, out idSetor))
             {
-                string nomeTipoUsuario = BuscarNomeTipoUsuarioPorId(idTipoUsuario);
-                if (!string.IsNullOrEmpty(nomeTipoUsuario))
+                string nomeSetor = BuscarNomeSetorPorId(idSetor);
+                if (!string.IsNullOrEmpty(nomeSetor))
                 {
-                    TxtNome_Tipo.Text = nomeTipoUsuario;
-                    TxtNome_Tipo.Enabled = true;
+                    TxtNome_Setor.Text = nomeSetor;
+                    TxtNome_Setor.Enabled = true;
                     BtnNovo.Enabled = false;
                     BtnSalvar.Enabled = true;
                     BtnEditar.Enabled = false;
@@ -218,10 +230,10 @@ namespace CheckList_Digital.view
                 }
                 else
                 {
-                    MessageBox.Show("Tipo Usuario não encontrado para o código informado.");
-                    TxtNome_Tipo.Clear();
-                    TxtId_TipoUsuario.Focus();
-                    TxtNome_Tipo.Enabled = false;
+                    MessageBox.Show("Setor não encontrado para o código informado.");
+                    TxtNome_Setor.Clear();
+                    TxtId_Setor.Focus();
+                    TxtNome_Setor.Enabled = false;
                 }
             }
             else
@@ -229,24 +241,24 @@ namespace CheckList_Digital.view
                 MessageBox.Show("Por favor, digite um código válido.");
             }
         }
-        private void TxtId_TipoUsuario_KeyDown(object sender, KeyEventArgs e)
+        private void txtId_Setor_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                int idTipoUsuario;
+                int idSetor;
 
-                if (int.TryParse(TxtId_TipoUsuario.Text, out idTipoUsuario))
+                if (int.TryParse(TxtId_Setor.Text, out idSetor))
                 {
-                    string nomeTipoUsuario = BuscarNomeTipoUsuarioPorId(idTipoUsuario);
+                    string nomeSetor = BuscarNomeSetorPorId(idSetor);
 
-                    if (!string.IsNullOrEmpty(nomeTipoUsuario))
+                    if (!string.IsNullOrEmpty(nomeSetor))
                     {
-                        TxtNome_Tipo.Text = nomeTipoUsuario;
+                        TxtNome_Setor.Text = nomeSetor;
                     }
                     else
                     {
-                        MessageBox.Show("Tipo Usuario não encontrado para o código informado.");
-                        TxtNome_Tipo.Clear();
+                        MessageBox.Show("Setor não encontrado para o código informado.");
+                        TxtNome_Setor.Clear();
                     }
                 }
                 else
@@ -258,13 +270,13 @@ namespace CheckList_Digital.view
                 e.SuppressKeyPress = true;
             }
         }
-        private void TxtId_TipoUsuario_Leave(object sender, EventArgs e)
+        private void txtId_Setor_Leave(object sender, EventArgs e)
         {
-            BuscarNomeTipoUsuario();
+            BuscarNomeSetor();
         }
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtId_TipoUsuario.Text))
+            if (string.IsNullOrEmpty(TxtId_Setor.Text))
             {
                 MessageBox.Show("Por favor, selecione um registro para excluir.");
                 return;
@@ -273,13 +285,13 @@ namespace CheckList_Digital.view
             DialogResult confirmacao = MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmacao == DialogResult.Yes)
             {
-                int idTipoUsuario;
-                if (int.TryParse(TxtId_TipoUsuario.Text, out idTipoUsuario))
+                int idSetor;
+                if (int.TryParse(TxtId_Setor.Text, out idSetor))
                 {
                     try
                     {
-                        C_Tipo_Usuario ca = new C_Tipo_Usuario();
-                        ca.ApagaDados(idTipoUsuario);
+                        C_Setor ca = new C_Setor();
+                        ca.ApagaDados(idSetor);
 
                         MessageBox.Show("Registro excluído com sucesso.");
 
@@ -307,10 +319,10 @@ namespace CheckList_Digital.view
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            using (Frm_CoTipoUsuario frmCotipo_usuario = new Frm_CoTipoUsuario())
+            using (Frm_CoSetor frmCosetor = new Frm_CoSetor())
             {
                 this.Hide();
-                frmCotipo_usuario.ShowDialog();
+                frmCosetor.ShowDialog();
             }
             this.Close();
         }
@@ -325,10 +337,10 @@ namespace CheckList_Digital.view
         }
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
-            using (FrmRelTipoUsuario frmReltipo_usuario = new FrmRelTipoUsuario())
+            using (FrmRelSetor frmRelsetor = new FrmRelSetor())
             {
                 this.Hide();
-                frmReltipo_usuario.ShowDialog();
+                frmRelsetor.ShowDialog();
                 this.Show();
             }
         }

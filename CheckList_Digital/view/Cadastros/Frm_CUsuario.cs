@@ -181,9 +181,6 @@ namespace CheckList_Digital.view
                     novo = true; // Reseta a variável para o próximo uso
                 }
 
-                MessageBox.Show("Dados salvos com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Atualiza o estado do formulário
                 DesabilitaTexts();
                 LimparCampos();
                 BtnNovo.Enabled = true;
@@ -403,10 +400,10 @@ namespace CheckList_Digital.view
         }
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
-            using (FrmRelCargo frmRelcargo = new FrmRelCargo())
+            using (FrmRelUsuario frmRelusuario = new FrmRelUsuario())
             {
                 this.Hide();
-                frmRelcargo.ShowDialog();
+                frmRelusuario.ShowDialog();
                 this.Show();
             }
         }

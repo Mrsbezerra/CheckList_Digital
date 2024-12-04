@@ -117,8 +117,6 @@ namespace CheckList_Digital.view
                     novo = true;
                 }
 
-                MessageBox.Show("Dados salvos com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 DesabilitaTexts();
                 LimparCampos();
                 BtnNovo.Enabled = true;

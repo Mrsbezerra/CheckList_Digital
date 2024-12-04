@@ -107,5 +107,15 @@ namespace CheckList_Digital.view
             }
             this.Close();
         }
+
+        private void setorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Frm_CSetor frmCsetor = new Frm_CSetor())
+            {
+                this.Hide();
+                frmCsetor.ShowDialog();
+            }
+            this.Close();
+        }
     }
 }

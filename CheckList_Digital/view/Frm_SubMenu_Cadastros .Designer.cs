@@ -173,12 +173,12 @@ namespace CheckList_Digital.view
             // 
             // btnCadastros
             // 
+            this.btnCadastros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCadastros.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCadastros.FlatAppearance.BorderSize = 0;
             this.btnCadastros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastros.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCadastros.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastros.Image")));
+            this.btnCadastros.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnCadastros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastros.Location = new System.Drawing.Point(0, 123);
             this.btnCadastros.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -189,7 +189,7 @@ namespace CheckList_Digital.view
             this.btnCadastros.Text = "   Cadastros";
             this.btnCadastros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCadastros.UseVisualStyleBackColor = true;
+            this.btnCadastros.UseVisualStyleBackColor = false;
             this.btnCadastros.Click += new System.EventHandler(this.btnCadastros_Click);
             // 
             // pictureBox1
@@ -461,6 +461,7 @@ namespace CheckList_Digital.view
             this.setorToolStripMenuItem.Size = new System.Drawing.Size(242, 27);
             this.setorToolStripMenuItem.Text = "Setor";
             this.setorToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.setorToolStripMenuItem.Click += new System.EventHandler(this.setorToolStripMenuItem_Click);
             // 
             // sexoToolStripMenuItem
             // 
