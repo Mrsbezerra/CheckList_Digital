@@ -89,6 +89,11 @@ namespace CheckList_Digital.view
                 MessageBox.Show("A data da inspeção não pode estar vazia.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!DateTime.TryParse(MtbDataInspecao.Text, out DateTime data))
+            {
+                MessageBox.Show("Por favor, insira uma data válida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             // Verifica se o usuário foi selecionado no ComboBox
             if (CmbUsuInspecaoSetor.SelectedValue == null)
@@ -322,12 +327,12 @@ namespace CheckList_Digital.view
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            /*using (Frm_CoInspecaoSetor frmCosetor = new Frm_CoInspecaoSetor())
+            using (Frm_CoInspecaoSetor frmCosetor = new Frm_CoInspecaoSetor())
             {
                 this.Hide();
                 frmCosetor.ShowDialog();
             }
-            this.Close();*/
+            this.Close();
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {

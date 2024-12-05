@@ -275,6 +275,12 @@
     <Compile Include="view\Consulta\Frm_CoCargo.Designer.cs">
       <DependentUpon>Frm_CoCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Consulta\Frm_CoInspecaoSetor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Consulta\Frm_CoInspecaoSetor.Designer.cs">
+      <DependentUpon>Frm_CoInspecaoSetor.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Consulta\Frm_CoSetor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Consulta\Frm_CoCargo.resx">
       <DependentUpon>Frm_CoCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Consulta\Frm_CoInspecaoSetor.resx">
+      <DependentUpon>Frm_CoInspecaoSetor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Consulta\Frm_CoSetor.resx">
       <DependentUpon>Frm_CoSetor.cs</DependentUpon>
