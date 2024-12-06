@@ -380,6 +380,7 @@ namespace CheckList_Digital.view
             this.inspeToolStripMenuItem.Size = new System.Drawing.Size(242, 27);
             this.inspeToolStripMenuItem.Text = "Inspeção";
             this.inspeToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.inspeToolStripMenuItem.Click += new System.EventHandler(this.inspeToolStripMenuItem_Click);
             // 
             // inspençãoColaboradorToolStripMenuItem
             // 
