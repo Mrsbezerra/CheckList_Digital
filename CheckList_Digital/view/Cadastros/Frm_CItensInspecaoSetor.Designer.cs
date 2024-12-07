@@ -1,6 +1,6 @@
-﻿namespace CheckList_Digital.view
+﻿/*namespace CheckList_Digital.view
 {
-    partial class Frm_CInspecaoSetor
+    partial class Frm_CItensInspecaoSetor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CInspecaoSetor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CItensInspecaoSetor));
             this.BtnNovo = new System.Windows.Forms.Button();
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
@@ -37,19 +37,23 @@
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.BtnRelatorio = new System.Windows.Forms.Button();
-            this.LblData_InspecaoSetor = new System.Windows.Forms.Label();
+            this.LblSetor = new System.Windows.Forms.Label();
             this.LblId_InspecaoSetor = new System.Windows.Forms.Label();
-            this.TxtId_InspecaoSetor = new System.Windows.Forms.TextBox();
             this.BtnAjuda = new System.Windows.Forms.Button();
             this.BtnSair = new System.Windows.Forms.Button();
-            this.LblUsuario = new System.Windows.Forms.Label();
-            this.MtbDataInspecao = new System.Windows.Forms.MaskedTextBox();
             this.CmbUsuInspecaoSetor = new System.Windows.Forms.ComboBox();
-            this.checkListDBDataSet = new CheckList_Digital.CheckListDBDataSet();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkListDBDataSet = new CheckList_Digital.CheckListDBDataSet();
             this.usuarioTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.UsuarioTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).BeginInit();
+            this.inspecaoSetorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inspecao_SetorTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.Inspecao_SetorTableAdapter();
+            this.CmbSetor = new System.Windows.Forms.ComboBox();
+            this.setorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.setorTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.SetorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspecaoSetorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnNovo
@@ -146,16 +150,16 @@
             this.BtnRelatorio.UseVisualStyleBackColor = true;
             this.BtnRelatorio.Click += new System.EventHandler(this.BtnRelatorio_Click);
             // 
-            // LblData_InspecaoSetor
+            // LblSetor
             // 
-            this.LblData_InspecaoSetor.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblData_InspecaoSetor.AutoSize = true;
-            this.LblData_InspecaoSetor.Location = new System.Drawing.Point(160, 69);
-            this.LblData_InspecaoSetor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblData_InspecaoSetor.Name = "LblData_InspecaoSetor";
-            this.LblData_InspecaoSetor.Size = new System.Drawing.Size(183, 20);
-            this.LblData_InspecaoSetor.TabIndex = 46;
-            this.LblData_InspecaoSetor.Text = "Data de Inspeção Setor:";
+            this.LblSetor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblSetor.AutoSize = true;
+            this.LblSetor.Location = new System.Drawing.Point(291, 69);
+            this.LblSetor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblSetor.Name = "LblSetor";
+            this.LblSetor.Size = new System.Drawing.Size(52, 20);
+            this.LblSetor.TabIndex = 46;
+            this.LblSetor.Text = "Setor:";
             // 
             // LblId_InspecaoSetor
             // 
@@ -167,20 +171,6 @@
             this.LblId_InspecaoSetor.Size = new System.Drawing.Size(159, 20);
             this.LblId_InspecaoSetor.TabIndex = 45;
             this.LblId_InspecaoSetor.Text = "Cód. Inspeção Setor:";
-            // 
-            // TxtId_InspecaoSetor
-            // 
-            this.TxtId_InspecaoSetor.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TxtId_InspecaoSetor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtId_InspecaoSetor.Enabled = false;
-            this.TxtId_InspecaoSetor.Location = new System.Drawing.Point(351, 19);
-            this.TxtId_InspecaoSetor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtId_InspecaoSetor.Name = "TxtId_InspecaoSetor";
-            this.TxtId_InspecaoSetor.Size = new System.Drawing.Size(41, 26);
-            this.TxtId_InspecaoSetor.TabIndex = 43;
-            this.TxtId_InspecaoSetor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtId_InspecaoSetor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_InspecaoSetor_KeyDown);
-            this.TxtId_InspecaoSetor.Leave += new System.EventHandler(this.txtId_InspecaoSetor_Leave);
             // 
             // BtnAjuda
             // 
@@ -207,68 +197,75 @@
             this.BtnSair.UseVisualStyleBackColor = true;
             this.BtnSair.Click += new System.EventHandler(this.BtnSair_Click);
             // 
-            // LblUsuario
-            // 
-            this.LblUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblUsuario.AutoSize = true;
-            this.LblUsuario.Location = new System.Drawing.Point(162, 114);
-            this.LblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(181, 20);
-            this.LblUsuario.TabIndex = 57;
-            this.LblUsuario.Text = "Usuário Inspeção Setor:";
-            // 
-            // MtbDataInspecao
-            // 
-            this.MtbDataInspecao.Enabled = false;
-            this.MtbDataInspecao.Location = new System.Drawing.Point(350, 66);
-            this.MtbDataInspecao.Mask = "00/00/0000";
-            this.MtbDataInspecao.Name = "MtbDataInspecao";
-            this.MtbDataInspecao.Size = new System.Drawing.Size(100, 26);
-            this.MtbDataInspecao.TabIndex = 59;
-            this.MtbDataInspecao.ValidatingType = typeof(System.DateTime);
-            // 
             // CmbUsuInspecaoSetor
             // 
-            this.CmbUsuInspecaoSetor.DataSource = this.usuarioBindingSource;
-            this.CmbUsuInspecaoSetor.DisplayMember = "Nome";
+            this.CmbUsuInspecaoSetor.DataSource = this.inspecaoSetorBindingSource;
+            this.CmbUsuInspecaoSetor.DisplayMember = "Id_Inspecao_Setor";
             this.CmbUsuInspecaoSetor.Enabled = false;
             this.CmbUsuInspecaoSetor.FormattingEnabled = true;
-            this.CmbUsuInspecaoSetor.Location = new System.Drawing.Point(350, 111);
+            this.CmbUsuInspecaoSetor.Location = new System.Drawing.Point(350, 19);
             this.CmbUsuInspecaoSetor.Name = "CmbUsuInspecaoSetor";
-            this.CmbUsuInspecaoSetor.Size = new System.Drawing.Size(475, 28);
+            this.CmbUsuInspecaoSetor.Size = new System.Drawing.Size(100, 28);
             this.CmbUsuInspecaoSetor.TabIndex = 60;
-            this.CmbUsuInspecaoSetor.ValueMember = "Id_Usuario";
-            // 
-            // checkListDBDataSet
-            // 
-            this.checkListDBDataSet.DataSetName = "CheckListDBDataSet";
-            this.checkListDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.CmbUsuInspecaoSetor.ValueMember = "Id_Inspecao_Setor";
             // 
             // usuarioBindingSource
             // 
             this.usuarioBindingSource.DataMember = "Usuario";
             this.usuarioBindingSource.DataSource = this.checkListDBDataSet;
             // 
+            // checkListDBDataSet
+            // 
+            this.checkListDBDataSet.DataSetName = "CheckListDBDataSet";
+            this.checkListDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // usuarioTableAdapter
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // Frm_CInspecaoSetor
+            // inspecaoSetorBindingSource
+            // 
+            this.inspecaoSetorBindingSource.DataMember = "Inspecao_Setor";
+            this.inspecaoSetorBindingSource.DataSource = this.checkListDBDataSet;
+            // 
+            // inspecao_SetorTableAdapter
+            // 
+            this.inspecao_SetorTableAdapter.ClearBeforeFill = true;
+            // 
+            // CmbSetor
+            // 
+            this.CmbSetor.DataSource = this.setorBindingSource;
+            this.CmbSetor.DisplayMember = "Id_Setor";
+            this.CmbSetor.Enabled = false;
+            this.CmbSetor.FormattingEnabled = true;
+            this.CmbSetor.Location = new System.Drawing.Point(350, 66);
+            this.CmbSetor.Name = "CmbSetor";
+            this.CmbSetor.Size = new System.Drawing.Size(547, 28);
+            this.CmbSetor.TabIndex = 61;
+            this.CmbSetor.ValueMember = "Nome_Setor";
+            // 
+            // setorBindingSource
+            // 
+            this.setorBindingSource.DataMember = "Setor";
+            this.setorBindingSource.DataSource = this.checkListDBDataSet;
+            // 
+            // setorTableAdapter
+            // 
+            this.setorTableAdapter.ClearBeforeFill = true;
+            // 
+            // Frm_CItensInspecaoSetor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.ControlBox = false;
+            this.Controls.Add(this.CmbSetor);
             this.Controls.Add(this.CmbUsuInspecaoSetor);
-            this.Controls.Add(this.MtbDataInspecao);
-            this.Controls.Add(this.LblUsuario);
             this.Controls.Add(this.BtnSair);
             this.Controls.Add(this.BtnAjuda);
-            this.Controls.Add(this.LblData_InspecaoSetor);
+            this.Controls.Add(this.LblSetor);
             this.Controls.Add(this.LblId_InspecaoSetor);
-            this.Controls.Add(this.TxtId_InspecaoSetor);
             this.Controls.Add(this.BtnRelatorio);
             this.Controls.Add(this.BtnConsultar);
             this.Controls.Add(this.BtnExcluir);
@@ -278,12 +275,14 @@
             this.Controls.Add(this.BtnNovo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Frm_CInspecaoSetor";
+            this.Name = "Frm_CItensInspecaoSetor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro InspecaoSetor";
-            this.Load += new System.EventHandler(this.Frm_CInspecaoSetor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).EndInit();
+            this.Text = "Cadastro Itens Inspecao Setor";
+            this.Load += new System.EventHandler(this.Frm_CItensInspecaoSetor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspecaoSetorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,16 +297,18 @@
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnConsultar;
         private System.Windows.Forms.Button BtnRelatorio;
-        private System.Windows.Forms.Label LblData_InspecaoSetor;
+        private System.Windows.Forms.Label LblSetor;
         private System.Windows.Forms.Label LblId_InspecaoSetor;
-        private System.Windows.Forms.TextBox TxtId_InspecaoSetor;
         private System.Windows.Forms.Button BtnAjuda;
         private System.Windows.Forms.Button BtnSair;
-        private System.Windows.Forms.Label LblUsuario;
-        private System.Windows.Forms.MaskedTextBox MtbDataInspecao;
         private System.Windows.Forms.ComboBox CmbUsuInspecaoSetor;
         private CheckListDBDataSet checkListDBDataSet;
         private System.Windows.Forms.BindingSource usuarioBindingSource;
         private CheckListDBDataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
+        private System.Windows.Forms.BindingSource inspecaoSetorBindingSource;
+        private CheckListDBDataSetTableAdapters.Inspecao_SetorTableAdapter inspecao_SetorTableAdapter;
+        private System.Windows.Forms.ComboBox CmbSetor;
+        private System.Windows.Forms.BindingSource setorBindingSource;
+        private CheckListDBDataSetTableAdapters.SetorTableAdapter setorTableAdapter;
     }
-}
+}*/

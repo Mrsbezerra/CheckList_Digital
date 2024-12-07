@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace CheckList_Digital.view
 {
-    public partial class Frm_SubMenu_Cadastros : Form
+    public partial class Frm_SubMenu_Relatorios : Form
     {
         private string loginUsuario;
 
-        public Frm_SubMenu_Cadastros()
+        public Frm_SubMenu_Relatorios()
         {
             InitializeComponent();
             this.Text = string.Empty;
@@ -58,8 +58,8 @@ namespace CheckList_Digital.view
 
         private void btnCadastros_Click(object sender, EventArgs e)
         {
-            btnCadastros.BackColor = Color.FromArgb(0, 0, 0);
-            btnCadastros.ForeColor = Color.White;
+            BtnCadastros.BackColor = Color.FromArgb(0, 0, 0);
+            BtnCadastros.ForeColor = Color.White;
 
             Frm_Menu frmMenu = new Frm_Menu();
 
@@ -138,7 +138,36 @@ namespace CheckList_Digital.view
             this.Close();
         }
 
-        private void btnReceitas_Click(object sender, EventArgs e)
+        private void BtnRelatorios_Click(object sender, EventArgs e)
+        {
+            BtnRelatorios.BackColor = Color.FromArgb(0, 0, 0);
+            BtnRelatorios.ForeColor = Color.White;
+
+            Frm_Menu frmMenu = new Frm_Menu();
+
+            frmMenu.Show();
+
+            this.Hide();
+        }
+
+        private void BtnCadastros_Click_1(object sender, EventArgs e)
+        {
+            // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
+            Frm_SubMenu_Cadastros subMenuCadastros = new Frm_SubMenu_Cadastros();
+
+            // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
+            subMenuCadastros.FormClosed += (s, args) =>
+            {
+                // Fecha Frm_Menu ao fechar o submenu
+                this.Close();
+            };
+
+            // Exibe o sub-menu e fecha Frm_Menu
+            subMenuCadastros.Show();
+            this.Hide();
+        }
+
+        private void BtnConsultas_Click(object sender, EventArgs e)
         {
             // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
             Frm_SubMenu_Consultas subMenuConsultas = new Frm_SubMenu_Consultas();
@@ -152,23 +181,6 @@ namespace CheckList_Digital.view
 
             // Exibe o sub-menu e fecha Frm_Menu
             subMenuConsultas.Show();
-            this.Hide();
-        }
-
-        private void btnRelatorios_Click(object sender, EventArgs e)
-        {
-            // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
-            Frm_SubMenu_Relatorios subMenuRelatorios = new Frm_SubMenu_Relatorios();
-
-            // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
-            subMenuRelatorios.FormClosed += (s, args) =>
-            {
-                // Fecha Frm_Menu ao fechar o submenu
-                this.Close();
-            };
-
-            // Exibe o sub-menu e fecha Frm_Menu
-            subMenuRelatorios.Show();
             this.Hide();
         }
     }

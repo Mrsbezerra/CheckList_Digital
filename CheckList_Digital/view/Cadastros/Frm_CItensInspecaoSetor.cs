@@ -1,4 +1,4 @@
-﻿using CheckList_Digital.conexao;
+﻿/*using CheckList_Digital.conexao;
 using CheckList_Digital.controler;
 using CheckList_Digital.model;
 using System;
@@ -9,25 +9,23 @@ using CheckList_Digital.view.Frm_Relatorio;
 
 namespace CheckList_Digital.view
 {
-    public partial class Frm_CInspecaoSetor : Form
+    public partial class Frm_CItensInspecaoSetor : Form
     {
         private bool novo = true;
 
-        public Frm_CInspecaoSetor()
+        public Frm_CItensInspecaoSetor()
         {
             InitializeComponent();
         }
         private void AtivarTexts()
         {
-            TxtId_InspecaoSetor.Enabled = false; 
-            MtbDataInspecao.Enabled = true;
             CmbUsuInspecaoSetor.Enabled = true;
+            CmbSetor.Enabled = true;
         }
         private void DesabilitaTexts()
         {
-            TxtId_InspecaoSetor.Enabled = false;
-            MtbDataInspecao.Enabled = false;
             CmbUsuInspecaoSetor.Enabled = false;
+            CmbSetor.Enabled = false;
         }
         private int ObterProximoIdInspecaoSetor()
         {
@@ -35,7 +33,8 @@ namespace CheckList_Digital.view
 
             using (SqlConnection con = new ConectaBanco().ConectaSqlServer())
             {
-                string query = "SELECT MAX(Id_Inspecao_Setor) + 1 FROM Inspecao_Setor"; // Corrigido
+                string query = string query = "SELECT ISNULL(MAX(Id_Inspecao_Setor), 0) + 1 FROM Inspecao_Setor";
+                // Corrigido
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try
@@ -58,16 +57,15 @@ namespace CheckList_Digital.view
         }
         private void LimparCampos()
         {
-            TxtId_InspecaoSetor.Text = string.Empty;
-            MtbDataInspecao.Text = string.Empty;
             CmbUsuInspecaoSetor.Text = string.Empty;
+            CmbSetor.Text = string.Empty;
         }
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             AtivarTexts();
             int proximoId = ObterProximoIdInspecaoSetor();
             TxtId_InspecaoSetor.Text = proximoId.ToString();
-            MtbDataInspecao.Focus();
+            CmbUsuInspecaoSetor.Focus();
             BtnNovo.Enabled = false;
             BtnSalvar.Enabled = true;
             BtnCancelar.Enabled = true;
@@ -84,51 +82,54 @@ namespace CheckList_Digital.view
         }
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(MtbDataInspecao.Text))
-            {
-                MessageBox.Show("A data da inspeção não pode estar vazia.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!DateTime.TryParse(MtbDataInspecao.Text, out DateTime data))
-            {
-                MessageBox.Show("Por favor, insira uma data válida.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Verifica se o usuário foi selecionado no ComboBox
+            // Validação do ComboBox de usuário (CmbUsuInspecaoSetor)
             if (CmbUsuInspecaoSetor.SelectedValue == null)
             {
                 MessageBox.Show("Por favor, selecione um usuário.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Inspecao_Setor inspecaoSetor = new Inspecao_Setor
+            // Validação do ComboBox de setor (CmbSetor)
+            if (CmbSetor.SelectedValue == null)
             {
-                Data_Inspecao_Setor = DateTime.Parse(MtbDataInspecao.Text),
+                MessageBox.Show("Por favor, selecione um setor.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Criando o objeto de Inspeção de Itens com os valores selecionados
+            InspecaoSetor itemInspecao = new InspecaoSetor
+            {
                 Usuario = new Usuario
                 {
-                    // Captura o ID do usuário selecionado no ComboBox
-                    Id_Usuario = Convert.ToInt32(CmbUsuInspecaoSetor.SelectedValue)
+                    Id_Usuario = Convert.ToInt32(CmbUsuInspecaoSetor.SelectedValue) // Valor selecionado no ComboBox de usuário
+                },
+                Setor = new Setor
+                {
+                    Id_Setor = Convert.ToInt32(CmbSetor.SelectedValue) // Valor selecionado no ComboBox de setor
                 }
             };
 
             try
             {
-                C_Inspecao_Setor controller = new C_Inspecao_Setor();
+                // Controlador para inserir ou editar os dados
+                C_Itens_Inspecao_Setor controller = new C_Itens_Inspecao_Setor();
 
+                // Se for um novo registro (verificado pela variável 'novo')
                 if (novo)
                 {
-                    controller.InsereDados(inspecaoSetor);
+                    controller.InsereDados(itemInspecao); // Inserir dados
                 }
                 else
                 {
-                    inspecaoSetor.Id_Inspecao_Setor = int.Parse(TxtId_InspecaoSetor.Text);
-                    controller.EditarDados(inspecaoSetor);
+                    itemInspecao.Id_InspecaoSetor = int.Parse(TxtId_InspecaoSetor.Text); // Para edição
+                    controller.EditarDados(itemInspecao); // Editar dados
                 }
 
-                DesabilitaTexts();
+                // Desabilitar campos e limpar após salvar
+                DesabilitaCampos();
                 LimparCampos();
 
+                // Habilitar/Desabilitar botões conforme o fluxo
                 BtnNovo.Enabled = true;
                 BtnSalvar.Enabled = false;
                 BtnCancelar.Enabled = false;
@@ -137,10 +138,10 @@ namespace CheckList_Digital.view
             }
             catch (Exception ex)
             {
+                // Exibir erro em caso de falha
                 MessageBox.Show($"Erro ao salvar os dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public void ExcluirRegistrosEmBranco()
         {
             try
@@ -345,20 +346,24 @@ namespace CheckList_Digital.view
         }
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
-            /*using (FrmRelInspecaoSetor frmRelsetor = new FrmRelInspecaoSetor())
+            using (FrmRelInspecaoSetor frmRelsetor = new FrmRelInspecaoSetor())
             {
                 this.Hide();
                 frmRelsetor.ShowDialog();
                 this.Show();
-            }*/
+            }
         }
 
-        private void Frm_CInspecaoSetor_Load(object sender, EventArgs e)
+        private void Frm_CItensInspecaoSetor_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Setor'. Você pode movê-la ou removê-la conforme necessário.
+            this.setorTableAdapter.Fill(this.checkListDBDataSet.Setor);
+            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Inspecao_Setor'. Você pode movê-la ou removê-la conforme necessário.
+            this.inspecao_SetorTableAdapter.Fill(this.checkListDBDataSet.Inspecao_Setor);
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Usuario'. Você pode movê-la ou removê-la conforme necessário.
             this.usuarioTableAdapter.Fill(this.checkListDBDataSet.Usuario);
             CmbUsuInspecaoSetor.SelectedIndex = -1;
 
         }
     }
-}
+}*/

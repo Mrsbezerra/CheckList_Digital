@@ -10,45 +10,45 @@ using System.Data;
 
 namespace CheckList_Digital.view
 {
-    public partial class Frm_CUsuario : Form
+    public partial class Frm_CColaborador : Form
     {
         private bool novo = true;
 
-        public Frm_CUsuario()
+        public Frm_CColaborador()
         {
             InitializeComponent();
         }
        
         private void AtivarTexts()
         {
-            TxtId_Usuario.Enabled = false; 
-            TxtNome_Usuario.Enabled = true;
-            TxtLogin.Enabled = true;
-            TxtSenha.Enabled = true;
+            TxtId_Colaborador.Enabled = false; 
+            TxtNome_Colaborador.Enabled = true;
             TxtEmail.Enabled = true;
+            MtbRg.Enabled = true;
+            MtbCpf.Enabled = true;
             CmbSexo.Enabled = true;
+            CmbSetor.Enabled = true;
             CmbCargo.Enabled = true;
-            CmbTipoUsuario.Enabled = true;
 
         }
         private void DesabilitaTexts()
         {
-            TxtId_Usuario.Enabled = false;
-            TxtNome_Usuario.Enabled = false;
-            TxtLogin.Enabled = false;
-            TxtSenha.Enabled = false;
+            TxtId_Colaborador.Enabled = false;
+            TxtNome_Colaborador.Enabled = false;
             TxtEmail.Enabled = false;
+           MtbRg.Enabled = false;
+            MtbCpf.Enabled = false;
             CmbSexo.Enabled = false;
+            CmbSetor.Enabled = false;
             CmbCargo.Enabled = false;
-            CmbTipoUsuario.Enabled = false;
         }
-        private int ObterProximoIdUsuario()
+        private int ObterProximoIdColaborador()
         {
             int proximoId = 1;
 
             using (SqlConnection con = new ConectaBanco().ConectaSqlServer())
             {
-                string query = "SELECT IDENT_CURRENT('usuario') + 1";
+                string query = "SELECT IDENT_CURRENT('Colaborador') + 1";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try
@@ -71,22 +71,22 @@ namespace CheckList_Digital.view
         }
         private void LimparCampos()
         {
-            TxtId_Usuario.Text = string.Empty;
-            TxtNome_Usuario.Text = string.Empty;
-            TxtLogin.Text = string.Empty;
-            TxtSenha.Text = string.Empty;
+            TxtId_Colaborador.Text = string.Empty;
+            TxtNome_Colaborador.Text = string.Empty;
             TxtEmail.Text = string.Empty;
+            MtbRg.Text = string.Empty;
+            MtbCpf.Text = string.Empty;
             CmbSexo.Text = string.Empty;
+            CmbSetor.Text = string.Empty;
             CmbCargo.Text = string.Empty;
-            CmbTipoUsuario.Text = string.Empty;
 
         }
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             AtivarTexts();
-            int proximoId = ObterProximoIdUsuario();
-            TxtId_Usuario.Text = proximoId.ToString();
-            TxtNome_Usuario.Focus();
+            int proximoId = ObterProximoIdColaborador();
+            TxtId_Colaborador.Text = proximoId.ToString();
+            TxtNome_Colaborador.Focus();
             BtnNovo.Enabled = false;
             BtnSalvar.Enabled = true;
             BtnCancelar.Enabled = true;
@@ -96,20 +96,20 @@ namespace CheckList_Digital.view
             BtnRelatorio.Enabled = false;
             BtnAjuda.Enabled = true;
         }
-        private void TxtNome_Usuario_TextChanged(object sender, EventArgs e)
+        private void TxtNome_Colaborador_TextChanged(object sender, EventArgs e)
         {
-            TxtNome_Usuario.Text = TxtNome_Usuario.Text.ToUpper();
-            TxtNome_Usuario.SelectionStart = TxtNome_Usuario.Text.Length;
+            TxtNome_Colaborador.Text = TxtNome_Colaborador.Text.ToUpper();
+            TxtNome_Colaborador.SelectionStart = TxtNome_Colaborador.Text.Length;
         }
         private bool ValidarCampos()
         {
-            if (string.IsNullOrEmpty(TxtNome_Usuario.Text) ||
-                string.IsNullOrEmpty(TxtLogin.Text) ||
-                string.IsNullOrEmpty(TxtSenha.Text) ||
+            if (string.IsNullOrEmpty(TxtNome_Colaborador.Text) ||
                 string.IsNullOrEmpty(TxtEmail.Text) ||
+                string.IsNullOrEmpty(MtbRg.Text) ||
+                string.IsNullOrEmpty(MtbCpf.Text) ||
                 CmbSexo.SelectedIndex == -1 ||
-                CmbCargo.SelectedIndex == -1 ||
-                CmbTipoUsuario.SelectedIndex == -1)
+                CmbSetor.SelectedIndex == -1 ||
+                CmbCargo.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, preencha todos os campos obrigatórios.");
                 return false;
@@ -118,66 +118,72 @@ namespace CheckList_Digital.view
         }
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtNome_Usuario.Text))
+            if (string.IsNullOrEmpty(TxtNome_Colaborador.Text))
             {
-                MessageBox.Show("O Nome do Usuário não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O Nome do Colaborador não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (string.IsNullOrEmpty(TxtLogin.Text))
+            if (string.IsNullOrEmpty(TxtEmail.Text))
             {
-                MessageBox.Show("O Login do Usuário não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O E-mail do Colaborador não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (string.IsNullOrEmpty(TxtSenha.Text))
+            if (string.IsNullOrEmpty(MtbRg.Text))
             {
-                MessageBox.Show("A Senha do Usuário não pode estar vazia.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O RG do Colaborador não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (CmbSexo.SelectedValue == null || CmbCargo.SelectedValue == null || CmbTipoUsuario.SelectedValue == null)
+            if (string.IsNullOrEmpty(MtbCpf.Text))
+            {
+                MessageBox.Show("O CPF do Colaborador não pode estar vazio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (CmbSexo.SelectedValue == null || CmbSetor.SelectedValue == null || CmbCargo.SelectedValue == null)
             {
                 MessageBox.Show("Todos os campos de seleção devem ser preenchidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Usuario usuario = new Usuario
+            Colaborador colaborador = new Colaborador
             {
-                Nome = TxtNome_Usuario.Text,
-                Login = TxtLogin.Text,
-                Senha = TxtSenha.Text,
+                Nome_Colaborador = TxtNome_Colaborador.Text,
                 Email = TxtEmail.Text,
+                RG =MtbRg.Text,
+                CPF = MtbCpf.Text,
 
                 Sexo = new Sexo
                 {
                     Id_Sexo = Convert.ToInt32(CmbSexo.SelectedValue),
                     Nome_Sexo = CmbSexo.Text                         
                 },
+                Setor = new Setor
+                {
+                    Id_Setor = Convert.ToInt32(CmbSetor.SelectedValue),
+                    Nome_Setor = CmbSetor.Text
+                },
                 Cargo = new Cargo
                 {
                     Id_Cargo = Convert.ToInt32(CmbCargo.SelectedValue),
                     Nome_Cargo = CmbCargo.Text
-                },
-                Tipo_Usuario = new Tipo_Usuario
-                {
-                    Id_Tipo_Usuario = Convert.ToInt32(CmbTipoUsuario.SelectedValue),
-                    Nome_Tipo = CmbTipoUsuario.Text
                 }
             };
 
             try
             {
-                C_Usuario cUsuario = new C_Usuario();
+                C_Colaborador cColaborador = new C_Colaborador();
 
-                if (novo) // Cadastro de um novo usuário
+                if (novo) // Cadastro de um novo colaborador
                 {
-                    cUsuario.InsereDados(usuario);
+                    cColaborador.InsereDados(colaborador);
                 }
-                else // Atualização de um usuário existente
+                else // Atualização de um colaborador existente
                 {
-                    usuario.Id_Usuario = int.Parse(TxtId_Usuario.Text);
-                    cUsuario.EditarDados(usuario);
+                    colaborador.Id_Colaborador = int.Parse(TxtId_Colaborador.Text);
+                    cColaborador.EditarDados(colaborador);
                     novo = true; // Reseta a variável para o próximo uso
                 }
 
@@ -206,7 +212,7 @@ namespace CheckList_Digital.view
 
                 using (SqlConnection conn = conectaBanco.ConectaSqlServer())
                 {
-                    string query = "DELETE FROM Usuario WHERE Nome_Usuario = ''";
+                    string query = "DELETE FROM Colaborador WHERE Nome_Colaborador = ''";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         conn.Open();
@@ -234,24 +240,24 @@ namespace CheckList_Digital.view
         }
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            TxtId_Usuario.Enabled = true;
-            TxtId_Usuario.Focus();
+            TxtId_Colaborador.Enabled = true;
+            TxtId_Colaborador.Focus();
             BtnCancelar.Enabled = true;
             BtnNovo.Enabled=false;
             BtnConsultar.Enabled=false;
             BtnRelatorio.Enabled=false;
             novo = false;
         }
-        private string BuscarNomeUsuarioPorId(int idUsuario)
+        private string BuscarNomeColaboradorPorId(int idColaborador)
         {
-            string nomeUsuario = null;
+            string nomeColaborador = null;
             ConectaBanco cb = new ConectaBanco();
 
             using (SqlConnection con = cb.ConectaSqlServer())
             {
-                string query = "SELECT Nome_Usuario FROM Usuario WHERE Id_Usuario = @Id_Usuario";
+                string query = "SELECT Nome_Colaborador FROM Colaborador WHERE Id_Colaborador = @Id_Colaborador";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+                cmd.Parameters.AddWithValue("@Id_Colaborador", idColaborador);
 
                 try
                 {
@@ -260,29 +266,29 @@ namespace CheckList_Digital.view
 
                     if (result != null)
                     {
-                        nomeUsuario = result.ToString();
+                        nomeColaborador = result.ToString();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao buscar o nome do Usuário: " + ex.Message);
+                    MessageBox.Show("Erro ao buscar o nome do Colaborador: " + ex.Message);
                 }
-                TxtNome_Usuario.Enabled = true;
+                TxtNome_Colaborador.Enabled = true;
                 BtnNovo.Enabled = false;
                 BtnSalvar.Enabled = true;
             }
-            return nomeUsuario;
+            return nomeColaborador;
         }
-        private void BuscarNomeUsuario()
+        private void BuscarNomeColaborador()
         {
-            int idUsuario;
-            if (int.TryParse(TxtId_Usuario.Text, out idUsuario))
+            int idColaborador;
+            if (int.TryParse(TxtId_Colaborador.Text, out idColaborador))
             {
-                string nomeUsuario = BuscarNomeUsuarioPorId(idUsuario);
-                if (!string.IsNullOrEmpty(nomeUsuario))
+                string nomeColaborador = BuscarNomeColaboradorPorId(idColaborador);
+                if (!string.IsNullOrEmpty(nomeColaborador))
                 {
-                    TxtNome_Usuario.Text = nomeUsuario;
-                    TxtNome_Usuario.Enabled = true;
+                    TxtNome_Colaborador.Text = nomeColaborador;
+                    TxtNome_Colaborador.Enabled = true;
                     BtnNovo.Enabled = false;
                     BtnSalvar.Enabled = true;
                     BtnEditar.Enabled = false;
@@ -293,10 +299,10 @@ namespace CheckList_Digital.view
                 }
                 else
                 {
-                    MessageBox.Show("Usuário não encontrado para o código informado.");
-                    TxtNome_Usuario.Clear();
-                    TxtId_Usuario.Focus();
-                    TxtNome_Usuario.Enabled = false;
+                    MessageBox.Show("Colaborador não encontrado para o código informado.");
+                    TxtNome_Colaborador.Clear();
+                    TxtId_Colaborador.Focus();
+                    TxtNome_Colaborador.Enabled = false;
                 }
             }
             else
@@ -304,24 +310,24 @@ namespace CheckList_Digital.view
                 MessageBox.Show("Por favor, digite um código válido.");
             }
         }
-        private void txtId_Usuario_KeyDown(object sender, KeyEventArgs e)
+        private void txtId_Colaborador_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                int idUsuario;
+                int idColaborador;
 
-                if (int.TryParse(TxtId_Usuario.Text, out idUsuario))
+                if (int.TryParse(TxtId_Colaborador.Text, out idColaborador))
                 {
-                    string nomeUsuario = BuscarNomeUsuarioPorId(idUsuario);
+                    string nomeColaborador = BuscarNomeColaboradorPorId(idColaborador);
 
-                    if (!string.IsNullOrEmpty(nomeUsuario))
+                    if (!string.IsNullOrEmpty(nomeColaborador))
                     {
-                        TxtNome_Usuario.Text = nomeUsuario;
+                        TxtNome_Colaborador.Text = nomeColaborador;
                     }
                     else
                     {
-                        MessageBox.Show("Usuário não encontrado para o código informado.");
-                        TxtNome_Usuario.Clear();
+                        MessageBox.Show("Colaborador não encontrado para o código informado.");
+                        TxtNome_Colaborador.Clear();
                     }
                 }
                 else
@@ -335,11 +341,11 @@ namespace CheckList_Digital.view
         }
         private void txtId_Cargo_Leave(object sender, EventArgs e)
         {
-            BuscarNomeUsuario();
+            BuscarNomeColaborador();
         }
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtId_Usuario.Text))
+            if (string.IsNullOrEmpty(TxtId_Colaborador.Text))
             {
                 MessageBox.Show("Por favor, selecione um registro para excluir.");
                 return;
@@ -348,13 +354,13 @@ namespace CheckList_Digital.view
             DialogResult confirmacao = MessageBox.Show("Tem certeza de que deseja excluir este registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmacao == DialogResult.Yes)
             {
-                int idUsuario;
-                if (int.TryParse(TxtId_Usuario.Text, out idUsuario))
+                int idColaborador;
+                if (int.TryParse(TxtId_Colaborador.Text, out idColaborador))
                 {
                     try
                     {
-                        C_Usuario ca = new C_Usuario();
-                        ca.ApagaDados(idUsuario);
+                        C_Colaborador ca = new C_Colaborador();
+                        ca.ApagaDados(idColaborador);
 
                         MessageBox.Show("Registro excluído com sucesso.");
 
@@ -382,12 +388,12 @@ namespace CheckList_Digital.view
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            using (Frm_CoUsuario frmCousuario = new Frm_CoUsuario())
+            /*using (Frm_CoColaborador frmCocolaborador = new Frm_CoColaborador())
             {
                 this.Hide();
-                frmCousuario.ShowDialog();
+                frmCocolaborador.ShowDialog();
             }
-            this.Close();
+            this.Close();*/
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {
@@ -400,22 +406,26 @@ namespace CheckList_Digital.view
         }
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
-            using (FrmRelUsuario frmRelusuario = new FrmRelUsuario())
+            /*using (FrmRelColaborador frmRelcolaborador = new FrmRelColaborador())
             {
                 this.Hide();
-                frmRelusuario.ShowDialog();
+                frmRelcolaborador.ShowDialog();
                 this.Show();
-            }
+            }*/
         }
 
-        private void Frm_CUsuario_Load(object sender, EventArgs e)
+        private void Frm_CColaborador_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Tipo_Usuario'. Você pode movê-la ou removê-la conforme necessário.
-            this.tipo_UsuarioTableAdapter.Fill(this.checkListDBDataSet.Tipo_Usuario);
-            CmbTipoUsuario.SelectedIndex = -1;
+            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Setor'. Você pode movê-la ou removê-la conforme necessário.
+            this.setorTableAdapter.Fill(this.checkListDBDataSet.Setor);
+            CmbSetor.SelectedIndex = -1;
+            // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Tipo_Colaborador'. Você pode movê-la ou removê-la conforme necessário.
+            // this.tipo_ColaboradorTableAdapter.Fill(this.checkListDBDataSet.Tipo_Colaborador);
+            
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Cargo'. Você pode movê-la ou removê-la conforme necessário.
             this.cargoTableAdapter.Fill(this.checkListDBDataSet.Cargo);
             CmbCargo.SelectedIndex = -1;
+
             // TODO: esta linha de código carrega dados na tabela 'checkListDBDataSet.Sexo'. Você pode movê-la ou removê-la conforme necessário.
             this.sexoTableAdapter.Fill(this.checkListDBDataSet.Sexo);
             CmbSexo.SelectedIndex = -1;

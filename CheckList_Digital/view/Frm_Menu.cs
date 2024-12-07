@@ -75,5 +75,39 @@ namespace CheckList_Digital.view
             subMenuCadastros.Show();
             this.Hide();
         }
+
+        private void BtnConsultas_Click(object sender, EventArgs e)
+        {
+            // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
+            Frm_SubMenu_Consultas subMenuConsultas = new Frm_SubMenu_Consultas();
+
+            // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
+            subMenuConsultas.FormClosed += (s, args) =>
+            {
+                // Fecha Frm_Menu ao fechar o submenu
+                this.Close();
+            };
+
+            // Exibe o sub-menu e fecha Frm_Menu
+            subMenuConsultas.Show();
+            this.Hide();
+        }
+
+        private void BtnRelatorios_Click(object sender, EventArgs e)
+        {
+            // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
+            Frm_SubMenu_Relatorios subMenuRelatorios = new Frm_SubMenu_Relatorios();
+
+            // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
+            subMenuRelatorios.FormClosed += (s, args) =>
+            {
+                // Fecha Frm_Menu ao fechar o submenu
+                this.Close();
+            };
+
+            // Exibe o sub-menu e fecha Frm_Menu
+            subMenuRelatorios.Show();
+            this.Hide();
+        }
     }
 }

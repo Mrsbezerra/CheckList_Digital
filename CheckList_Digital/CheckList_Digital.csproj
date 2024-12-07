@@ -239,6 +239,12 @@
     <Compile Include="view\Cadastros\Frm_CCargo.Designer.cs">
       <DependentUpon>Frm_CCargo.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Cadastros\Frm_CColaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Cadastros\Frm_CColaborador.Designer.cs">
+      <DependentUpon>Frm_CColaborador.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Cadastros\Frm_CInspecao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,10 @@
     </Compile>
     <Compile Include="view\Cadastros\Frm_CInspecaoSetor.Designer.cs">
       <DependentUpon>Frm_CInspecaoSetor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Cadastros\Frm_CItensInspecaoSetor.cs" />
+    <Compile Include="view\Cadastros\Frm_CItensInspecaoSetor.Designer.cs">
+      <DependentUpon>Frm_CItensInspecaoSetor.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Cadastros\Frm_CSetor.cs">
       <SubType>Form</SubType>
@@ -359,6 +369,18 @@
     <Compile Include="view\Frm_Menu.Designer.cs">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Frm_SubMenu_Consultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Frm_SubMenu_Consultas.Designer.cs">
+      <DependentUpon>Frm_SubMenu_Consultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Frm_SubMenu_Relatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Frm_SubMenu_Relatorios.Designer.cs">
+      <DependentUpon>Frm_SubMenu_Relatorios.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -395,11 +417,17 @@
     <EmbeddedResource Include="view\Cadastros\Frm_CCargo.resx">
       <DependentUpon>Frm_CCargo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\Cadastros\Frm_CColaborador.resx">
+      <DependentUpon>Frm_CColaborador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CInspecao.resx">
       <DependentUpon>Frm_CInspecao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CInspecaoSetor.resx">
       <DependentUpon>Frm_CInspecaoSetor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Cadastros\Frm_CItensInspecaoSetor.resx">
+      <DependentUpon>Frm_CItensInspecaoSetor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Cadastros\Frm_CSetor.resx">
       <DependentUpon>Frm_CSetor.cs</DependentUpon>
@@ -454,6 +482,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Frm_Menu.resx">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Frm_SubMenu_Consultas.resx">
+      <DependentUpon>Frm_SubMenu_Consultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Frm_SubMenu_Relatorios.resx">
+      <DependentUpon>Frm_SubMenu_Relatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Relatorio_RDLC\RelCargo.rdlc" />
     <EmbeddedResource Include="view\Relatorio_RDLC\RelSetor.rdlc" />

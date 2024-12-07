@@ -1,6 +1,6 @@
 ﻿namespace CheckList_Digital.view
 {
-    partial class Frm_CUsuario
+    partial class Frm_CColaborador
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CColaborador));
             this.BtnNovo = new System.Windows.Forms.Button();
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
@@ -37,35 +37,40 @@
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.BtnRelatorio = new System.Windows.Forms.Button();
-            this.LblNome_Usuario = new System.Windows.Forms.Label();
-            this.LblId_Usuário = new System.Windows.Forms.Label();
-            this.TxtNome_Usuario = new System.Windows.Forms.TextBox();
-            this.TxtId_Usuario = new System.Windows.Forms.TextBox();
+            this.LblNome_Colaborador = new System.Windows.Forms.Label();
+            this.LblId_Colaborador = new System.Windows.Forms.Label();
+            this.TxtNome_Colaborador = new System.Windows.Forms.TextBox();
+            this.TxtId_Colaborador = new System.Windows.Forms.TextBox();
             this.BtnAjuda = new System.Windows.Forms.Button();
             this.BtnSair = new System.Windows.Forms.Button();
-            this.TxtLogin = new System.Windows.Forms.TextBox();
-            this.LblLogin = new System.Windows.Forms.Label();
-            this.TxtSenha = new System.Windows.Forms.TextBox();
-            this.LblSenha = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
+            this.LblRG = new System.Windows.Forms.Label();
+            this.LblCPF = new System.Windows.Forms.Label();
             this.CmbSexo = new System.Windows.Forms.ComboBox();
-            this.LblSexo = new System.Windows.Forms.Label();
-            this.checkListDBDataSet = new CheckList_Digital.CheckListDBDataSet();
             this.sexoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkListDBDataSet = new CheckList_Digital.CheckListDBDataSet();
+            this.LblSexo = new System.Windows.Forms.Label();
             this.sexoTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.SexoTableAdapter();
-            this.CmbCargo = new System.Windows.Forms.ComboBox();
-            this.LblCargo = new System.Windows.Forms.Label();
+            this.CmbSetor = new System.Windows.Forms.ComboBox();
             this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.LblSetor = new System.Windows.Forms.Label();
             this.cargoTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.CargoTableAdapter();
-            this.CmbTipoUsuario = new System.Windows.Forms.ComboBox();
-            this.LblTipoUsuario = new System.Windows.Forms.Label();
+            this.CmbCargo = new System.Windows.Forms.ComboBox();
             this.tipoUsuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.LblCargo = new System.Windows.Forms.Label();
             this.tipo_UsuarioTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.Tipo_UsuarioTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).BeginInit();
+            this.setorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.setorTableAdapter = new CheckList_Digital.CheckListDBDataSetTableAdapters.SetorTableAdapter();
+            this.cargoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.MtbCpf = new System.Windows.Forms.MaskedTextBox();
+            this.MtbRg = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoUsuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnNovo
@@ -162,54 +167,54 @@
             this.BtnRelatorio.UseVisualStyleBackColor = true;
             this.BtnRelatorio.Click += new System.EventHandler(this.BtnRelatorio_Click);
             // 
-            // LblNome_Usuario
+            // LblNome_Colaborador
             // 
-            this.LblNome_Usuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblNome_Usuario.AutoSize = true;
-            this.LblNome_Usuario.Location = new System.Drawing.Point(275, 69);
-            this.LblNome_Usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblNome_Usuario.Name = "LblNome_Usuario";
-            this.LblNome_Usuario.Size = new System.Drawing.Size(68, 20);
-            this.LblNome_Usuario.TabIndex = 46;
-            this.LblNome_Usuario.Text = "Usuário:";
+            this.LblNome_Colaborador.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblNome_Colaborador.AutoSize = true;
+            this.LblNome_Colaborador.Location = new System.Drawing.Point(244, 69);
+            this.LblNome_Colaborador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblNome_Colaborador.Name = "LblNome_Colaborador";
+            this.LblNome_Colaborador.Size = new System.Drawing.Size(100, 20);
+            this.LblNome_Colaborador.TabIndex = 46;
+            this.LblNome_Colaborador.Text = "Colaborador:";
             // 
-            // LblId_Usuário
+            // LblId_Colaborador
             // 
-            this.LblId_Usuário.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblId_Usuário.AutoSize = true;
-            this.LblId_Usuário.Location = new System.Drawing.Point(238, 22);
-            this.LblId_Usuário.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblId_Usuário.Name = "LblId_Usuário";
-            this.LblId_Usuário.Size = new System.Drawing.Size(105, 20);
-            this.LblId_Usuário.TabIndex = 45;
-            this.LblId_Usuário.Text = "Cód. Usuário:";
+            this.LblId_Colaborador.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblId_Colaborador.AutoSize = true;
+            this.LblId_Colaborador.Location = new System.Drawing.Point(206, 22);
+            this.LblId_Colaborador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblId_Colaborador.Name = "LblId_Colaborador";
+            this.LblId_Colaborador.Size = new System.Drawing.Size(137, 20);
+            this.LblId_Colaborador.TabIndex = 45;
+            this.LblId_Colaborador.Text = "Cód. Colaborador:";
             // 
-            // TxtNome_Usuario
+            // TxtNome_Colaborador
             // 
-            this.TxtNome_Usuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TxtNome_Usuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtNome_Usuario.Enabled = false;
-            this.TxtNome_Usuario.Location = new System.Drawing.Point(351, 66);
-            this.TxtNome_Usuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtNome_Usuario.MaxLength = 50;
-            this.TxtNome_Usuario.Name = "TxtNome_Usuario";
-            this.TxtNome_Usuario.Size = new System.Drawing.Size(556, 26);
-            this.TxtNome_Usuario.TabIndex = 44;
-            this.TxtNome_Usuario.TextChanged += new System.EventHandler(this.TxtNome_Usuario_TextChanged);
+            this.TxtNome_Colaborador.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TxtNome_Colaborador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtNome_Colaborador.Enabled = false;
+            this.TxtNome_Colaborador.Location = new System.Drawing.Point(351, 66);
+            this.TxtNome_Colaborador.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtNome_Colaborador.MaxLength = 50;
+            this.TxtNome_Colaborador.Name = "TxtNome_Colaborador";
+            this.TxtNome_Colaborador.Size = new System.Drawing.Size(556, 26);
+            this.TxtNome_Colaborador.TabIndex = 44;
+            this.TxtNome_Colaborador.TextChanged += new System.EventHandler(this.TxtNome_Colaborador_TextChanged);
             // 
-            // TxtId_Usuario
+            // TxtId_Colaborador
             // 
-            this.TxtId_Usuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TxtId_Usuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtId_Usuario.Enabled = false;
-            this.TxtId_Usuario.Location = new System.Drawing.Point(351, 19);
-            this.TxtId_Usuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtId_Usuario.Name = "TxtId_Usuario";
-            this.TxtId_Usuario.Size = new System.Drawing.Size(41, 26);
-            this.TxtId_Usuario.TabIndex = 43;
-            this.TxtId_Usuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtId_Usuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_Usuario_KeyDown);
-            this.TxtId_Usuario.Leave += new System.EventHandler(this.txtId_Cargo_Leave);
+            this.TxtId_Colaborador.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TxtId_Colaborador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtId_Colaborador.Enabled = false;
+            this.TxtId_Colaborador.Location = new System.Drawing.Point(351, 19);
+            this.TxtId_Colaborador.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtId_Colaborador.Name = "TxtId_Colaborador";
+            this.TxtId_Colaborador.Size = new System.Drawing.Size(41, 26);
+            this.TxtId_Colaborador.TabIndex = 43;
+            this.TxtId_Colaborador.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtId_Colaborador.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_Colaborador_KeyDown);
+            this.TxtId_Colaborador.Leave += new System.EventHandler(this.txtId_Cargo_Leave);
             // 
             // BtnAjuda
             // 
@@ -236,74 +241,50 @@
             this.BtnSair.UseVisualStyleBackColor = true;
             this.BtnSair.Click += new System.EventHandler(this.BtnSair_Click);
             // 
-            // TxtLogin
-            // 
-            this.TxtLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TxtLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtLogin.Enabled = false;
-            this.TxtLogin.Location = new System.Drawing.Point(351, 111);
-            this.TxtLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtLogin.MaxLength = 50;
-            this.TxtLogin.Name = "TxtLogin";
-            this.TxtLogin.Size = new System.Drawing.Size(556, 26);
-            this.TxtLogin.TabIndex = 56;
-            // 
-            // LblLogin
-            // 
-            this.LblLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblLogin.AutoSize = true;
-            this.LblLogin.Location = new System.Drawing.Point(291, 114);
-            this.LblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblLogin.Name = "LblLogin";
-            this.LblLogin.Size = new System.Drawing.Size(52, 20);
-            this.LblLogin.TabIndex = 57;
-            this.LblLogin.Text = "Login:";
-            // 
-            // TxtSenha
-            // 
-            this.TxtSenha.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TxtSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtSenha.Enabled = false;
-            this.TxtSenha.Location = new System.Drawing.Point(351, 155);
-            this.TxtSenha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtSenha.MaxLength = 50;
-            this.TxtSenha.Name = "TxtSenha";
-            this.TxtSenha.Size = new System.Drawing.Size(556, 26);
-            this.TxtSenha.TabIndex = 58;
-            // 
-            // LblSenha
-            // 
-            this.LblSenha.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblSenha.AutoSize = true;
-            this.LblSenha.Location = new System.Drawing.Point(283, 158);
-            this.LblSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblSenha.Name = "LblSenha";
-            this.LblSenha.Size = new System.Drawing.Size(60, 20);
-            this.LblSenha.TabIndex = 59;
-            this.LblSenha.Text = "Senha:";
-            // 
             // TxtEmail
             // 
             this.TxtEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TxtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TxtEmail.Enabled = false;
-            this.TxtEmail.Location = new System.Drawing.Point(351, 200);
+            this.TxtEmail.Location = new System.Drawing.Point(351, 111);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TxtEmail.MaxLength = 50;
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(556, 26);
-            this.TxtEmail.TabIndex = 60;
+            this.TxtEmail.TabIndex = 56;
             // 
             // LblEmail
             // 
             this.LblEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblEmail.AutoSize = true;
-            this.LblEmail.Location = new System.Drawing.Point(286, 203);
+            this.LblEmail.Location = new System.Drawing.Point(287, 114);
             this.LblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblEmail.Name = "LblEmail";
             this.LblEmail.Size = new System.Drawing.Size(57, 20);
-            this.LblEmail.TabIndex = 61;
-            this.LblEmail.Text = "E-Mail:";
+            this.LblEmail.TabIndex = 57;
+            this.LblEmail.Text = "E-mail:";
+            // 
+            // LblRG
+            // 
+            this.LblRG.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblRG.AutoSize = true;
+            this.LblRG.Location = new System.Drawing.Point(305, 158);
+            this.LblRG.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblRG.Name = "LblRG";
+            this.LblRG.Size = new System.Drawing.Size(38, 20);
+            this.LblRG.TabIndex = 59;
+            this.LblRG.Text = "RG:";
+            // 
+            // LblCPF
+            // 
+            this.LblCPF.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblCPF.AutoSize = true;
+            this.LblCPF.Location = new System.Drawing.Point(299, 203);
+            this.LblCPF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblCPF.Name = "LblCPF";
+            this.LblCPF.Size = new System.Drawing.Size(44, 20);
+            this.LblCPF.TabIndex = 61;
+            this.LblCPF.Text = "CPF:";
             // 
             // CmbSexo
             // 
@@ -317,6 +298,16 @@
             this.CmbSexo.TabIndex = 62;
             this.CmbSexo.ValueMember = "Id_Sexo";
             // 
+            // sexoBindingSource
+            // 
+            this.sexoBindingSource.DataMember = "Sexo";
+            this.sexoBindingSource.DataSource = this.checkListDBDataSet;
+            // 
+            // checkListDBDataSet
+            // 
+            this.checkListDBDataSet.DataSetName = "CheckListDBDataSet";
+            this.checkListDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // LblSexo
             // 
             this.LblSexo.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -328,109 +319,131 @@
             this.LblSexo.TabIndex = 63;
             this.LblSexo.Text = "Sexo:";
             // 
-            // checkListDBDataSet
-            // 
-            this.checkListDBDataSet.DataSetName = "CheckListDBDataSet";
-            this.checkListDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sexoBindingSource
-            // 
-            this.sexoBindingSource.DataMember = "Sexo";
-            this.sexoBindingSource.DataSource = this.checkListDBDataSet;
-            // 
             // sexoTableAdapter
             // 
             this.sexoTableAdapter.ClearBeforeFill = true;
             // 
-            // CmbCargo
+            // CmbSetor
             // 
-            this.CmbCargo.DataSource = this.cargoBindingSource;
-            this.CmbCargo.DisplayMember = "Nome_Cargo";
-            this.CmbCargo.Enabled = false;
-            this.CmbCargo.FormattingEnabled = true;
-            this.CmbCargo.Location = new System.Drawing.Point(351, 289);
-            this.CmbCargo.Name = "CmbCargo";
-            this.CmbCargo.Size = new System.Drawing.Size(266, 28);
-            this.CmbCargo.TabIndex = 64;
-            this.CmbCargo.ValueMember = "Id_Cargo";
-            // 
-            // LblCargo
-            // 
-            this.LblCargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblCargo.AutoSize = true;
-            this.LblCargo.Location = new System.Drawing.Point(287, 292);
-            this.LblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblCargo.Name = "LblCargo";
-            this.LblCargo.Size = new System.Drawing.Size(56, 20);
-            this.LblCargo.TabIndex = 65;
-            this.LblCargo.Text = "Cargo:";
+            this.CmbSetor.DataSource = this.setorBindingSource;
+            this.CmbSetor.DisplayMember = "Nome_Setor";
+            this.CmbSetor.Enabled = false;
+            this.CmbSetor.FormattingEnabled = true;
+            this.CmbSetor.Location = new System.Drawing.Point(351, 289);
+            this.CmbSetor.Name = "CmbSetor";
+            this.CmbSetor.Size = new System.Drawing.Size(266, 28);
+            this.CmbSetor.TabIndex = 64;
+            this.CmbSetor.ValueMember = "Id_Setor";
             // 
             // cargoBindingSource
             // 
             this.cargoBindingSource.DataMember = "Cargo";
             this.cargoBindingSource.DataSource = this.checkListDBDataSet;
             // 
+            // LblSetor
+            // 
+            this.LblSetor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblSetor.AutoSize = true;
+            this.LblSetor.Location = new System.Drawing.Point(291, 292);
+            this.LblSetor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblSetor.Name = "LblSetor";
+            this.LblSetor.Size = new System.Drawing.Size(52, 20);
+            this.LblSetor.TabIndex = 65;
+            this.LblSetor.Text = "Setor:";
+            // 
             // cargoTableAdapter
             // 
             this.cargoTableAdapter.ClearBeforeFill = true;
             // 
-            // CmbTipoUsuario
+            // CmbCargo
             // 
-            this.CmbTipoUsuario.DataSource = this.tipoUsuarioBindingSource;
-            this.CmbTipoUsuario.DisplayMember = "Nome_Tipo";
-            this.CmbTipoUsuario.Enabled = false;
-            this.CmbTipoUsuario.FormattingEnabled = true;
-            this.CmbTipoUsuario.Location = new System.Drawing.Point(351, 336);
-            this.CmbTipoUsuario.Name = "CmbTipoUsuario";
-            this.CmbTipoUsuario.Size = new System.Drawing.Size(266, 28);
-            this.CmbTipoUsuario.TabIndex = 66;
-            this.CmbTipoUsuario.ValueMember = "Id_Tipo_Usuario";
-            // 
-            // LblTipoUsuario
-            // 
-            this.LblTipoUsuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblTipoUsuario.AutoSize = true;
-            this.LblTipoUsuario.Location = new System.Drawing.Point(242, 339);
-            this.LblTipoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblTipoUsuario.Name = "LblTipoUsuario";
-            this.LblTipoUsuario.Size = new System.Drawing.Size(102, 20);
-            this.LblTipoUsuario.TabIndex = 67;
-            this.LblTipoUsuario.Text = "Tipo Usuário:";
+            this.CmbCargo.DataSource = this.cargoBindingSource1;
+            this.CmbCargo.DisplayMember = "Nome_Cargo";
+            this.CmbCargo.Enabled = false;
+            this.CmbCargo.FormattingEnabled = true;
+            this.CmbCargo.Location = new System.Drawing.Point(351, 336);
+            this.CmbCargo.Name = "CmbCargo";
+            this.CmbCargo.Size = new System.Drawing.Size(266, 28);
+            this.CmbCargo.TabIndex = 66;
+            this.CmbCargo.ValueMember = "Id_Cargo";
             // 
             // tipoUsuarioBindingSource
             // 
             this.tipoUsuarioBindingSource.DataMember = "Tipo_Usuario";
             this.tipoUsuarioBindingSource.DataSource = this.checkListDBDataSet;
             // 
+            // LblCargo
+            // 
+            this.LblCargo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblCargo.AutoSize = true;
+            this.LblCargo.Location = new System.Drawing.Point(287, 339);
+            this.LblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblCargo.Name = "LblCargo";
+            this.LblCargo.Size = new System.Drawing.Size(56, 20);
+            this.LblCargo.TabIndex = 67;
+            this.LblCargo.Text = "Cargo:";
+            // 
             // tipo_UsuarioTableAdapter
             // 
             this.tipo_UsuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // Frm_CUsuario
+            // setorBindingSource
+            // 
+            this.setorBindingSource.DataMember = "Setor";
+            this.setorBindingSource.DataSource = this.checkListDBDataSet;
+            // 
+            // setorTableAdapter
+            // 
+            this.setorTableAdapter.ClearBeforeFill = true;
+            // 
+            // cargoBindingSource1
+            // 
+            this.cargoBindingSource1.DataMember = "Cargo";
+            this.cargoBindingSource1.DataSource = this.checkListDBDataSet;
+            // 
+            // MtbCpf
+            // 
+            this.MtbCpf.Enabled = false;
+            this.MtbCpf.Location = new System.Drawing.Point(350, 200);
+            this.MtbCpf.Mask = "000.000.000-00";
+            this.MtbCpf.Name = "MtbCpf";
+            this.MtbCpf.Size = new System.Drawing.Size(124, 26);
+            this.MtbCpf.TabIndex = 68;
+            // 
+            // MtbRg
+            // 
+            this.MtbRg.Enabled = false;
+            this.MtbRg.Location = new System.Drawing.Point(350, 155);
+            this.MtbRg.Mask = "0000000-0";
+            this.MtbRg.Name = "MtbRg";
+            this.MtbRg.Size = new System.Drawing.Size(87, 26);
+            this.MtbRg.TabIndex = 69;
+            // 
+            // Frm_CColaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.ControlBox = false;
-            this.Controls.Add(this.LblTipoUsuario);
-            this.Controls.Add(this.CmbTipoUsuario);
+            this.Controls.Add(this.MtbRg);
+            this.Controls.Add(this.MtbCpf);
             this.Controls.Add(this.LblCargo);
             this.Controls.Add(this.CmbCargo);
+            this.Controls.Add(this.LblSetor);
+            this.Controls.Add(this.CmbSetor);
             this.Controls.Add(this.LblSexo);
             this.Controls.Add(this.CmbSexo);
+            this.Controls.Add(this.LblCPF);
+            this.Controls.Add(this.LblRG);
             this.Controls.Add(this.LblEmail);
             this.Controls.Add(this.TxtEmail);
-            this.Controls.Add(this.LblSenha);
-            this.Controls.Add(this.TxtSenha);
-            this.Controls.Add(this.LblLogin);
-            this.Controls.Add(this.TxtLogin);
             this.Controls.Add(this.BtnSair);
             this.Controls.Add(this.BtnAjuda);
-            this.Controls.Add(this.LblNome_Usuario);
-            this.Controls.Add(this.LblId_Usuário);
-            this.Controls.Add(this.TxtNome_Usuario);
-            this.Controls.Add(this.TxtId_Usuario);
+            this.Controls.Add(this.LblNome_Colaborador);
+            this.Controls.Add(this.LblId_Colaborador);
+            this.Controls.Add(this.TxtNome_Colaborador);
+            this.Controls.Add(this.TxtId_Colaborador);
             this.Controls.Add(this.BtnRelatorio);
             this.Controls.Add(this.BtnConsultar);
             this.Controls.Add(this.BtnExcluir);
@@ -440,14 +453,16 @@
             this.Controls.Add(this.BtnNovo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Frm_CUsuario";
+            this.Name = "Frm_CColaborador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro Usuário";
-            this.Load += new System.EventHandler(this.Frm_CUsuario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).EndInit();
+            this.Text = "Cadastro Colaborador";
+            this.Load += new System.EventHandler(this.Frm_CColaborador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sexoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkListDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipoUsuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.setorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,30 +477,33 @@
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnConsultar;
         private System.Windows.Forms.Button BtnRelatorio;
-        private System.Windows.Forms.Label LblNome_Usuario;
-        private System.Windows.Forms.Label LblId_Usuário;
-        private System.Windows.Forms.TextBox TxtNome_Usuario;
-        private System.Windows.Forms.TextBox TxtId_Usuario;
+        private System.Windows.Forms.Label LblNome_Colaborador;
+        private System.Windows.Forms.Label LblId_Colaborador;
+        private System.Windows.Forms.TextBox TxtNome_Colaborador;
+        private System.Windows.Forms.TextBox TxtId_Colaborador;
         private System.Windows.Forms.Button BtnAjuda;
         private System.Windows.Forms.Button BtnSair;
-        private System.Windows.Forms.TextBox TxtLogin;
-        private System.Windows.Forms.Label LblLogin;
-        private System.Windows.Forms.TextBox TxtSenha;
-        private System.Windows.Forms.Label LblSenha;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label LblEmail;
+        private System.Windows.Forms.Label LblRG;
+        private System.Windows.Forms.Label LblCPF;
         private System.Windows.Forms.ComboBox CmbSexo;
         private System.Windows.Forms.Label LblSexo;
         private CheckListDBDataSet checkListDBDataSet;
         private System.Windows.Forms.BindingSource sexoBindingSource;
         private CheckListDBDataSetTableAdapters.SexoTableAdapter sexoTableAdapter;
-        private System.Windows.Forms.ComboBox CmbCargo;
-        private System.Windows.Forms.Label LblCargo;
+        private System.Windows.Forms.ComboBox CmbSetor;
+        private System.Windows.Forms.Label LblSetor;
         private System.Windows.Forms.BindingSource cargoBindingSource;
         private CheckListDBDataSetTableAdapters.CargoTableAdapter cargoTableAdapter;
-        private System.Windows.Forms.ComboBox CmbTipoUsuario;
-        private System.Windows.Forms.Label LblTipoUsuario;
+        private System.Windows.Forms.ComboBox CmbCargo;
+        private System.Windows.Forms.Label LblCargo;
         private System.Windows.Forms.BindingSource tipoUsuarioBindingSource;
         private CheckListDBDataSetTableAdapters.Tipo_UsuarioTableAdapter tipo_UsuarioTableAdapter;
+        private System.Windows.Forms.BindingSource setorBindingSource;
+        private CheckListDBDataSetTableAdapters.SetorTableAdapter setorTableAdapter;
+        private System.Windows.Forms.BindingSource cargoBindingSource1;
+        private System.Windows.Forms.MaskedTextBox MtbCpf;
+        private System.Windows.Forms.MaskedTextBox MtbRg;
     }
 }

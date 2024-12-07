@@ -2,7 +2,7 @@
 
 namespace CheckList_Digital.view
 {
-    partial class Frm_SubMenu_Cadastros
+    partial class Frm_SubMenu_Consultas
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@ namespace CheckList_Digital.view
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_SubMenu_Cadastros));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_SubMenu_Consultas));
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.BtnLogoff = new System.Windows.Forms.Button();
             this.btnRelatorios = new System.Windows.Forms.Button();
             this.btnReceitas = new System.Windows.Forms.Button();
-            this.btnCadastros = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BtnLogoff = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
@@ -101,10 +101,10 @@ namespace CheckList_Digital.view
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelMenu.Controls.Add(this.BtnLogoff);
             this.panelMenu.Controls.Add(this.btnRelatorios);
             this.panelMenu.Controls.Add(this.btnReceitas);
-            this.panelMenu.Controls.Add(this.btnCadastros);
+            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.Controls.Add(this.BtnLogoff);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -112,6 +112,66 @@ namespace CheckList_Digital.view
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(264, 1050);
             this.panelMenu.TabIndex = 2;
+            // 
+            // btnRelatorios
+            // 
+            this.btnRelatorios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRelatorios.FlatAppearance.BorderSize = 0;
+            this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorios.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
+            this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelatorios.Location = new System.Drawing.Point(0, 307);
+            this.btnRelatorios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRelatorios.Name = "btnRelatorios";
+            this.btnRelatorios.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
+            this.btnRelatorios.Size = new System.Drawing.Size(264, 92);
+            this.btnRelatorios.TabIndex = 11;
+            this.btnRelatorios.Text = "   Relatorios";
+            this.btnRelatorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelatorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRelatorios.UseVisualStyleBackColor = true;
+            this.btnRelatorios.Click += new System.EventHandler(this.btnRelatorios_Click);
+            // 
+            // btnReceitas
+            // 
+            this.btnReceitas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnReceitas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReceitas.FlatAppearance.BorderSize = 0;
+            this.btnReceitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReceitas.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnReceitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReceitas.Location = new System.Drawing.Point(0, 215);
+            this.btnReceitas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnReceitas.Name = "btnReceitas";
+            this.btnReceitas.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
+            this.btnReceitas.Size = new System.Drawing.Size(264, 92);
+            this.btnReceitas.TabIndex = 10;
+            this.btnReceitas.Text = "   Consultas";
+            this.btnReceitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReceitas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReceitas.UseVisualStyleBackColor = false;
+            this.btnReceitas.Click += new System.EventHandler(this.btnReceitas_Click);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 123);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(264, 92);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "   Cadastros";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnLogoff
             // 
@@ -132,67 +192,6 @@ namespace CheckList_Digital.view
             this.BtnLogoff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnLogoff.UseVisualStyleBackColor = true;
             this.BtnLogoff.Click += new System.EventHandler(this.BtnLogoff_Click_1);
-            // 
-            // btnRelatorios
-            // 
-            this.btnRelatorios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRelatorios.FlatAppearance.BorderSize = 0;
-            this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorios.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
-            this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorios.Location = new System.Drawing.Point(0, 307);
-            this.btnRelatorios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnRelatorios.Size = new System.Drawing.Size(264, 92);
-            this.btnRelatorios.TabIndex = 5;
-            this.btnRelatorios.Text = "   Relatorios";
-            this.btnRelatorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRelatorios.UseVisualStyleBackColor = true;
-            this.btnRelatorios.Click += new System.EventHandler(this.btnRelatorios_Click);
-            // 
-            // btnReceitas
-            // 
-            this.btnReceitas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReceitas.FlatAppearance.BorderSize = 0;
-            this.btnReceitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReceitas.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnReceitas.Image = global::CheckList_Digital.Properties.Resources.Consulta;
-            this.btnReceitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReceitas.Location = new System.Drawing.Point(0, 215);
-            this.btnReceitas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnReceitas.Name = "btnReceitas";
-            this.btnReceitas.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnReceitas.Size = new System.Drawing.Size(264, 92);
-            this.btnReceitas.TabIndex = 2;
-            this.btnReceitas.Text = "   Consultas";
-            this.btnReceitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReceitas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReceitas.UseVisualStyleBackColor = true;
-            this.btnReceitas.Click += new System.EventHandler(this.btnReceitas_Click);
-            // 
-            // btnCadastros
-            // 
-            this.btnCadastros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCadastros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCadastros.FlatAppearance.BorderSize = 0;
-            this.btnCadastros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastros.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnCadastros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastros.Location = new System.Drawing.Point(0, 123);
-            this.btnCadastros.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCadastros.Name = "btnCadastros";
-            this.btnCadastros.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.btnCadastros.Size = new System.Drawing.Size(264, 92);
-            this.btnCadastros.TabIndex = 1;
-            this.btnCadastros.Text = "   Cadastros";
-            this.btnCadastros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCadastros.UseVisualStyleBackColor = false;
-            this.btnCadastros.Click += new System.EventHandler(this.btnCadastros_Click);
             // 
             // pictureBox1
             // 
@@ -233,9 +232,9 @@ namespace CheckList_Digital.view
             this.LblTitulo.Location = new System.Drawing.Point(916, 40);
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(216, 37);
+            this.LblTitulo.Size = new System.Drawing.Size(214, 37);
             this.LblTitulo.TabIndex = 10;
-            this.LblTitulo.Text = "CADASTROS";
+            this.LblTitulo.Text = "CONSULTAS";
             // 
             // LblUsuario
             // 
@@ -519,7 +518,7 @@ namespace CheckList_Digital.view
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
-            // Frm_SubMenu_Cadastros
+            // Frm_SubMenu_Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -533,7 +532,7 @@ namespace CheckList_Digital.view
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(1339, 662);
-            this.Name = "Frm_SubMenu_Cadastros";
+            this.Name = "Frm_SubMenu_Consultas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
@@ -561,9 +560,6 @@ namespace CheckList_Digital.view
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button BtnLogoff;
-        private System.Windows.Forms.Button btnRelatorios;
-        private System.Windows.Forms.Button btnReceitas;
-        private System.Windows.Forms.Button btnCadastros;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel PanelTitulo;
         private System.Windows.Forms.Button BtnMaximizar;
@@ -591,5 +587,8 @@ namespace CheckList_Digital.view
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label LblUsuario;
         private System.Windows.Forms.Label LblTitulo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnReceitas;
+        private System.Windows.Forms.Button btnRelatorios;
     }
 }
