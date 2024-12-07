@@ -9,13 +9,15 @@ namespace CheckList_Digital.view
     {
         private string loginUsuario;
 
-        public Frm_SubMenu_Cadastros()
+        public Frm_SubMenu_Cadastros(string login)
         {
             InitializeComponent();
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             menuStrip1.BackColor = Color.FromArgb(51, 51, 76);
+            loginUsuario = login;
+
 
             menuStrip1.ForeColor = Color.Gainsboro;
         }
@@ -61,7 +63,7 @@ namespace CheckList_Digital.view
             btnCadastros.BackColor = Color.FromArgb(0, 0, 0);
             btnCadastros.ForeColor = Color.White;
 
-            Frm_Menu frmMenu = new Frm_Menu();
+            Frm_Menu frmMenu = new Frm_Menu(loginUsuario);
 
             frmMenu.Show();
 
@@ -80,7 +82,7 @@ namespace CheckList_Digital.view
 
         private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (Frm_CCargo frmCcargo = new Frm_CCargo())
+            using (Frm_CCargo frmCcargo = new Frm_CCargo(loginUsuario))
             {
                 this.Hide();
                 frmCcargo.ShowDialog();
@@ -141,7 +143,7 @@ namespace CheckList_Digital.view
         private void btnReceitas_Click(object sender, EventArgs e)
         {
             // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
-            Frm_SubMenu_Consultas subMenuConsultas = new Frm_SubMenu_Consultas();
+            Frm_SubMenu_Consultas subMenuConsultas = new Frm_SubMenu_Consultas(loginUsuario);
 
             // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
             subMenuConsultas.FormClosed += (s, args) =>
@@ -158,7 +160,7 @@ namespace CheckList_Digital.view
         private void btnRelatorios_Click(object sender, EventArgs e)
         {
             // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
-            Frm_SubMenu_Relatorios subMenuRelatorios = new Frm_SubMenu_Relatorios();
+            Frm_SubMenu_Relatorios subMenuRelatorios = new Frm_SubMenu_Relatorios(loginUsuario);
 
             // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
             subMenuRelatorios.FormClosed += (s, args) =>

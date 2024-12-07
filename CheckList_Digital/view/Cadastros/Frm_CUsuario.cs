@@ -13,6 +13,7 @@ namespace CheckList_Digital.view
     public partial class Frm_CUsuario : Form
     {
         private bool novo = true;
+        private string loginUsuario;
 
         public Frm_CUsuario()
         {
@@ -48,7 +49,7 @@ namespace CheckList_Digital.view
 
             using (SqlConnection con = new ConectaBanco().ConectaSqlServer())
             {
-                string query = "SELECT IDENT_CURRENT('usuario') + 1";
+                string query = "SELECT MAX(Id_Usuario) + 1 FROM Usuario";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 try
@@ -382,7 +383,7 @@ namespace CheckList_Digital.view
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            using (Frm_CoUsuario frmCousuario = new Frm_CoUsuario())
+            using (Frm_CoUsuario frmCousuario = new Frm_CoUsuario(loginUsuario))
             {
                 this.Hide();
                 frmCousuario.ShowDialog();
@@ -391,7 +392,7 @@ namespace CheckList_Digital.view
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {
-            using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros())
+            using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros(loginUsuario))
             {
                 this.Hide();
                 frmSubc.ShowDialog();

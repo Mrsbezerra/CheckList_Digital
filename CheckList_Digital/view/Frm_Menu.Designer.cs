@@ -32,17 +32,17 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.PanelTitulo = new System.Windows.Forms.Panel();
-            this.LblUsuario = new System.Windows.Forms.Label();
-            this.BtnMinimizar = new System.Windows.Forms.Button();
-            this.BtnMaximizar = new System.Windows.Forms.Button();
-            this.BtnFechar = new System.Windows.Forms.Button();
-            this.LblTitulo = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BtnLogoff = new System.Windows.Forms.Button();
             this.BtnRelatorios = new System.Windows.Forms.Button();
             this.BtnConsultas = new System.Windows.Forms.Button();
             this.btnCadastros = new System.Windows.Forms.Button();
+            this.PanelTitulo = new System.Windows.Forms.Panel();
+            this.LblUsuario = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.BtnMinimizar = new System.Windows.Forms.Button();
+            this.BtnMaximizar = new System.Windows.Forms.Button();
+            this.BtnFechar = new System.Windows.Forms.Button();
+            this.LblTitulo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLogo.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -88,106 +88,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(264, 1050);
             this.panelMenu.TabIndex = 2;
-            // 
-            // PanelTitulo
-            // 
-            this.PanelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(130)))));
-            this.PanelTitulo.Controls.Add(this.LblUsuario);
-            this.PanelTitulo.Controls.Add(this.pictureBox2);
-            this.PanelTitulo.Controls.Add(this.BtnMinimizar);
-            this.PanelTitulo.Controls.Add(this.BtnMaximizar);
-            this.PanelTitulo.Controls.Add(this.BtnFechar);
-            this.PanelTitulo.Controls.Add(this.LblTitulo);
-            this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelTitulo.Location = new System.Drawing.Point(264, 0);
-            this.PanelTitulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1660, 123);
-            this.PanelTitulo.TabIndex = 5;
-            this.PanelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitulo_MouseDown);
-            // 
-            // LblUsuario
-            // 
-            this.LblUsuario.AutoSize = true;
-            this.LblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsuario.ForeColor = System.Drawing.Color.White;
-            this.LblUsuario.Location = new System.Drawing.Point(58, 85);
-            this.LblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(19, 20);
-            this.LblUsuario.TabIndex = 8;
-            this.LblUsuario.Text = "0";
-            // 
-            // BtnMinimizar
-            // 
-            this.BtnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnMinimizar.FlatAppearance.BorderSize = 0;
-            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.BtnMinimizar.Location = new System.Drawing.Point(1527, 5);
-            this.BtnMinimizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnMinimizar.Name = "BtnMinimizar";
-            this.BtnMinimizar.Size = new System.Drawing.Size(45, 46);
-            this.BtnMinimizar.TabIndex = 7;
-            this.BtnMinimizar.Text = "O";
-            this.BtnMinimizar.UseVisualStyleBackColor = true;
-            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
-            // 
-            // BtnMaximizar
-            // 
-            this.BtnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnMaximizar.FlatAppearance.BorderSize = 0;
-            this.BtnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMaximizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMaximizar.ForeColor = System.Drawing.Color.White;
-            this.BtnMaximizar.Location = new System.Drawing.Point(1570, 5);
-            this.BtnMaximizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnMaximizar.Name = "BtnMaximizar";
-            this.BtnMaximizar.Size = new System.Drawing.Size(45, 46);
-            this.BtnMaximizar.TabIndex = 7;
-            this.BtnMaximizar.Text = "O";
-            this.BtnMaximizar.UseVisualStyleBackColor = true;
-            this.BtnMaximizar.Click += new System.EventHandler(this.BtnMaximizar_Click);
-            // 
-            // BtnFechar
-            // 
-            this.BtnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnFechar.FlatAppearance.BorderSize = 0;
-            this.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFechar.ForeColor = System.Drawing.Color.White;
-            this.BtnFechar.Location = new System.Drawing.Point(1611, 5);
-            this.BtnFechar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnFechar.Name = "BtnFechar";
-            this.BtnFechar.Size = new System.Drawing.Size(45, 46);
-            this.BtnFechar.TabIndex = 6;
-            this.BtnFechar.Text = "O";
-            this.BtnFechar.UseVisualStyleBackColor = true;
-            this.BtnFechar.Click += new System.EventHandler(this.BtnFechar_Click);
-            // 
-            // LblTitulo
-            // 
-            this.LblTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LblTitulo.AutoSize = true;
-            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitulo.ForeColor = System.Drawing.Color.White;
-            this.LblTitulo.Location = new System.Drawing.Point(862, 40);
-            this.LblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(112, 37);
-            this.LblTitulo.TabIndex = 0;
-            this.LblTitulo.Text = "HOME";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(106, 23);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 57);
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
             // 
             // BtnLogoff
             // 
@@ -268,6 +168,106 @@
             this.btnCadastros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastros.UseVisualStyleBackColor = true;
             this.btnCadastros.Click += new System.EventHandler(this.btnCadastros_Click);
+            // 
+            // PanelTitulo
+            // 
+            this.PanelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(130)))));
+            this.PanelTitulo.Controls.Add(this.LblUsuario);
+            this.PanelTitulo.Controls.Add(this.pictureBox2);
+            this.PanelTitulo.Controls.Add(this.BtnMinimizar);
+            this.PanelTitulo.Controls.Add(this.BtnMaximizar);
+            this.PanelTitulo.Controls.Add(this.BtnFechar);
+            this.PanelTitulo.Controls.Add(this.LblTitulo);
+            this.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelTitulo.Location = new System.Drawing.Point(264, 0);
+            this.PanelTitulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PanelTitulo.Name = "PanelTitulo";
+            this.PanelTitulo.Size = new System.Drawing.Size(1660, 123);
+            this.PanelTitulo.TabIndex = 5;
+            this.PanelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitulo_MouseDown);
+            // 
+            // LblUsuario
+            // 
+            this.LblUsuario.AutoSize = true;
+            this.LblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUsuario.ForeColor = System.Drawing.Color.White;
+            this.LblUsuario.Location = new System.Drawing.Point(79, 80);
+            this.LblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblUsuario.Name = "LblUsuario";
+            this.LblUsuario.Size = new System.Drawing.Size(19, 20);
+            this.LblUsuario.TabIndex = 8;
+            this.LblUsuario.Text = "0";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(106, 23);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(38, 57);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // BtnMinimizar
+            // 
+            this.BtnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMinimizar.FlatAppearance.BorderSize = 0;
+            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMinimizar.ForeColor = System.Drawing.Color.White;
+            this.BtnMinimizar.Location = new System.Drawing.Point(1527, 5);
+            this.BtnMinimizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnMinimizar.Name = "BtnMinimizar";
+            this.BtnMinimizar.Size = new System.Drawing.Size(45, 46);
+            this.BtnMinimizar.TabIndex = 7;
+            this.BtnMinimizar.Text = "O";
+            this.BtnMinimizar.UseVisualStyleBackColor = true;
+            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
+            // 
+            // BtnMaximizar
+            // 
+            this.BtnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnMaximizar.FlatAppearance.BorderSize = 0;
+            this.BtnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMaximizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMaximizar.ForeColor = System.Drawing.Color.White;
+            this.BtnMaximizar.Location = new System.Drawing.Point(1570, 5);
+            this.BtnMaximizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnMaximizar.Name = "BtnMaximizar";
+            this.BtnMaximizar.Size = new System.Drawing.Size(45, 46);
+            this.BtnMaximizar.TabIndex = 7;
+            this.BtnMaximizar.Text = "O";
+            this.BtnMaximizar.UseVisualStyleBackColor = true;
+            this.BtnMaximizar.Click += new System.EventHandler(this.BtnMaximizar_Click);
+            // 
+            // BtnFechar
+            // 
+            this.BtnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnFechar.FlatAppearance.BorderSize = 0;
+            this.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFechar.ForeColor = System.Drawing.Color.White;
+            this.BtnFechar.Location = new System.Drawing.Point(1611, 5);
+            this.BtnFechar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnFechar.Name = "BtnFechar";
+            this.BtnFechar.Size = new System.Drawing.Size(45, 46);
+            this.BtnFechar.TabIndex = 6;
+            this.BtnFechar.Text = "O";
+            this.BtnFechar.UseVisualStyleBackColor = true;
+            this.BtnFechar.Click += new System.EventHandler(this.BtnFechar_Click);
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblTitulo.AutoSize = true;
+            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.ForeColor = System.Drawing.Color.White;
+            this.LblTitulo.Location = new System.Drawing.Point(862, 40);
+            this.LblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(112, 37);
+            this.LblTitulo.TabIndex = 0;
+            this.LblTitulo.Text = "HOME";
             // 
             // pictureBox1
             // 

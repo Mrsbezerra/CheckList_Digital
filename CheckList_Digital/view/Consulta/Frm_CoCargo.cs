@@ -8,10 +8,12 @@ namespace CheckList_Digital.view.Consulta
 {
     public partial class Frm_CoCargo : Form
     {
-        public Frm_CoCargo()
+        private string loginUsuario;
+        public Frm_CoCargo(string login)
         {
             InitializeComponent();
             TxtId_Cargo.Focus();
+            loginUsuario = login;
         }
         private void DgvCargo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -100,10 +102,10 @@ namespace CheckList_Digital.view.Consulta
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {
-            using (Frm_CCargo frmCsexo = new Frm_CCargo())
+            using (Frm_SubMenu_Consultas frmSubconsultas = new Frm_SubMenu_Consultas(loginUsuario))
                 {
                     this.Hide(); // Esconde o formulário atual temporariamente
-                    frmCsexo.ShowDialog(); // Mostra o novo formulário
+                frmSubconsultas.ShowDialog(); // Mostra o novo formulário
                 }
                 this.Close(); // Fecha o formulário atual após o fechamento de Frm_SubMenu_Cadastroo
         }

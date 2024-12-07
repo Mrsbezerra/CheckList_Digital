@@ -209,7 +209,7 @@ namespace CheckList_Digital.view
                 if (controlUsuario.VerificaSenhaCorreta(TxtLogin.Text, TxtSenha.Text))
                 {
                     // Usuário e senha corretos, abre o formulário Frm_Usuario
-                    Frm_Menu frmMenu = new Frm_Menu(/*login*/); 
+                    Frm_Menu frmMenu = new Frm_Menu(login); 
                     frmMenu.Show();
                     this.Hide(); // Esconde o formulário atual
                 }
@@ -361,33 +361,5 @@ namespace CheckList_Digital.view
             LblEsqueceuSenha.Font = new Font(LblEsqueceuSenha.Font, FontStyle.Regular);
             LblEsqueceuSenha.Cursor = Cursors.Default;
         }
-
-       /* private void BtnFechar_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void BntMaximizar_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void BtnMinimizar_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void Frm_Acesso_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }*/
     }
 }

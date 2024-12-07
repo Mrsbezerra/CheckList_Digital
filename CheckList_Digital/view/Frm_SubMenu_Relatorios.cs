@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using CheckList_Digital.view.Frm_Relatorio;
 
 namespace CheckList_Digital.view
 {
@@ -9,13 +10,14 @@ namespace CheckList_Digital.view
     {
         private string loginUsuario;
 
-        public Frm_SubMenu_Relatorios()
+        public Frm_SubMenu_Relatorios(string login)
         {
             InitializeComponent();
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             menuStrip1.BackColor = Color.FromArgb(51, 51, 76);
+            loginUsuario = login;
 
             menuStrip1.ForeColor = Color.Gainsboro;
         }
@@ -61,7 +63,7 @@ namespace CheckList_Digital.view
             BtnCadastros.BackColor = Color.FromArgb(0, 0, 0);
             BtnCadastros.ForeColor = Color.White;
 
-            Frm_Menu frmMenu = new Frm_Menu();
+            Frm_Menu frmMenu = new Frm_Menu(loginUsuario);
 
             frmMenu.Show();
 
@@ -80,7 +82,7 @@ namespace CheckList_Digital.view
 
         private void cargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (Frm_CCargo frmCcargo = new Frm_CCargo())
+            using (Frm_CCargo frmCcargo = new Frm_CCargo(loginUsuario))
             {
                 this.Hide();
                 frmCcargo.ShowDialog();
@@ -100,10 +102,10 @@ namespace CheckList_Digital.view
 
         private void usuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (Frm_CUsuario frmCusuario = new Frm_CUsuario())
+            using (FrmRelUsuario frmRelusuario = new FrmRelUsuario())
             {
                 this.Hide();
-                frmCusuario.ShowDialog();
+                frmRelusuario.ShowDialog();
             }
             this.Close();
         }
@@ -143,7 +145,7 @@ namespace CheckList_Digital.view
             BtnRelatorios.BackColor = Color.FromArgb(0, 0, 0);
             BtnRelatorios.ForeColor = Color.White;
 
-            Frm_Menu frmMenu = new Frm_Menu();
+            Frm_Menu frmMenu = new Frm_Menu(loginUsuario);
 
             frmMenu.Show();
 
@@ -153,7 +155,7 @@ namespace CheckList_Digital.view
         private void BtnCadastros_Click_1(object sender, EventArgs e)
         {
             // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
-            Frm_SubMenu_Cadastros subMenuCadastros = new Frm_SubMenu_Cadastros();
+            Frm_SubMenu_Cadastros subMenuCadastros = new Frm_SubMenu_Cadastros(loginUsuario);
 
             // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
             subMenuCadastros.FormClosed += (s, args) =>
@@ -170,7 +172,7 @@ namespace CheckList_Digital.view
         private void BtnConsultas_Click(object sender, EventArgs e)
         {
             // Cria e exibe a nova instância de Frm_SubMenu_Cadastros
-            Frm_SubMenu_Consultas subMenuConsultas = new Frm_SubMenu_Consultas();
+            Frm_SubMenu_Consultas subMenuConsultas = new Frm_SubMenu_Consultas(loginUsuario);
 
             // Configura o evento FormClosed para liberar recursos ao fechar Frm_SubMenu_Cadastros
             subMenuConsultas.FormClosed += (s, args) =>

@@ -41,8 +41,6 @@ namespace CheckList_Digital.view
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelTitulo = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.LblUsuario = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BtnMinimizar = new System.Windows.Forms.Button();
             this.BtnMaximizar = new System.Windows.Forms.Button();
             this.BtnFechar = new System.Windows.Forms.Button();
@@ -69,7 +67,6 @@ namespace CheckList_Digital.view
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -212,15 +209,13 @@ namespace CheckList_Digital.view
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(130)))));
             this.PanelTitulo.Controls.Add(this.LblTitulo);
-            this.PanelTitulo.Controls.Add(this.LblUsuario);
-            this.PanelTitulo.Controls.Add(this.pictureBox2);
             this.PanelTitulo.Controls.Add(this.BtnMinimizar);
             this.PanelTitulo.Controls.Add(this.BtnMaximizar);
             this.PanelTitulo.Controls.Add(this.BtnFechar);
             this.PanelTitulo.Location = new System.Drawing.Point(264, 0);
             this.PanelTitulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelTitulo.Name = "PanelTitulo";
-            this.PanelTitulo.Size = new System.Drawing.Size(1768, 123);
+            this.PanelTitulo.Size = new System.Drawing.Size(1660, 123);
             this.PanelTitulo.TabIndex = 5;
             this.PanelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitulo_MouseDown);
             // 
@@ -230,34 +225,12 @@ namespace CheckList_Digital.view
             this.LblTitulo.AutoSize = true;
             this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitulo.ForeColor = System.Drawing.Color.White;
-            this.LblTitulo.Location = new System.Drawing.Point(916, 40);
+            this.LblTitulo.Location = new System.Drawing.Point(862, 40);
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblTitulo.Name = "LblTitulo";
             this.LblTitulo.Size = new System.Drawing.Size(216, 37);
             this.LblTitulo.TabIndex = 10;
             this.LblTitulo.Text = "CADASTROS";
-            // 
-            // LblUsuario
-            // 
-            this.LblUsuario.AutoSize = true;
-            this.LblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsuario.ForeColor = System.Drawing.Color.White;
-            this.LblUsuario.Location = new System.Drawing.Point(58, 85);
-            this.LblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(19, 20);
-            this.LblUsuario.TabIndex = 9;
-            this.LblUsuario.Text = "0";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(106, 23);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 57);
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
             // 
             // BtnMinimizar
             // 
@@ -266,7 +239,7 @@ namespace CheckList_Digital.view
             this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.BtnMinimizar.Location = new System.Drawing.Point(1635, 5);
+            this.BtnMinimizar.Location = new System.Drawing.Point(1527, 5);
             this.BtnMinimizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnMinimizar.Name = "BtnMinimizar";
             this.BtnMinimizar.Size = new System.Drawing.Size(45, 46);
@@ -282,7 +255,7 @@ namespace CheckList_Digital.view
             this.BtnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMaximizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMaximizar.ForeColor = System.Drawing.Color.White;
-            this.BtnMaximizar.Location = new System.Drawing.Point(1678, 5);
+            this.BtnMaximizar.Location = new System.Drawing.Point(1570, 5);
             this.BtnMaximizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnMaximizar.Name = "BtnMaximizar";
             this.BtnMaximizar.Size = new System.Drawing.Size(45, 46);
@@ -298,7 +271,7 @@ namespace CheckList_Digital.view
             this.BtnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnFechar.ForeColor = System.Drawing.Color.White;
-            this.BtnFechar.Location = new System.Drawing.Point(1719, 5);
+            this.BtnFechar.Location = new System.Drawing.Point(1611, 5);
             this.BtnFechar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnFechar.Name = "BtnFechar";
             this.BtnFechar.Size = new System.Drawing.Size(45, 46);
@@ -541,7 +514,6 @@ namespace CheckList_Digital.view
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelTitulo.ResumeLayout(false);
             this.PanelTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStripContainer1.LeftToolStripPanel.ResumeLayout(false);
@@ -588,8 +560,6 @@ namespace CheckList_Digital.view
         private System.Windows.Forms.ToolStripMenuItem inspençãoColaboradorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inspençãoSetorToolStripMenuItem;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label LblUsuario;
         private System.Windows.Forms.Label LblTitulo;
     }
 }

@@ -12,10 +12,12 @@ namespace CheckList_Digital.view
     public partial class Frm_CCargo : Form
     {
         private bool novo = true;
+        private string loginUsuario;
 
-        public Frm_CCargo()
+        public Frm_CCargo(string login)
         {
             InitializeComponent();
+            loginUsuario = login;
         }
         private void AtivarTexts()
         {
@@ -319,7 +321,7 @@ namespace CheckList_Digital.view
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            using (Frm_CoCargo frmCocargo = new Frm_CoCargo())
+            using (Frm_CoCargo frmCocargo = new Frm_CoCargo(loginUsuario))
             {
                 this.Hide();
                 frmCocargo.ShowDialog();
@@ -328,7 +330,7 @@ namespace CheckList_Digital.view
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {
-            using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros())
+            using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros(loginUsuario))
             {
                 this.Hide();
                 frmSubc.ShowDialog();
@@ -337,7 +339,7 @@ namespace CheckList_Digital.view
         }
         private void BtnRelatorio_Click(object sender, EventArgs e)
         {
-            using (FrmRelCargo frmRelcargo = new FrmRelCargo())
+            using (FrmRelCargo frmRelcargo = new FrmRelCargo(loginUsuario))
             {
                 this.Hide();
                 frmRelcargo.ShowDialog();

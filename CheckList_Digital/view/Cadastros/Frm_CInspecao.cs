@@ -12,6 +12,7 @@ namespace CheckList_Digital.view
     public partial class Frm_CInspecao : Form
     {
         private bool novo = true;
+        private string loginUsuario;
 
         public Frm_CInspecao()
         {
@@ -350,7 +351,7 @@ namespace CheckList_Digital.view
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {
-            using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros())
+            using (Frm_SubMenu_Cadastros frmSubc = new Frm_SubMenu_Cadastros(loginUsuario))
             {
                 this.Hide();
                 frmSubc.ShowDialog();

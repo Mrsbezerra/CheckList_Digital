@@ -8,10 +8,12 @@ namespace CheckList_Digital.view.Consulta
 {
     public partial class Frm_CoUsuario : Form
     {
-        public Frm_CoUsuario()
+        private string loginUsuario;
+        public Frm_CoUsuario(string login)
         {
             InitializeComponent();
             TxtId_Usuario.Focus();
+            loginUsuario = login;
         }
         private void DgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -161,10 +163,10 @@ namespace CheckList_Digital.view.Consulta
         }
         private void BtnSair_Click(object sender, EventArgs e)
         {
-            using (Frm_CCargo frmCsexo = new Frm_CCargo())
+            using (Frm_SubMenu_Consultas frmSubconsultas = new Frm_SubMenu_Consultas(loginUsuario))
                 {
                     this.Hide();
-                    frmCsexo.ShowDialog();
+                frmSubconsultas.ShowDialog();
                 }
                 this.Close();
         }

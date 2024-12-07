@@ -12,9 +12,11 @@ namespace CheckList_Digital.view.Frm_Relatorio
 {
     public partial class FrmRelCargo : Form
     {
-        public FrmRelCargo()
+        private string loginUsuario;
+        public FrmRelCargo(string login)
         {
             InitializeComponent();
+            loginUsuario = login;
         }
 
         private void FrmRelCargo_Load(object sender, EventArgs e)
